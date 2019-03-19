@@ -1,0 +1,6 @@
+framework module Pods_ARDust {
+  umbrella header "Pods-ARDust-umbrella.h"
+
+  export *
+  module * { export * }
+}

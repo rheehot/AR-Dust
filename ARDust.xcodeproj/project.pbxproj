@@ -1,0 +1,792 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		14B0598861C0C247EBF80BAF /* Pods_ARDustUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E6A21FC515BAA4AC3B02442 /* Pods_ARDustUITests.framework */; };
+		8D1B212507BD4759B6679E4F /* Pods_ARDust.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D3D8349D4A21ABCA657D484 /* Pods_ARDust.framework */; };
+		9B96F2BD973DAED20BE4EE49 /* Pods_ARDustTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71470FE80388F08077110502 /* Pods_ARDustTests.framework */; };
+		EF92B4A7223D2F64004262A8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF92B4A6223D2F64004262A8 /* AppDelegate.swift */; };
+		EF92B4A9223D2F64004262A8 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF92B4A8223D2F64004262A8 /* MainViewController.swift */; };
+		EF92B4AC223D2F64004262A8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF92B4AA223D2F64004262A8 /* Main.storyboard */; };
+		EF92B4AE223D2F65004262A8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF92B4AD223D2F65004262A8 /* Assets.xcassets */; };
+		EF92B4B1223D2F65004262A8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF92B4AF223D2F65004262A8 /* LaunchScreen.storyboard */; };
+		EF92B4BC223D2F65004262A8 /* ARDustTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF92B4BB223D2F65004262A8 /* ARDustTests.swift */; };
+		EF92B4C7223D2F65004262A8 /* ARDustUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF92B4C6223D2F65004262A8 /* ARDustUITests.swift */; };
+		EF92B4DA223D3011004262A8 /* ExtensionCLLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF92B4D9223D3011004262A8 /* ExtensionCLLocationManager.swift */; };
+		EF92B4DC223D305B004262A8 /* LocationCoordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF92B4DB223D305B004262A8 /* LocationCoordinate.swift */; };
+		EF92B4E0223D308D004262A8 /* LocationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF92B4DF223D308D004262A8 /* LocationData.swift */; };
+		EF92B4E2223D30AF004262A8 /* UmdData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF92B4E1223D30AF004262A8 /* UmdData.swift */; };
+		EF92B4E4223D30CA004262A8 /* AirData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF92B4E3223D30CA004262A8 /* AirData.swift */; };
+		EF92B4E6223D30F5004262A8 /* AirPollution.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF92B4E5223D30F5004262A8 /* AirPollution.swift */; };
+		EF92B4E8223D310F004262A8 /* AirPollutionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF92B4E7223D310F004262A8 /* AirPollutionData.swift */; };
+		EF92B4EA223D3126004262A8 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF92B4E9223D3126004262A8 /* Request.swift */; };
+		EF92B4EC223D3147004262A8 /* RequestProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF92B4EB223D3147004262A8 /* RequestProtocol.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		EF92B4B8223D2F65004262A8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EF92B49B223D2F64004262A8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EF92B4A2223D2F64004262A8;
+			remoteInfo = ARDust;
+		};
+		EF92B4C3223D2F65004262A8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EF92B49B223D2F64004262A8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EF92B4A2223D2F64004262A8;
+			remoteInfo = ARDust;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		1D3D8349D4A21ABCA657D484 /* Pods_ARDust.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ARDust.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		21ABAE8062F6797BA2BB3B74 /* Pods-ARDust.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ARDust.release.xcconfig"; path = "Pods/Target Support Files/Pods-ARDust/Pods-ARDust.release.xcconfig"; sourceTree = "<group>"; };
+		2CC70AF318579D61E5ACA36F /* Pods-ARDustTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ARDustTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ARDustTests/Pods-ARDustTests.debug.xcconfig"; sourceTree = "<group>"; };
+		64E79C67A68AF0A5F0603521 /* Pods-ARDustTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ARDustTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ARDustTests/Pods-ARDustTests.release.xcconfig"; sourceTree = "<group>"; };
+		71470FE80388F08077110502 /* Pods_ARDustTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ARDustTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8E6A21FC515BAA4AC3B02442 /* Pods_ARDustUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ARDustUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		92E37C389FF425C7D947FCC2 /* Pods-ARDustUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ARDustUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ARDustUITests/Pods-ARDustUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		CC95C8D87F97D523C98CA72C /* Pods-ARDustUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ARDustUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ARDustUITests/Pods-ARDustUITests.release.xcconfig"; sourceTree = "<group>"; };
+		DB445CB0FC1149C8C643CC91 /* Pods-ARDust.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ARDust.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ARDust/Pods-ARDust.debug.xcconfig"; sourceTree = "<group>"; };
+		EF92B4A3223D2F64004262A8 /* ARDust.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARDust.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EF92B4A6223D2F64004262A8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		EF92B4A8223D2F64004262A8 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		EF92B4AB223D2F64004262A8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		EF92B4AD223D2F65004262A8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EF92B4B0223D2F65004262A8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		EF92B4B2223D2F65004262A8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EF92B4B7223D2F65004262A8 /* ARDustTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ARDustTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EF92B4BB223D2F65004262A8 /* ARDustTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARDustTests.swift; sourceTree = "<group>"; };
+		EF92B4BD223D2F65004262A8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EF92B4C2223D2F65004262A8 /* ARDustUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ARDustUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EF92B4C6223D2F65004262A8 /* ARDustUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARDustUITests.swift; sourceTree = "<group>"; };
+		EF92B4C8223D2F65004262A8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EF92B4D9223D3011004262A8 /* ExtensionCLLocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionCLLocationManager.swift; sourceTree = "<group>"; };
+		EF92B4DB223D305B004262A8 /* LocationCoordinate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCoordinate.swift; sourceTree = "<group>"; };
+		EF92B4DF223D308D004262A8 /* LocationData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationData.swift; sourceTree = "<group>"; };
+		EF92B4E1223D30AF004262A8 /* UmdData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UmdData.swift; sourceTree = "<group>"; };
+		EF92B4E3223D30CA004262A8 /* AirData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirData.swift; sourceTree = "<group>"; };
+		EF92B4E5223D30F5004262A8 /* AirPollution.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirPollution.swift; sourceTree = "<group>"; };
+		EF92B4E7223D310F004262A8 /* AirPollutionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirPollutionData.swift; sourceTree = "<group>"; };
+		EF92B4E9223D3126004262A8 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
+		EF92B4EB223D3147004262A8 /* RequestProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestProtocol.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EF92B4A0223D2F64004262A8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D1B212507BD4759B6679E4F /* Pods_ARDust.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EF92B4B4223D2F65004262A8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9B96F2BD973DAED20BE4EE49 /* Pods_ARDustTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EF92B4BF223D2F65004262A8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				14B0598861C0C247EBF80BAF /* Pods_ARDustUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BBC75C291E6D9200FC9F30AF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1D3D8349D4A21ABCA657D484 /* Pods_ARDust.framework */,
+				71470FE80388F08077110502 /* Pods_ARDustTests.framework */,
+				8E6A21FC515BAA4AC3B02442 /* Pods_ARDustUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BF4ABB8B7B92407CD6B05464 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DB445CB0FC1149C8C643CC91 /* Pods-ARDust.debug.xcconfig */,
+				21ABAE8062F6797BA2BB3B74 /* Pods-ARDust.release.xcconfig */,
+				2CC70AF318579D61E5ACA36F /* Pods-ARDustTests.debug.xcconfig */,
+				64E79C67A68AF0A5F0603521 /* Pods-ARDustTests.release.xcconfig */,
+				92E37C389FF425C7D947FCC2 /* Pods-ARDustUITests.debug.xcconfig */,
+				CC95C8D87F97D523C98CA72C /* Pods-ARDustUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		EF92B49A223D2F64004262A8 = {
+			isa = PBXGroup;
+			children = (
+				EF92B4A5223D2F64004262A8 /* ARDust */,
+				EF92B4BA223D2F65004262A8 /* ARDustTests */,
+				EF92B4C5223D2F65004262A8 /* ARDustUITests */,
+				EF92B4A4223D2F64004262A8 /* Products */,
+				BF4ABB8B7B92407CD6B05464 /* Pods */,
+				BBC75C291E6D9200FC9F30AF /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		EF92B4A4223D2F64004262A8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EF92B4A3223D2F64004262A8 /* ARDust.app */,
+				EF92B4B7223D2F65004262A8 /* ARDustTests.xctest */,
+				EF92B4C2223D2F65004262A8 /* ARDustUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EF92B4A5223D2F64004262A8 /* ARDust */ = {
+			isa = PBXGroup;
+			children = (
+				EF92B4D8223D2FFB004262A8 /* Extension */,
+				EF92B4D4223D2FD3004262A8 /* Model */,
+				EF92B4A6223D2F64004262A8 /* AppDelegate.swift */,
+				EF92B4A8223D2F64004262A8 /* MainViewController.swift */,
+				EF92B4AA223D2F64004262A8 /* Main.storyboard */,
+				EF92B4AD223D2F65004262A8 /* Assets.xcassets */,
+				EF92B4AF223D2F65004262A8 /* LaunchScreen.storyboard */,
+				EF92B4B2223D2F65004262A8 /* Info.plist */,
+			);
+			path = ARDust;
+			sourceTree = "<group>";
+		};
+		EF92B4BA223D2F65004262A8 /* ARDustTests */ = {
+			isa = PBXGroup;
+			children = (
+				EF92B4BB223D2F65004262A8 /* ARDustTests.swift */,
+				EF92B4BD223D2F65004262A8 /* Info.plist */,
+			);
+			path = ARDustTests;
+			sourceTree = "<group>";
+		};
+		EF92B4C5223D2F65004262A8 /* ARDustUITests */ = {
+			isa = PBXGroup;
+			children = (
+				EF92B4C6223D2F65004262A8 /* ARDustUITests.swift */,
+				EF92B4C8223D2F65004262A8 /* Info.plist */,
+			);
+			path = ARDustUITests;
+			sourceTree = "<group>";
+		};
+		EF92B4D4223D2FD3004262A8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				EF92B4D7223D2FF1004262A8 /* Location */,
+				EF92B4D6223D2FE6004262A8 /* AirPollution */,
+				EF92B4D5223D2FDF004262A8 /* Request */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		EF92B4D5223D2FDF004262A8 /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				EF92B4E9223D3126004262A8 /* Request.swift */,
+				EF92B4EB223D3147004262A8 /* RequestProtocol.swift */,
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
+		EF92B4D6223D2FE6004262A8 /* AirPollution */ = {
+			isa = PBXGroup;
+			children = (
+				EF92B4E3223D30CA004262A8 /* AirData.swift */,
+				EF92B4E5223D30F5004262A8 /* AirPollution.swift */,
+				EF92B4E7223D310F004262A8 /* AirPollutionData.swift */,
+			);
+			path = AirPollution;
+			sourceTree = "<group>";
+		};
+		EF92B4D7223D2FF1004262A8 /* Location */ = {
+			isa = PBXGroup;
+			children = (
+				EF92B4DB223D305B004262A8 /* LocationCoordinate.swift */,
+				EF92B4DF223D308D004262A8 /* LocationData.swift */,
+				EF92B4E1223D30AF004262A8 /* UmdData.swift */,
+			);
+			path = Location;
+			sourceTree = "<group>";
+		};
+		EF92B4D8223D2FFB004262A8 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				EF92B4D9223D3011004262A8 /* ExtensionCLLocationManager.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EF92B4A2223D2F64004262A8 /* ARDust */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EF92B4CB223D2F65004262A8 /* Build configuration list for PBXNativeTarget "ARDust" */;
+			buildPhases = (
+				747369836FD75D01CAB563FF /* [CP] Check Pods Manifest.lock */,
+				EF92B49F223D2F64004262A8 /* Sources */,
+				EF92B4A0223D2F64004262A8 /* Frameworks */,
+				EF92B4A1223D2F64004262A8 /* Resources */,
+				AD2248F8A5CDCF039D3837F3 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ARDust;
+			productName = ARDust;
+			productReference = EF92B4A3223D2F64004262A8 /* ARDust.app */;
+			productType = "com.apple.product-type.application";
+		};
+		EF92B4B6223D2F65004262A8 /* ARDustTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EF92B4CE223D2F65004262A8 /* Build configuration list for PBXNativeTarget "ARDustTests" */;
+			buildPhases = (
+				4AFB91A54D6AD8187DEE3A85 /* [CP] Check Pods Manifest.lock */,
+				EF92B4B3223D2F65004262A8 /* Sources */,
+				EF92B4B4223D2F65004262A8 /* Frameworks */,
+				EF92B4B5223D2F65004262A8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EF92B4B9223D2F65004262A8 /* PBXTargetDependency */,
+			);
+			name = ARDustTests;
+			productName = ARDustTests;
+			productReference = EF92B4B7223D2F65004262A8 /* ARDustTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		EF92B4C1223D2F65004262A8 /* ARDustUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EF92B4D1223D2F65004262A8 /* Build configuration list for PBXNativeTarget "ARDustUITests" */;
+			buildPhases = (
+				B1CE4BB88A9E9BE608DE8A86 /* [CP] Check Pods Manifest.lock */,
+				EF92B4BE223D2F65004262A8 /* Sources */,
+				EF92B4BF223D2F65004262A8 /* Frameworks */,
+				EF92B4C0223D2F65004262A8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EF92B4C4223D2F65004262A8 /* PBXTargetDependency */,
+			);
+			name = ARDustUITests;
+			productName = ARDustUITests;
+			productReference = EF92B4C2223D2F65004262A8 /* ARDustUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EF92B49B223D2F64004262A8 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1010;
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = "youngjun goo";
+				TargetAttributes = {
+					EF92B4A2223D2F64004262A8 = {
+						CreatedOnToolsVersion = 10.1;
+					};
+					EF92B4B6223D2F65004262A8 = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = EF92B4A2223D2F64004262A8;
+					};
+					EF92B4C1223D2F65004262A8 = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = EF92B4A2223D2F64004262A8;
+					};
+				};
+			};
+			buildConfigurationList = EF92B49E223D2F64004262A8 /* Build configuration list for PBXProject "ARDust" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = EF92B49A223D2F64004262A8;
+			productRefGroup = EF92B4A4223D2F64004262A8 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EF92B4A2223D2F64004262A8 /* ARDust */,
+				EF92B4B6223D2F65004262A8 /* ARDustTests */,
+				EF92B4C1223D2F65004262A8 /* ARDustUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EF92B4A1223D2F64004262A8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EF92B4B1223D2F65004262A8 /* LaunchScreen.storyboard in Resources */,
+				EF92B4AE223D2F65004262A8 /* Assets.xcassets in Resources */,
+				EF92B4AC223D2F64004262A8 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EF92B4B5223D2F65004262A8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EF92B4C0223D2F65004262A8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4AFB91A54D6AD8187DEE3A85 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ARDustTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		747369836FD75D01CAB563FF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ARDust-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AD2248F8A5CDCF039D3837F3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-ARDust/Pods-ARDust-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ARDust/Pods-ARDust-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B1CE4BB88A9E9BE608DE8A86 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ARDustUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EF92B49F223D2F64004262A8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EF92B4E8223D310F004262A8 /* AirPollutionData.swift in Sources */,
+				EF92B4E2223D30AF004262A8 /* UmdData.swift in Sources */,
+				EF92B4DC223D305B004262A8 /* LocationCoordinate.swift in Sources */,
+				EF92B4DA223D3011004262A8 /* ExtensionCLLocationManager.swift in Sources */,
+				EF92B4A9223D2F64004262A8 /* MainViewController.swift in Sources */,
+				EF92B4A7223D2F64004262A8 /* AppDelegate.swift in Sources */,
+				EF92B4EC223D3147004262A8 /* RequestProtocol.swift in Sources */,
+				EF92B4E0223D308D004262A8 /* LocationData.swift in Sources */,
+				EF92B4EA223D3126004262A8 /* Request.swift in Sources */,
+				EF92B4E4223D30CA004262A8 /* AirData.swift in Sources */,
+				EF92B4E6223D30F5004262A8 /* AirPollution.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EF92B4B3223D2F65004262A8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EF92B4BC223D2F65004262A8 /* ARDustTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EF92B4BE223D2F65004262A8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EF92B4C7223D2F65004262A8 /* ARDustUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		EF92B4B9223D2F65004262A8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EF92B4A2223D2F64004262A8 /* ARDust */;
+			targetProxy = EF92B4B8223D2F65004262A8 /* PBXContainerItemProxy */;
+		};
+		EF92B4C4223D2F65004262A8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EF92B4A2223D2F64004262A8 /* ARDust */;
+			targetProxy = EF92B4C3223D2F65004262A8 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		EF92B4AA223D2F64004262A8 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EF92B4AB223D2F64004262A8 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		EF92B4AF223D2F65004262A8 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EF92B4B0223D2F65004262A8 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		EF92B4C9223D2F65004262A8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		EF92B4CA223D2F65004262A8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		EF92B4CC223D2F65004262A8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DB445CB0FC1149C8C643CC91 /* Pods-ARDust.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5CLQV3W6FV;
+				INFOPLIST_FILE = ARDust/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = net.youngjun.ARDust;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		EF92B4CD223D2F65004262A8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 21ABAE8062F6797BA2BB3B74 /* Pods-ARDust.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5CLQV3W6FV;
+				INFOPLIST_FILE = ARDust/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = net.youngjun.ARDust;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		EF92B4CF223D2F65004262A8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2CC70AF318579D61E5ACA36F /* Pods-ARDustTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5CLQV3W6FV;
+				INFOPLIST_FILE = ARDustTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = net.youngjun.ARDustTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ARDust.app/ARDust";
+			};
+			name = Debug;
+		};
+		EF92B4D0223D2F65004262A8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 64E79C67A68AF0A5F0603521 /* Pods-ARDustTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5CLQV3W6FV;
+				INFOPLIST_FILE = ARDustTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = net.youngjun.ARDustTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ARDust.app/ARDust";
+			};
+			name = Release;
+		};
+		EF92B4D2223D2F65004262A8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 92E37C389FF425C7D947FCC2 /* Pods-ARDustUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5CLQV3W6FV;
+				INFOPLIST_FILE = ARDustUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = net.youngjun.ARDustUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = ARDust;
+			};
+			name = Debug;
+		};
+		EF92B4D3223D2F65004262A8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CC95C8D87F97D523C98CA72C /* Pods-ARDustUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5CLQV3W6FV;
+				INFOPLIST_FILE = ARDustUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = net.youngjun.ARDustUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = ARDust;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EF92B49E223D2F64004262A8 /* Build configuration list for PBXProject "ARDust" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EF92B4C9223D2F65004262A8 /* Debug */,
+				EF92B4CA223D2F65004262A8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EF92B4CB223D2F65004262A8 /* Build configuration list for PBXNativeTarget "ARDust" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EF92B4CC223D2F65004262A8 /* Debug */,
+				EF92B4CD223D2F65004262A8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EF92B4CE223D2F65004262A8 /* Build configuration list for PBXNativeTarget "ARDustTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EF92B4CF223D2F65004262A8 /* Debug */,
+				EF92B4D0223D2F65004262A8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EF92B4D1223D2F65004262A8 /* Build configuration list for PBXNativeTarget "ARDustUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EF92B4D2223D2F65004262A8 /* Debug */,
+				EF92B4D3223D2F65004262A8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = EF92B49B223D2F64004262A8 /* Project object */;
+}
