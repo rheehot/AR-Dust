@@ -17,7 +17,7 @@ enum URIType: String {
 class Request: RequestProtocol {
     // MARK: - Properties
     // MARK: -
-    private let serviceKey = "5t%2FaG7XwaI3khwGfzdWSguvJz%2BjgYub37AHz4oY1qubvtwNYe3V7XpClwmCt0hWUSE%2F%2BaR3F0LQUxyr1lcLL2Q%3D%3D"
+    private let serviceKey = ""
     private let airPollution = AirPollution()
     private let locationCoordinate = LocationCoordinate()
     
