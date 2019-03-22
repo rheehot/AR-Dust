@@ -51,24 +51,27 @@ extension MainViewController: CLLocationManagerDelegate {
         // hence we can access it by taking the first element of the array
         
         print(locations)
-        print("Request 수행")
+        print("Request 수행1")
         
         //        locationData.latitude = locations.first?.coordinate.latitude
         //        locationData.longitude = locations.first?.coordinate.longitude
         
         getCurrentLocation(locations.first!) { (isSuccess, data) in
             if isSuccess, let currentLocation = data {
-                
                 Request().getAirDataList(currentLocation) { (isSuccess,  data, error) in
                     if isSuccess, let airDataList = data as? [AirData] {
+                        print("성공")
                         print(airDataList.first as Any)
                     } else {
+                        print("실패")
                         if let errorDescription = error?.errorDescription {
                             print(errorDescription)
                         }
                     }
                     
                 }
+            } else {
+                print("실패")
             }
         }
         

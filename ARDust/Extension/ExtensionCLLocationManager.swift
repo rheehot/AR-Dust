@@ -11,9 +11,11 @@ import CoreLocation
 extension CLLocationManagerDelegate {
     
     func getCurrentLocation(_ location: CLLocation, completion: @escaping (Bool, LocationData?) -> Void) {
+      
         let geoCoder = CLGeocoder()
-        
-        if #available(iOS 11.0, *) {
+        print("접근중2")
+        if #available(iOS 12.0, *) {
+            
             geoCoder.reverseGeocodeLocation(location, preferredLocale: Locale.init(identifier: "KR")) { (placemarks, error) in
                 guard let placemark = placemarks?.first, error == nil else {
                     completion(false, nil)
@@ -26,6 +28,7 @@ extension CLLocationManagerDelegate {
                 completion(false, nil)
             }
         } else {
+    
             UserDefaults.standard.set(["KR"], forKey: "AppleLanguages")
             geoCoder.reverseGeocodeLocation(location) { (placemarks, error) in
                 UserDefaults.standard.removeObject(forKey: "AppleLanguages")

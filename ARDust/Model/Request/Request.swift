@@ -24,6 +24,7 @@ class Request: RequestProtocol {
     // MARK: - RequestProtocol Method
     // MARK: -
     func getAirDataList(_ data: LocationData, completion: @escaping requestCompletionHandler) {
+        print("getAirDataList 접근")
         var requestError: RequestError?
         
         let deadlineTask = DispatchWorkItem {
@@ -33,7 +34,7 @@ class Request: RequestProtocol {
         }
         
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 30, execute: deadlineTask)
-        //var airDataList = [AirData]()
+        var airDataList = [AirData]()
         let dispatchGroup = DispatchGroup()
         
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
@@ -59,10 +60,14 @@ class Request: RequestProtocol {
                 completion(false, nil, requestError)
                 return
             }
-            
-            
-            
-            
+            // totlaDataList를 등록순으로 정렬후 전달한다
+            airDataList.sort { (first, second) -> Bool in
+                return first.registerDate < second.registerDate
+            }
+            if let firstAirData = firstAirData {
+                airDataList.insert(firstAirData, at: 0)
+            }
+            completion(true, airDataList, nil)
             
         }
     }
