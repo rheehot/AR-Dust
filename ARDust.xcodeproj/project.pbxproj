@@ -26,6 +26,7 @@
 		EF92B4E8223D310F004262A8 /* AirPollutionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF92B4E7223D310F004262A8 /* AirPollutionData.swift */; };
 		EF92B4EA223D3126004262A8 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF92B4E9223D3126004262A8 /* Request.swift */; };
 		EF92B4EC223D3147004262A8 /* RequestProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF92B4EB223D3147004262A8 /* RequestProtocol.swift */; };
+		EFD180862247CDC30021EC54 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD180852247CDC30021EC54 /* MainTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		92E37C389FF425C7D947FCC2 /* Pods-ARDustUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ARDustUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ARDustUITests/Pods-ARDustUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		CC95C8D87F97D523C98CA72C /* Pods-ARDustUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ARDustUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ARDustUITests/Pods-ARDustUITests.release.xcconfig"; sourceTree = "<group>"; };
 		DB445CB0FC1149C8C643CC91 /* Pods-ARDust.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ARDust.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ARDust/Pods-ARDust.debug.xcconfig"; sourceTree = "<group>"; };
+		EF1A613A22468C79002D2A05 /* Location.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Location.gpx; sourceTree = "<group>"; };
 		EF92B4A3223D2F64004262A8 /* ARDust.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARDust.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF92B4A6223D2F64004262A8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EF92B4A8223D2F64004262A8 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -77,6 +79,7 @@
 		EF92B4E7223D310F004262A8 /* AirPollutionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirPollutionData.swift; sourceTree = "<group>"; };
 		EF92B4E9223D3126004262A8 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		EF92B4EB223D3147004262A8 /* RequestProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestProtocol.swift; sourceTree = "<group>"; };
+		EFD180852247CDC30021EC54 /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +158,7 @@
 		EF92B4A5223D2F64004262A8 /* ARDust */ = {
 			isa = PBXGroup;
 			children = (
+				EFD180842247CD9C0021EC54 /* View */,
 				EF92B4D8223D2FFB004262A8 /* Extension */,
 				EF92B4D4223D2FD3004262A8 /* Model */,
 				EF92B4A6223D2F64004262A8 /* AppDelegate.swift */,
@@ -163,6 +167,7 @@
 				EF92B4AD223D2F65004262A8 /* Assets.xcassets */,
 				EF92B4AF223D2F65004262A8 /* LaunchScreen.storyboard */,
 				EF92B4B2223D2F65004262A8 /* Info.plist */,
+				EF1A613A22468C79002D2A05 /* Location.gpx */,
 			);
 			path = ARDust;
 			sourceTree = "<group>";
@@ -230,6 +235,14 @@
 				EF92B4D9223D3011004262A8 /* ExtensionCLLocationManager.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		EFD180842247CD9C0021EC54 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				EFD180852247CDC30021EC54 /* MainTableViewCell.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -452,6 +465,7 @@
 				EF92B4E0223D308D004262A8 /* LocationData.swift in Sources */,
 				EF92B4EA223D3126004262A8 /* Request.swift in Sources */,
 				EF92B4E4223D30CA004262A8 /* AirData.swift in Sources */,
+				EFD180862247CDC30021EC54 /* MainTableViewCell.swift in Sources */,
 				EF92B4E6223D30F5004262A8 /* AirPollution.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

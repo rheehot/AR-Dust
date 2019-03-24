@@ -19,7 +19,7 @@ struct AirPollutionData {
     var no2Value: String?       // 이산화질소 농도
     var pm10Value: String?      // 미세먼지(PM10) 농도
     var pm10Value24: String?    // 미세먼지(PM10) 24시간 예측 이동 농도
-    var pm25Value: String?      // 미세먼지(PM2.5) 농도
+    var pm25Value: String?      // 미세먼지(PM2.5) 농도 == 초미세먼지
     var pm25Value24: String?    // 미세먼지(PM2.5) 24시간 평균 농도
     var khaiValue: String?      // 통합대기환경수치
     var khaiGrade: String?      // 통합대기환경지수

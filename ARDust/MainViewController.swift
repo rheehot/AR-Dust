@@ -12,12 +12,24 @@ import CoreLocation
 
 class MainViewController: UIViewController {
     
+    
+    var airData: AirData?
     var locationData = LocationData()
     private var locationManager =  CLLocationManager()
     
+    @IBOutlet var tableView: UITableView! {
+        didSet {
+            tableView.delegate = self
+            tableView.dataSource = self
+            tableView.allowsSelection = true  
+            tableView.separatorStyle = .none
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("진입")
+        
+        
         
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyThreeKilometers
@@ -50,20 +62,19 @@ extension MainViewController: CLLocationManagerDelegate {
         // .requestLocation will only pass one location to the locations array
         // hence we can access it by taking the first element of the array
         
+    
         print(locations)
-        print("Request 수행1")
-        
-        //        locationData.latitude = locations.first?.coordinate.latitude
-        //        locationData.longitude = locations.first?.coordinate.longitude
         
         getCurrentLocation(locations.first!) { (isSuccess, data) in
             if isSuccess, let currentLocation = data {
-                Request().getAirDataList(currentLocation) { (isSuccess,  data, error) in
+                Request().getAirDataList(currentLocation) { (isSuccess, data, error) in
                     if isSuccess, let airDataList = data as? [AirData] {
                         print("성공")
+                        self.airData = airDataList.first
                         print(airDataList.first as Any)
                     } else {
-                        print("실패")
+                        print("AirData request 실패 ")
+                        print(error?.localizedDescription as Any)
                         if let errorDescription = error?.errorDescription {
                             print(errorDescription)
                         }
@@ -76,4 +87,22 @@ extension MainViewController: CLLocationManagerDelegate {
         }
         
     }
+}
+
+extension MainViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "MainTableViewCell") as? MainTableViewCell else {
+            return UITableViewCell()
+        }
+        
+        cell.airData = self.airData
+        
+        return cell
+    }
+    
+    
 }

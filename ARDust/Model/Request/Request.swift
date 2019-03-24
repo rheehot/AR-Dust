@@ -17,7 +17,7 @@ enum URIType: String {
 class Request: RequestProtocol {
     // MARK: - Properties
     // MARK: -
-    private let serviceKey = ""
+    private let serviceKey = "5t%2FaG7XwaI3khwGfzdWSguvJz%2BjgYub37AHz4oY1qubvtwNYe3V7XpClwmCt0hWUSE%2F%2BaR3F0LQUxyr1lcLL2Q%3D%3D"
     private let airPollution = AirPollution()
     private let locationCoordinate = LocationCoordinate()
     
@@ -45,10 +45,12 @@ class Request: RequestProtocol {
             if isSuccess, let airData = data as? AirData {
                 firstAirData = airData
             } else {
+                print("AirData 가져오기 실패")
                 requestError = error
             }
             dispatchGroup.leave()
         }
+        
         
         dispatchGroup.notify(queue: .main) {
             // 네트워크 인디케이터 로딩 종료
@@ -85,6 +87,7 @@ class Request: RequestProtocol {
         var requestError: RequestError?
         
         dispatchGroup.enter()
+        print("\(locationName) \(latitude) \(longtitude)")
         requestNearbyMsrstnList(latitude: latitude, longitude: longtitude) { (isSuccess, data, error) in
             if isSuccess, let list = data as? [String] {
                 dispatchGroup.enter()
@@ -92,11 +95,14 @@ class Request: RequestProtocol {
                     if isSuccess, let data = data as? AirPollutionData {
                         airPollutionData = data
                     } else {
+                        print("측정소 값 반환 실패")
                         requestError = error
                     }
                     dispatchGroup.leave()
                 }
             } else {
+//                print(data)
+                print("근접 측정소 값 반환 실패")
                 requestError = error
             }
             dispatchGroup.leave()
@@ -145,6 +151,7 @@ class Request: RequestProtocol {
             "numOfRows": 1,
             "_returnType": "json"
         ]
+        
         AF.request(url, method: .get, parameters: parameters, encoding: URLEncoding.default).responseJSON { (response) in
             if let data = self.airPollution.measureTypeExtract(.nearbyMeasuringSt, data: response.result.value) {
                 completion(true, data, nil)
