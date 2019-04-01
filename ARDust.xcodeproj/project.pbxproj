@@ -27,6 +27,9 @@
 		EF92B4EA223D3126004262A8 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF92B4E9223D3126004262A8 /* Request.swift */; };
 		EF92B4EC223D3147004262A8 /* RequestProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF92B4EB223D3147004262A8 /* RequestProtocol.swift */; };
 		EFD180862247CDC30021EC54 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD180852247CDC30021EC54 /* MainTableViewCell.swift */; };
+		EFD180882249305A0021EC54 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFD180872249305A0021EC54 /* CoreData.framework */; };
+		EFD1808B224932E20021EC54 /* LocationCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EFD18089224932E20021EC54 /* LocationCoreData.xcdatamodeld */; };
+		EFD2A2F02251B2AF0081AAA7 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD2A2EF2251B2AF0081AAA7 /* LocationManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +83,9 @@
 		EF92B4E9223D3126004262A8 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		EF92B4EB223D3147004262A8 /* RequestProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestProtocol.swift; sourceTree = "<group>"; };
 		EFD180852247CDC30021EC54 /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
+		EFD180872249305A0021EC54 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		EFD1808A224932E20021EC54 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		EFD2A2EF2251B2AF0081AAA7 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +93,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EFD180882249305A0021EC54 /* CoreData.framework in Frameworks */,
 				8D1B212507BD4759B6679E4F /* Pods_ARDust.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -113,6 +120,7 @@
 		BBC75C291E6D9200FC9F30AF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EFD180872249305A0021EC54 /* CoreData.framework */,
 				1D3D8349D4A21ABCA657D484 /* Pods_ARDust.framework */,
 				71470FE80388F08077110502 /* Pods_ARDustTests.framework */,
 				8E6A21FC515BAA4AC3B02442 /* Pods_ARDustUITests.framework */,
@@ -158,16 +166,16 @@
 		EF92B4A5223D2F64004262A8 /* ARDust */ = {
 			isa = PBXGroup;
 			children = (
+				EF9A21B7224DAF130094D880 /* Storyboard */,
+				EF9A21B6224DAEF80094D880 /* ViewController */,
 				EFD180842247CD9C0021EC54 /* View */,
 				EF92B4D8223D2FFB004262A8 /* Extension */,
 				EF92B4D4223D2FD3004262A8 /* Model */,
 				EF92B4A6223D2F64004262A8 /* AppDelegate.swift */,
-				EF92B4A8223D2F64004262A8 /* MainViewController.swift */,
-				EF92B4AA223D2F64004262A8 /* Main.storyboard */,
 				EF92B4AD223D2F65004262A8 /* Assets.xcassets */,
-				EF92B4AF223D2F65004262A8 /* LaunchScreen.storyboard */,
 				EF92B4B2223D2F65004262A8 /* Info.plist */,
 				EF1A613A22468C79002D2A05 /* Location.gpx */,
+				EFD18089224932E20021EC54 /* LocationCoreData.xcdatamodeld */,
 			);
 			path = ARDust;
 			sourceTree = "<group>";
@@ -225,6 +233,7 @@
 				EF92B4DB223D305B004262A8 /* LocationCoordinate.swift */,
 				EF92B4DF223D308D004262A8 /* LocationData.swift */,
 				EF92B4E1223D30AF004262A8 /* UmdData.swift */,
+				EFD2A2EF2251B2AF0081AAA7 /* LocationManager.swift */,
 			);
 			path = Location;
 			sourceTree = "<group>";
@@ -235,6 +244,23 @@
 				EF92B4D9223D3011004262A8 /* ExtensionCLLocationManager.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		EF9A21B6224DAEF80094D880 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				EF92B4A8223D2F64004262A8 /* MainViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		EF9A21B7224DAF130094D880 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				EF92B4AA223D2F64004262A8 /* Main.storyboard */,
+				EF92B4AF223D2F65004262A8 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboard;
 			sourceTree = "<group>";
 		};
 		EFD180842247CD9C0021EC54 /* View */ = {
@@ -317,13 +343,16 @@
 				TargetAttributes = {
 					EF92B4A2223D2F64004262A8 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 					};
 					EF92B4B6223D2F65004262A8 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 						TestTargetID = EF92B4A2223D2F64004262A8;
 					};
 					EF92B4C1223D2F65004262A8 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 						TestTargetID = EF92B4A2223D2F64004262A8;
 					};
 				};
@@ -464,8 +493,10 @@
 				EF92B4EC223D3147004262A8 /* RequestProtocol.swift in Sources */,
 				EF92B4E0223D308D004262A8 /* LocationData.swift in Sources */,
 				EF92B4EA223D3126004262A8 /* Request.swift in Sources */,
+				EFD2A2F02251B2AF0081AAA7 /* LocationManager.swift in Sources */,
 				EF92B4E4223D30CA004262A8 /* AirData.swift in Sources */,
 				EFD180862247CDC30021EC54 /* MainTableViewCell.swift in Sources */,
+				EFD1808B224932E20021EC54 /* LocationCoreData.xcdatamodeld in Sources */,
 				EF92B4E6223D30F5004262A8 /* AirPollution.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -651,7 +682,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = net.youngjun.ARDust;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -670,7 +701,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = net.youngjun.ARDust;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -691,7 +722,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = net.youngjun.ARDustTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ARDust.app/ARDust";
 			};
@@ -713,7 +744,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = net.youngjun.ARDustTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ARDust.app/ARDust";
 			};
@@ -734,7 +765,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = net.youngjun.ARDustUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = ARDust;
 			};
@@ -755,7 +786,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = net.youngjun.ARDustUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = ARDust;
 			};
@@ -801,6 +832,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		EFD18089224932E20021EC54 /* LocationCoreData.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				EFD1808A224932E20021EC54 /* Model.xcdatamodel */,
+			);
+			currentVersion = EFD1808A224932E20021EC54 /* Model.xcdatamodel */;
+			path = LocationCoreData.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = EF92B49B223D2F64004262A8 /* Project object */;
 }

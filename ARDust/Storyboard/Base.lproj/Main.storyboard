@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -45,12 +45,21 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="지역이름" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i6X-5i-2GK">
+                                                    <rect key="frame" x="30" y="16" width="59" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="hs4-To-yFD" firstAttribute="top" secondItem="60M-yI-fYK" secondAttribute="topMargin" constant="34" id="6KK-2i-Oon"/>
                                                 <constraint firstItem="59v-oc-khn" firstAttribute="leading" secondItem="60M-yI-fYK" secondAttribute="leadingMargin" constant="15" id="8XZ-pv-bkj"/>
+                                                <constraint firstItem="hs4-To-yFD" firstAttribute="top" secondItem="i6X-5i-2GK" secondAttribute="bottom" constant="8" symbolic="YES" id="dkV-kq-Vf9"/>
+                                                <constraint firstItem="i6X-5i-2GK" firstAttribute="leading" secondItem="hs4-To-yFD" secondAttribute="leading" id="e1h-TE-D5p"/>
                                                 <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="59v-oc-khn" secondAttribute="trailing" id="eMF-Xh-KSt"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="59v-oc-khn" secondAttribute="bottom" constant="43" id="j3l-Yq-Uup"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="i6X-5i-2GK" secondAttribute="trailing" constant="20" symbolic="YES" id="jb3-OX-o9k"/>
                                                 <constraint firstItem="59v-oc-khn" firstAttribute="top" secondItem="hs4-To-yFD" secondAttribute="bottom" constant="4" id="kZ8-0i-6bh"/>
                                                 <constraint firstItem="59v-oc-khn" firstAttribute="top" secondItem="hs4-To-yFD" secondAttribute="bottom" constant="4" id="lKi-zU-LFt"/>
                                                 <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="hs4-To-yFD" secondAttribute="trailing" id="xFn-3Y-E2w"/>
@@ -58,6 +67,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="locationName" destination="i6X-5i-2GK" id="j3T-py-CNP"/>
                                             <outlet property="pm10Label" destination="hs4-To-yFD" id="ybv-t7-73h"/>
                                             <outlet property="pm25Label" destination="59v-oc-khn" id="0jj-gW-Yuu"/>
                                         </connections>

@@ -20,6 +20,11 @@ class Request: RequestProtocol {
     private let serviceKey = ""
     private let airPollution = AirPollution()
     private let locationCoordinate = LocationCoordinate()
+    private lazy var locations: [LocationData] = {
+        var locations = (UIApplication.shared.delegate as! AppDelegate).locations
+        locations = LocationManager().fetch()
+        return locations
+    }()
     
     // MARK: - RequestProtocol Method
     // MARK: -
@@ -50,7 +55,20 @@ class Request: RequestProtocol {
             }
             dispatchGroup.leave()
         }
-        
+        if !locations.isEmpty {
+            for location in locations {
+                dispatchGroup.enter()
+                request(location) { (isSuccess, data, error) in
+                    if isSuccess, let airData = data as? AirData {
+                        airDataList.append(airData)
+                    } else {
+                        print("Request Error")
+                        requestError = error
+                    }
+                    dispatchGroup.leave()
+                }
+            }
+        }
         
         dispatchGroup.notify(queue: .main) {
             // 네트워크 인디케이터 로딩 종료
