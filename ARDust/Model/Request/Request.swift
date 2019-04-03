@@ -20,6 +20,7 @@ class Request: RequestProtocol {
     private let serviceKey = ""
     private let airPollution = AirPollution()
     private let locationCoordinate = LocationCoordinate()
+    // 영구 저장소에 저장 되어있는 위치 데이터를 로딩 한다.
     private lazy var locations: [LocationData] = {
         var locations = (UIApplication.shared.delegate as! AppDelegate).locations
         locations = LocationManager().fetch()

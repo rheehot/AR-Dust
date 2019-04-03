@@ -12,7 +12,6 @@ import CoreLocation
 
 class MainViewController: UIViewController {
     
-    
     var airData: AirData?   // Test 용
     var locationData = LocationData()
     private var dataSource = [TableViewCellContents]()
@@ -29,6 +28,7 @@ class MainViewController: UIViewController {
             tableView.separatorStyle = .none
         }
     }
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -59,6 +59,7 @@ class MainViewController: UIViewController {
         
         // Do any additional setup after loading the view.
     }
+
     
     
 }
