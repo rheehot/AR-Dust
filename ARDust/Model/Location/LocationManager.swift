@@ -59,12 +59,25 @@ class LocationManager {
             managerObj.latitude = latitude
         }
         managerObj.regdate = data.registerDate
-    
+        
         do {
             try manageContext.save()
         } catch {
             manageContext.rollback()
         }
         
+    }
+    
+    func delete(_ data: NSManagedObject) {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let manageContext = appDelegate.persistentContainer.viewContext
+        
+        manageContext.delete(data)
+        
+        do {
+            try manageContext.save()
+        } catch {
+            manageContext.rollback()
+        }
     }
 }

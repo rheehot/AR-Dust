@@ -141,6 +141,9 @@
                                     <constraint firstAttribute="height" constant="50" id="qbI-8y-mB0"/>
                                 </constraints>
                                 <state key="normal" title="Cancel"/>
+                                <connections>
+                                    <action selector="touchUpcancelButton:" destination="xkg-z0-HWh" eventType="touchUpInside" id="kUI-de-3ce"/>
+                                </connections>
                             </button>
                             <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="추가할 지역(구/동)을 입력하세요." translatesAutoresizingMaskIntoConstraints="NO" id="4fG-ua-LFi">
                                 <rect key="frame" x="0.0" y="144" width="375" height="56"/>
@@ -164,8 +167,9 @@
                         <viewLayoutGuide key="safeArea" id="PU7-VJ-pL7"/>
                     </view>
                     <connections>
-                        <outlet property="searchBar" destination="4fG-ua-LFi" id="rui-oS-UiZ"/>
-                        <outlet property="tableView" destination="vLt-rV-Ly7" id="wwM-JN-qv1"/>
+                        <outlet property="cancelButton" destination="1aa-W9-Bbt" id="hYZ-9C-ccC"/>
+                        <outlet property="searchBar" destination="4fG-ua-LFi" id="xSW-Q9-X2o"/>
+                        <outlet property="tableView" destination="vLt-rV-Ly7" id="fwH-x0-7m1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cA0-BN-ck4" userLabel="First Responder" sceneMemberID="firstResponder"/>

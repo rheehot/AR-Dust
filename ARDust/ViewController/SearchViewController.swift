@@ -26,6 +26,12 @@ class SearchViewController: UIViewController {
         }
     }
     
+    @IBOutlet var cancelButton: UIButton!
+    
+    @IBAction func touchUpcancelButton(_ sender: UIButton) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -50,6 +56,7 @@ class SearchViewController: UIViewController {
         }
         tableView.reloadData()
     }
+    
     
     
 }
@@ -87,6 +94,7 @@ extension SearchViewController: UISearchBarDelegate {
     }
     // Text가 변경됨에 따라 즉각적으로 지역 이름을 나열 해주기 위함
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        
+        filterLocationForSearchText(searchText)
+        print(filteringUmdData)
     }
 }

@@ -17,7 +17,7 @@ enum URIType: String {
 class Request: RequestProtocol {
     // MARK: - Properties
     // MARK: -
-    private let serviceKey = ""
+    private let serviceKey = "5t%2FaG7XwaI3khwGfzdWSguvJz%2BjgYub37AHz4oY1qubvtwNYe3V7XpClwmCt0hWUSE%2F%2BaR3F0LQUxyr1lcLL2Q%3D%3D"
     private let airPollution = AirPollution()
     private let locationCoordinate = LocationCoordinate()
     // 영구 저장소에 저장 되어있는 위치 데이터를 로딩 한다.
@@ -56,11 +56,16 @@ class Request: RequestProtocol {
             }
             dispatchGroup.leave()
         }
+        
+        //locations.removeAll()
+        
         if !locations.isEmpty {
+            print("coreData에 데이터 있을시")
             for location in locations {
                 dispatchGroup.enter()
                 request(location) { (isSuccess, data, error) in
                     if isSuccess, let airData = data as? AirData {
+                        print(airData)
                         airDataList.append(airData)
                     } else {
                         print("Request Error")
@@ -70,6 +75,7 @@ class Request: RequestProtocol {
                 }
             }
         }
+ 
         
         dispatchGroup.notify(queue: .main) {
             // 네트워크 인디케이터 로딩 종료

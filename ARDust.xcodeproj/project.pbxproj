@@ -11,6 +11,7 @@
 		8D1B212507BD4759B6679E4F /* Pods_ARDust.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D3D8349D4A21ABCA657D484 /* Pods_ARDust.framework */; };
 		9B96F2BD973DAED20BE4EE49 /* Pods_ARDustTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71470FE80388F08077110502 /* Pods_ARDustTests.framework */; };
 		EF00B455225442F5006355A1 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF00B454225442F5006355A1 /* SearchViewController.swift */; };
+		EF25AB4C225618ED003B7135 /* LocationCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EF25AB49225618ED003B7135 /* LocationCoreData.xcdatamodeld */; };
 		EF92B4A7223D2F64004262A8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF92B4A6223D2F64004262A8 /* AppDelegate.swift */; };
 		EF92B4A9223D2F64004262A8 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF92B4A8223D2F64004262A8 /* MainViewController.swift */; };
 		EF92B4AC223D2F64004262A8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF92B4AA223D2F64004262A8 /* Main.storyboard */; };
@@ -29,7 +30,6 @@
 		EF92B4EC223D3147004262A8 /* RequestProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF92B4EB223D3147004262A8 /* RequestProtocol.swift */; };
 		EFD180862247CDC30021EC54 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD180852247CDC30021EC54 /* MainTableViewCell.swift */; };
 		EFD180882249305A0021EC54 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFD180872249305A0021EC54 /* CoreData.framework */; };
-		EFD1808B224932E20021EC54 /* LocationCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EFD18089224932E20021EC54 /* LocationCoreData.xcdatamodeld */; };
 		EFD2A2F02251B2AF0081AAA7 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD2A2EF2251B2AF0081AAA7 /* LocationManager.swift */; };
 /* End PBXBuildFile section */
 
@@ -62,6 +62,8 @@
 		DB445CB0FC1149C8C643CC91 /* Pods-ARDust.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ARDust.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ARDust/Pods-ARDust.debug.xcconfig"; sourceTree = "<group>"; };
 		EF00B454225442F5006355A1 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		EF1A613A22468C79002D2A05 /* Location.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Location.gpx; sourceTree = "<group>"; };
+		EF25AB4A225618ED003B7135 /* LocationCoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LocationCoreData.xcdatamodel; sourceTree = "<group>"; };
+		EF25AB4B225618ED003B7135 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		EF92B4A3223D2F64004262A8 /* ARDust.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARDust.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF92B4A6223D2F64004262A8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EF92B4A8223D2F64004262A8 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -86,7 +88,6 @@
 		EF92B4EB223D3147004262A8 /* RequestProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestProtocol.swift; sourceTree = "<group>"; };
 		EFD180852247CDC30021EC54 /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
 		EFD180872249305A0021EC54 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		EFD1808A224932E20021EC54 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		EFD2A2EF2251B2AF0081AAA7 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -177,7 +178,7 @@
 				EF92B4AD223D2F65004262A8 /* Assets.xcassets */,
 				EF92B4B2223D2F65004262A8 /* Info.plist */,
 				EF1A613A22468C79002D2A05 /* Location.gpx */,
-				EFD18089224932E20021EC54 /* LocationCoreData.xcdatamodeld */,
+				EF25AB49225618ED003B7135 /* LocationCoreData.xcdatamodeld */,
 			);
 			path = ARDust;
 			sourceTree = "<group>";
@@ -490,6 +491,7 @@
 				EF00B455225442F5006355A1 /* SearchViewController.swift in Sources */,
 				EF92B4E8223D310F004262A8 /* AirPollutionData.swift in Sources */,
 				EF92B4E2223D30AF004262A8 /* UmdData.swift in Sources */,
+				EF25AB4C225618ED003B7135 /* LocationCoreData.xcdatamodeld in Sources */,
 				EF92B4DC223D305B004262A8 /* LocationCoordinate.swift in Sources */,
 				EF92B4DA223D3011004262A8 /* ExtensionCLLocationManager.swift in Sources */,
 				EF92B4A9223D2F64004262A8 /* MainViewController.swift in Sources */,
@@ -500,7 +502,6 @@
 				EFD2A2F02251B2AF0081AAA7 /* LocationManager.swift in Sources */,
 				EF92B4E4223D30CA004262A8 /* AirData.swift in Sources */,
 				EFD180862247CDC30021EC54 /* MainTableViewCell.swift in Sources */,
-				EFD1808B224932E20021EC54 /* LocationCoreData.xcdatamodeld in Sources */,
 				EF92B4E6223D30F5004262A8 /* AirPollution.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -838,12 +839,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		EFD18089224932E20021EC54 /* LocationCoreData.xcdatamodeld */ = {
+		EF25AB49225618ED003B7135 /* LocationCoreData.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				EFD1808A224932E20021EC54 /* Model.xcdatamodel */,
+				EF25AB4A225618ED003B7135 /* LocationCoreData.xcdatamodel */,
+				EF25AB4B225618ED003B7135 /* Model.xcdatamodel */,
 			);
-			currentVersion = EFD1808A224932E20021EC54 /* Model.xcdatamodel */;
+			currentVersion = EF25AB4A225618ED003B7135 /* LocationCoreData.xcdatamodel */;
 			path = LocationCoreData.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
