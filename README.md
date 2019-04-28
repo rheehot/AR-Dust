@@ -57,7 +57,16 @@
   
 출처: [에어코리아](http://www.airkorea.or.kr/web)
 
+- 미세먼지 SceneKit Particle Model  
+
+![화면-기록-2019-04-29-오전-1 39 35](https://user-images.githubusercontent.com/33486820/56867426-0f516100-6a20-11e9-9273-f9e64d39524b.gif)  
+
+- Bokeh Particle System 을 사용 
+(미세먼지, 초미세먼지 각각의 농도에 따라 다르게 적용)
+
+
 ## 개선 방향
 
 - CoreData 를 활용하여 현재 위치 및 위젯으로 추가한 지역 인 메모리에 저장하기, 이는 앱을 재실 행 하였을 때 위치 정보를 다시 받아올 필요 없이 영구 적으로 내부에 저장 시키기 위한 용도
 
+- 지역목록 API를 사용해서 지역 검색 기능을 추가해야한다.
