@@ -12,7 +12,6 @@ import CoreData
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var locations = [LocationData]()
-    var umds = [UmdData]()
     var airDataList = [AirData]()
     var window: UIWindow?
 

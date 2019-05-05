@@ -88,13 +88,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="ZoB-Yi-T0u">
-                        <barButtonItem key="rightBarButtonItem" title="검색" id="afT-y9-Kfk">
-                            <connections>
-                                <segue destination="xkg-z0-HWh" kind="presentation" id="6Xd-c8-v0G"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="ZoB-Yi-T0u"/>
                     <connections>
                         <outlet property="tableView" destination="xC4-PN-jXJ" id="H6N-Yf-FQA"/>
                     </connections>
@@ -102,79 +96,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="992.79999999999995" y="27.436281859070466"/>
-        </scene>
-        <!--Search View Controller-->
-        <scene sceneID="HDB-Dp-SkJ">
-            <objects>
-                <viewController id="xkg-z0-HWh" customClass="SearchViewController" customModule="ARDust" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Ozn-AX-D91">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vLt-rV-Ly7">
-                                <rect key="frame" x="0.0" y="200" width="375" height="467"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="umdCell" textLabel="cv9-cw-az2" style="IBUITableViewCellStyleDefault" id="Kkn-SY-gTJ">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Kkn-SY-gTJ" id="CZY-vB-Q0M">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="cv9-cw-az2">
-                                                    <rect key="frame" x="15" y="0.0" width="345" height="43.5"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1aa-W9-Bbt">
-                                <rect key="frame" x="309" y="37" width="50" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="U3P-Ll-RXe"/>
-                                    <constraint firstAttribute="height" constant="50" id="qbI-8y-mB0"/>
-                                </constraints>
-                                <state key="normal" title="Cancel"/>
-                                <connections>
-                                    <action selector="touchUpcancelButton:" destination="xkg-z0-HWh" eventType="touchUpInside" id="kUI-de-3ce"/>
-                                </connections>
-                            </button>
-                            <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="추가할 지역(구/동)을 입력하세요." translatesAutoresizingMaskIntoConstraints="NO" id="4fG-ua-LFi">
-                                <rect key="frame" x="0.0" y="144" width="375" height="56"/>
-                                <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </searchBar>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="4fG-ua-LFi" firstAttribute="leading" secondItem="PU7-VJ-pL7" secondAttribute="leading" id="C26-rk-FtV"/>
-                            <constraint firstItem="PU7-VJ-pL7" firstAttribute="trailing" secondItem="vLt-rV-Ly7" secondAttribute="trailing" id="Cxm-P3-3zo"/>
-                            <constraint firstItem="vLt-rV-Ly7" firstAttribute="top" secondItem="4fG-ua-LFi" secondAttribute="bottom" id="Tcx-aC-FIC"/>
-                            <constraint firstItem="4fG-ua-LFi" firstAttribute="trailing" secondItem="PU7-VJ-pL7" secondAttribute="trailing" id="Tpd-nE-1W2"/>
-                            <constraint firstItem="1aa-W9-Bbt" firstAttribute="leading" secondItem="PU7-VJ-pL7" secondAttribute="leading" constant="309" id="Y14-ve-p4I"/>
-                            <constraint firstItem="1aa-W9-Bbt" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Ozn-AX-D91" secondAttribute="trailingMargin" id="YwP-8S-ZR1"/>
-                            <constraint firstItem="PU7-VJ-pL7" firstAttribute="bottom" secondItem="vLt-rV-Ly7" secondAttribute="bottom" id="Z4J-La-Zlf"/>
-                            <constraint firstItem="vLt-rV-Ly7" firstAttribute="leading" secondItem="PU7-VJ-pL7" secondAttribute="leading" id="bY6-65-r5D"/>
-                            <constraint firstItem="4fG-ua-LFi" firstAttribute="top" secondItem="PU7-VJ-pL7" secondAttribute="top" constant="124" id="nwb-IO-mM6"/>
-                            <constraint firstItem="1aa-W9-Bbt" firstAttribute="top" secondItem="PU7-VJ-pL7" secondAttribute="top" constant="17" id="urr-ja-fBS"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="PU7-VJ-pL7"/>
-                    </view>
-                    <connections>
-                        <outlet property="cancelButton" destination="1aa-W9-Bbt" id="hYZ-9C-ccC"/>
-                        <outlet property="searchBar" destination="4fG-ua-LFi" id="xSW-Q9-X2o"/>
-                        <outlet property="tableView" destination="vLt-rV-Ly7" id="fwH-x0-7m1"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="cA0-BN-ck4" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1829.5999999999999" y="26.53673163418291"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="oRa-uM-Rj5">
