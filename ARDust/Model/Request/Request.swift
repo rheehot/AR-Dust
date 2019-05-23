@@ -57,7 +57,7 @@ class Request: RequestProtocol {
             dispatchGroup.leave()
         }
         
-        //locations.removeAll()
+        locations.removeAll()
         
         if !locations.isEmpty {
             print("coreData에 데이터 있을시")

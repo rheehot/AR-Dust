@@ -26,7 +26,7 @@
 		EF92B4E8223D310F004262A8 /* AirPollutionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF92B4E7223D310F004262A8 /* AirPollutionData.swift */; };
 		EF92B4EA223D3126004262A8 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF92B4E9223D3126004262A8 /* Request.swift */; };
 		EF92B4EC223D3147004262A8 /* RequestProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF92B4EB223D3147004262A8 /* RequestProtocol.swift */; };
-		EF932600227BD80900DFFD0D /* ARUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9325FF227BD80900DFFD0D /* ARUIViewController.swift */; };
+		EF932600227BD80900DFFD0D /* ARDustViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9325FF227BD80900DFFD0D /* ARDustViewController.swift */; };
 		EF932602227BDAA100DFFD0D /* dust.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = EF932601227BDAA100DFFD0D /* dust.scnassets */; };
 		EFD180862247CDC30021EC54 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD180852247CDC30021EC54 /* MainTableViewCell.swift */; };
 		EFD180882249305A0021EC54 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFD180872249305A0021EC54 /* CoreData.framework */; };
@@ -84,7 +84,7 @@
 		EF92B4E7223D310F004262A8 /* AirPollutionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirPollutionData.swift; sourceTree = "<group>"; };
 		EF92B4E9223D3126004262A8 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		EF92B4EB223D3147004262A8 /* RequestProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestProtocol.swift; sourceTree = "<group>"; };
-		EF9325FF227BD80900DFFD0D /* ARUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARUIViewController.swift; sourceTree = "<group>"; };
+		EF9325FF227BD80900DFFD0D /* ARDustViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARDustViewController.swift; sourceTree = "<group>"; };
 		EF932601227BDAA100DFFD0D /* dust.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = dust.scnassets; sourceTree = "<group>"; };
 		EFD180852247CDC30021EC54 /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
 		EFD180872249305A0021EC54 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -253,7 +253,7 @@
 			isa = PBXGroup;
 			children = (
 				EF92B4A8223D2F64004262A8 /* MainViewController.swift */,
-				EF9325FF227BD80900DFFD0D /* ARUIViewController.swift */,
+				EF9325FF227BD80900DFFD0D /* ARDustViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -496,7 +496,7 @@
 				EF92B4A9223D2F64004262A8 /* MainViewController.swift in Sources */,
 				EF92B4A7223D2F64004262A8 /* AppDelegate.swift in Sources */,
 				EF92B4EC223D3147004262A8 /* RequestProtocol.swift in Sources */,
-				EF932600227BD80900DFFD0D /* ARUIViewController.swift in Sources */,
+				EF932600227BD80900DFFD0D /* ARDustViewController.swift in Sources */,
 				EF92B4E0223D308D004262A8 /* LocationData.swift in Sources */,
 				EF92B4EA223D3126004262A8 /* Request.swift in Sources */,
 				EFD2A2F02251B2AF0081AAA7 /* LocationManager.swift in Sources */,

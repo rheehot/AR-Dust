@@ -88,7 +88,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="ZoB-Yi-T0u"/>
+                    <navigationItem key="navigationItem" id="ZoB-Yi-T0u">
+                        <barButtonItem key="rightBarButtonItem" title="AR" id="YNn-w3-NGL">
+                            <connections>
+                                <segue destination="2XG-ce-Jp2" kind="show" id="zKN-Pf-0l9"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="xC4-PN-jXJ" id="H6N-Yf-FQA"/>
                     </connections>
@@ -96,6 +102,35 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="992.79999999999995" y="27.436281859070466"/>
+        </scene>
+        <!--Dust View Controller-->
+        <scene sceneID="IAb-mt-UqC">
+            <objects>
+                <viewController id="2XG-ce-Jp2" customClass="ARDustViewController" customModule="ARDust" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="mo3-EQ-u3j">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OOF-p3-PYq">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                            </arscnView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="PE2-Sm-stO" firstAttribute="bottom" secondItem="OOF-p3-PYq" secondAttribute="bottom" id="88a-Fh-c0i"/>
+                            <constraint firstItem="OOF-p3-PYq" firstAttribute="top" secondItem="PE2-Sm-stO" secondAttribute="top" id="8qL-Dz-wUo"/>
+                            <constraint firstItem="PE2-Sm-stO" firstAttribute="trailing" secondItem="OOF-p3-PYq" secondAttribute="trailing" id="mkL-cG-dxH"/>
+                            <constraint firstItem="OOF-p3-PYq" firstAttribute="leading" secondItem="PE2-Sm-stO" secondAttribute="leading" id="zlR-ou-aG6"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="PE2-Sm-stO"/>
+                    </view>
+                    <connections>
+                        <outlet property="sceneView" destination="OOF-p3-PYq" id="jE3-LB-zNs"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aiX-WP-4Mv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1930" y="27"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="oRa-uM-Rj5">
