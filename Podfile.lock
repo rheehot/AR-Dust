@@ -1,16 +1,20 @@
 PODS:
   - Alamofire (5.0.0-beta.3)
+  - Hero (1.4.0)
 
 DEPENDENCIES:
   - Alamofire (~> 5.0.0-beta.3)
+  - Hero
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
+    - Hero
 
 SPEC CHECKSUMS:
   Alamofire: 50d6fa7e8cbe7f84559e86ab641ffd029db655f8
+  Hero: bac92350d7201a1a940003e0767c7b52ce7c99a1
 
-PODFILE CHECKSUM: cb138cd8b37a6eca623a7a7937c4068969300134
+PODFILE CHECKSUM: c94c00334659235fc86a5fd7be5c35095d9e1658
 
 COCOAPODS: 1.5.3

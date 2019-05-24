@@ -32,4 +32,25 @@ struct AirPollutionData {
     var pm10Grade1h: String?    // 미세먼지(PM10) 1시간 등급
     var pm25Grade1h: String?    // 미세먼지(PM2.5) 1시간 등급
     
+    var pollutionState: String {
+        let pmValue = Int(self.pm10Value!)!
+        if pmValue <= 15 {
+            return "최고"
+        } else if pmValue <= 30 {
+            return "좋음"
+        } else if pmValue <= 40 {
+            return "양호"
+        } else if pmValue <= 50 {
+            return "보통"
+        } else if pmValue <= 75 {
+            return "나쁨"
+        } else if pmValue <= 100 {
+            return "상당히 나쁨"
+        } else if pmValue <= 150 {
+            return "매우 나쁨"
+        } else {
+            return "최악"
+        }
+    }
+    
 }

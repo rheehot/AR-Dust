@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Hero
 
 
 class TableViewCellContents {
@@ -24,6 +25,7 @@ class MainTableViewCell: UITableViewCell {
     @IBOutlet weak var locationName: UILabel!
     @IBOutlet weak var pm10Label: UILabel!      //미세먼지
     @IBOutlet weak var pm25Label: UILabel!      //초미세먼지
+    @IBOutlet weak var pollutionStateLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -42,6 +44,7 @@ class MainTableViewCell: UITableViewCell {
     private func prepareCell() {
         self.pm10Label.text = self.airPollution?.pm10Value
         self.pm25Label.text = self.airPollution?.pm25Value
+        self.pollutionStateLabel.text = self.airPollution?.pollutionState
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {

@@ -15,26 +15,38 @@ class ARDustViewController: UIViewController, ARSCNViewDelegate, ARSessionDelega
     // MARK: - IBOutlet
     @IBOutlet var sceneView: ARSCNView!
     
+    var scene = SCNScene()
+    
+    // 미세먼지 SCNNode
+    var fineDustNode: SCNNode = {
+        let dustNode = SCNNode()
+        let particleSystem = SCNParticleSystem(named: "dust.scnassets/dustParticle", inDirectory: nil)
+        dustNode.addParticleSystem(particleSystem!)
+        return dustNode
+    }()
+    
+    // 초 미세먼지 SCNNode
+    var ultraFineDust: SCNNode = {
+        let dustNode = SCNNode()
+        let particleSystem = SCNParticleSystem(named: "dust.scnassets/ultraFineDust", inDirectory: nil)
+        dustNode.addParticleSystem(particleSystem!)
+        return dustNode
+    }()
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         sceneView.delegate = self
-        
         sceneView.showsStatistics = true
         
-        let scene = SCNScene(named: "dust.scnassets/scene.scn")!
-        let particleNode = SCNNode()
-        let particleSystem = SCNParticleSystem(named: "dust.scnassets/dustParticle", inDirectory: nil)
-        
-        particleNode.addParticleSystem(particleSystem!)
-        scene.rootNode.addChildNode(particleNode)
-        
-        sceneView.scene = scene
-        
-
-
-        // Do any additional setup after loading the view.
+        if let scene = SCNScene(named: "dust.scnassets/scene.scn") {
+            self.scene = scene
+        } else {
+            print("scn file is empty")
+        }
+        // particle system
+        self.setUpSceneView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -48,6 +60,12 @@ class ARDustViewController: UIViewController, ARSCNViewDelegate, ARSessionDelega
         
         // Pause the view's session
         sceneView.session.pause()
+    }
+    
+    func setUpSceneView() {
+        scene.rootNode.addChildNode(fineDustNode)
+        scene.rootNode.addChildNode(ultraFineDust)
+        sceneView.scene = scene
     }
 
     

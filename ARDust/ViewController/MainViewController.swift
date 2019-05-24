@@ -20,7 +20,8 @@ class MainViewController: UIViewController {
     private var locationRequestCompletion = false
     private let manager = CLLocationManager()
     
-    @IBOutlet var tableView: UITableView! {
+    @IBOutlet weak var arButton: UIButton!
+    @IBOutlet weak var tableView: UITableView! {
         didSet {
             tableView.delegate = self
             tableView.dataSource = self
