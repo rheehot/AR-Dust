@@ -64,9 +64,10 @@
 
 ## Prototype  
 
-![무제-2](https://user-images.githubusercontent.com/33486820/58365638-3c4f4180-7f02-11e9-95dc-5cca6dd588f0.gif){: width="200"}  
+<img src="https://user-images.githubusercontent.com/33486820/58365638-3c4f4180-7f02-11e9-95dc-5cca6dd588f0.gif" width="200">  
 
-![image](https://user-images.githubusercontent.com/33486820/58365656-86382780-7f02-11e9-8865-4e714764069b.png){: width="200"}
+<img src="https://user-images.githubusercontent.com/33486820/58365656-86382780-7f02-11e9-8865-4e714764069b.png" width="200">  
+
 
 
 
