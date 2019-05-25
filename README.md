@@ -60,7 +60,12 @@
 ![화면-기록-2019-04-29-오전-1 39 35](https://user-images.githubusercontent.com/33486820/56867426-0f516100-6a20-11e9-9273-f9e64d39524b.gif)  
 
 - Bokeh Particle System 을 사용 
-(미세먼지, 초미세먼지 각각의 농도에 따라 다르게 적용)
+(미세먼지, 초미세먼지 각각의 농도에 따라 다르게 적용)  
+
+## Prototype  
+
+![무제-2](https://user-images.githubusercontent.com/33486820/58365638-3c4f4180-7f02-11e9-95dc-5cca6dd588f0.gif)
+
 
 
 ## 개선 방향
