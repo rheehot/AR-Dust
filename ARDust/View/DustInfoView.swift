@@ -1,5 +1,5 @@
 //
-//  MainTableViewCell.swift
+//  DustInfoView.swift
 //  ARDust
 //
 //  Created by youngjun goo on 24/03/2019.
@@ -18,7 +18,7 @@ class TableViewCellContents {
     }
 }
 
-class MainTableViewCell: UITableViewCell {
+class DustInfoView: UIView {
     
     private var airPollution : AirPollutionData?
     
@@ -45,12 +45,6 @@ class MainTableViewCell: UITableViewCell {
         self.pm10Label.text = self.airPollution?.pm10Value
         self.pm25Label.text = self.airPollution?.pm25Value
         self.pollutionStateLabel.text = self.airPollution?.pollutionState
-    }
-    
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-        
-        // Configure the view for the selected state
     }
     
 }

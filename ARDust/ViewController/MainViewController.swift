@@ -13,6 +13,7 @@ import CoreLocation
 class MainViewController: UIViewController {
     
     var airData: AirData?   // Test 용
+    private var airPollution: AirPollutionData?
     var locationData = LocationData()
     private var dataSource = [TableViewCellContents]()
     private var locationManager =  CLLocationManager()
@@ -21,16 +22,27 @@ class MainViewController: UIViewController {
     private let manager = CLLocationManager()
     
     @IBOutlet weak var arButton: UIButton!
-    @IBOutlet weak var tableView: UITableView! {
+    @IBOutlet weak var behindView: UIView!
+    @IBOutlet weak var locationName: UILabel!
+    @IBOutlet weak var pm10Label: UILabel!      //미세먼지
+    @IBOutlet weak var pm25Label: UILabel!      //초미세먼지
+    @IBOutlet weak var pollutionStateLabel: UILabel!
+    
+    @IBOutlet weak var blueView: UIView! {
         didSet {
-            tableView.delegate = self
-            tableView.dataSource = self
-            tableView.allowsSelection = true  
-            tableView.separatorStyle = .none
+            self.blueView?.hero.id = "ironMan"
+            self.blueView?.layer.cornerRadius = 10
+            self.blueView.clipsToBounds = true
         }
     }
-    
-    
+    @IBOutlet weak var grayView: UIView! {
+        didSet {
+            self.grayView?.hero.id = "batMan"
+            self.grayView.layer.cornerRadius = 10
+            self.grayView.clipsToBounds = true
+        }
+    }
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         reloadData()
@@ -58,10 +70,14 @@ class MainViewController: UIViewController {
             locationManager.requestLocation()
         }
         
-        // Do any additional setup after loading the view.
     }
-
     
+    func setUpDustInfoView() {
+        self.locationName.text = dataSource[0].airData.locationName + "의 공기는"
+        self.pm10Label.text = self.airPollution?.pm10Value
+        self.pm25Label.text = self.airPollution?.pm25Value
+        self.pollutionStateLabel.text = self.airPollution?.pollutionState
+    }
     
 }
 
@@ -80,8 +96,6 @@ extension MainViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         // .requestLocation will only pass one location to the locations array
         // hence we can access it by taking the first element of the array
-        
-        
         print(locations)
         if let location = locations.first, !locationRequestCompletion {
             locationRequestCompletion = true
@@ -96,8 +110,8 @@ extension MainViewController: CLLocationManagerDelegate {
                             for airData in airDataList {
                                 self.dataSource.append(TableViewCellContents(data:airData))
                             }
-                            print(self.dataSource[0].airData.airPollutionData as Any)
-                            self.tableView.reloadData()
+                            self.airPollution = self.dataSource[0].airData.airPollutionData
+                            self.setUpDustInfoView()
                         } else {
                             print("AirData request 실패 ")
                             print(error?.localizedDescription as Any)
@@ -114,22 +128,4 @@ extension MainViewController: CLLocationManagerDelegate {
         }
         
     }
-}
-
-extension MainViewController: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataSource.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "MainTableViewCell") as? MainTableViewCell else {
-            return UITableViewCell()
-        }
-        
-        cell.updateCell(dataSource[indexPath.row])
-        
-        return cell
-    }
-    
-    
 }
