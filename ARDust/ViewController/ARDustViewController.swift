@@ -15,6 +15,14 @@ class ARDustViewController: UIViewController, ARSCNViewDelegate, ARSessionDelega
     // MARK: - IBOutlet
     @IBOutlet var sceneView: ARSCNView!
     
+    @IBOutlet weak var cancelButton: UIButton! {
+        didSet {
+            self.cancelButton.backgroundColor = UIColor.yellow
+            self.cancelButton.layer.cornerRadius = 10
+            self.cancelButton.clipsToBounds = true
+        }
+    }
+    
     var scene = SCNScene()
     
     // 미세먼지 SCNNode
@@ -32,6 +40,10 @@ class ARDustViewController: UIViewController, ARSCNViewDelegate, ARSessionDelega
         dustNode.addParticleSystem(particleSystem!)
         return dustNode
     }()
+    
+    @IBAction func tapCancelButton(_ sender: UIButton) {
+        self.presentingViewController!.dismiss(animated: true, completion: nil)
+    }
     
 
     override func viewDidLoad() {

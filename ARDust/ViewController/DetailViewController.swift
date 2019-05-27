@@ -11,6 +11,8 @@ import Hero
 
 class DetailViewController: UIViewController {
     
+    private let appDelegate = (UIApplication.shared.delegate as! AppDelegate)
+    
     @IBOutlet weak var blueView: UIView! 
     @IBOutlet weak var grayView: UIView! {
         didSet {
@@ -25,6 +27,15 @@ class DetailViewController: UIViewController {
         }
     }
     
+    @IBOutlet weak var pm10Value: UILabel!
+    @IBOutlet weak var pm25Vlaue: UILabel!
+    @IBOutlet weak var so2Value: UILabel!   // 이황산가스
+    @IBOutlet weak var coValue: UILabel!    // 일산화탄소
+    @IBOutlet weak var o3Value: UILabel!    // 오존
+    @IBOutlet weak var no2Value: UILabel!   // 이산화질소
+    
+    
+    
     @IBAction func tapDismissButton(_ sender: UIButton) {
         self.presentingViewController?.dismiss(animated: true, completion: nil)
     }
@@ -33,12 +44,26 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        print(appDelegate.airDataList)
+        
         self.hero.isEnabled = true
         self.blueView.hero.id = "ironMan"
         self.grayView.hero.id = "batMan"
         whiteView.hero.modifiers = [.translate(y:100)]
+        
+        setUpInfoView()
         // Do any additional setup after loading the view.
     }
+    
+    func setUpInfoView() {
+        self.pm10Value.text = appDelegate.airDataList[0].airPollutionData.pm10Value
+        self.pm25Vlaue.text = appDelegate.airDataList[0].airPollutionData.pm25Value
+        self.so2Value.text = appDelegate.airDataList[0].airPollutionData.so2Value
+        self.coValue.text = appDelegate.airDataList[0].airPollutionData.coValue
+        self.o3Value.text = appDelegate.airDataList[0].airPollutionData.o3Value
+        self.no2Value.text = appDelegate.airDataList[0].airPollutionData.no2Value
+    }
+    
     
     
     

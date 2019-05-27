@@ -28,6 +28,9 @@ class MainViewController: UIViewController {
     @IBOutlet weak var pm25Label: UILabel!      //초미세먼지
     @IBOutlet weak var pollutionStateLabel: UILabel!
     
+    private var tapGesture = UITapGestureRecognizer()
+
+    
     @IBOutlet weak var blueView: UIView! {
         didSet {
             self.blueView?.hero.id = "ironMan"
@@ -57,6 +60,11 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.openDetailVC))
+        self.tapGesture.numberOfTapsRequired = 1
+        self.blueView.addGestureRecognizer(self.tapGesture)
+        self.blueView.isUserInteractionEnabled = true
+    
         manager.delegate = self
         manager.desiredAccuracy = kCLLocationAccuracyThreeKilometers
         manager.requestWhenInUseAuthorization()
@@ -77,6 +85,13 @@ class MainViewController: UIViewController {
         self.pm10Label.text = self.airPollution?.pm10Value
         self.pm25Label.text = self.airPollution?.pm25Value
         self.pollutionStateLabel.text = self.airPollution?.pollutionState
+    }
+    
+    @objc func openDetailVC() {
+        print("tap!!")
+        if let detailVC = self.storyboard?.instantiateViewController(withIdentifier: "DetailVC") as? DetailViewController {
+            present(detailVC, animated: true, completion: nil)
+        }
     }
     
 }
