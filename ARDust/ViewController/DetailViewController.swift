@@ -27,6 +27,10 @@ class DetailViewController: UIViewController {
         }
     }
     
+    @IBOutlet weak var dustStackView: UIStackView!
+    @IBOutlet weak var fineDustStackView: UIStackView!
+    
+    
     @IBOutlet weak var pm10Value: UILabel!
     @IBOutlet weak var pm25Vlaue: UILabel!
     @IBOutlet weak var so2Value: UILabel!   // 이황산가스
@@ -47,6 +51,8 @@ class DetailViewController: UIViewController {
         print(appDelegate.airDataList)
         
         self.hero.isEnabled = true
+        self.dustStackView.hero.id = "dust"
+        self.fineDustStackView.hero.id = "fineDust"
         self.blueView.hero.id = "ironMan"
         self.grayView.hero.id = "batMan"
         whiteView.hero.modifiers = [.translate(y:100)]
@@ -62,7 +68,10 @@ class DetailViewController: UIViewController {
         self.coValue.text = appDelegate.airDataList[0].airPollutionData.coValue
         self.o3Value.text = appDelegate.airDataList[0].airPollutionData.o3Value
         self.no2Value.text = appDelegate.airDataList[0].airPollutionData.no2Value
+        self.blueView.backgroundColor = appDelegate.airDataList[0].airPollutionData.pollutionStateColor
     }
+    
+    
     
     
     

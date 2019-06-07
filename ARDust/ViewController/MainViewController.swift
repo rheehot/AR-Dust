@@ -7,11 +7,14 @@
 //
 
 import UIKit
+import SpriteKit
 import CoreLocation
 
 
 class MainViewController: UIViewController {
     
+    
+    // MARK:- Properties
     var airData: AirData?   // Test 용
     private var airPollution: AirPollutionData?
     var locationData = LocationData()
@@ -20,16 +23,33 @@ class MainViewController: UIViewController {
     private let appDelegate = (UIApplication.shared.delegate as! AppDelegate)
     private var locationRequestCompletion = false
     private let manager = CLLocationManager()
+    private var tapGesture = UITapGestureRecognizer()
     
+    private var skView: SKView!
+    
+    // MARK:- IBOutlet
     @IBOutlet weak var arButton: UIButton!
     @IBOutlet weak var behindView: UIView!
     @IBOutlet weak var locationName: UILabel!
     @IBOutlet weak var pm10Label: UILabel!      //미세먼지
     @IBOutlet weak var pm25Label: UILabel!      //초미세먼지
     @IBOutlet weak var pollutionStateLabel: UILabel!
-    
-    private var tapGesture = UITapGestureRecognizer()
+    @IBOutlet weak var networkSpinner: UIActivityIndicatorView!
 
+    @IBOutlet weak var dustStackView: UIStackView! {
+        didSet {
+            self.dustStackView?.hero.id = "dust"
+            self.dustStackView.layer.cornerRadius = 10
+            self.dustStackView.clipsToBounds = true
+        }
+    }
+    @IBOutlet weak var fineDustStackView: UIStackView! {
+        didSet {
+            self.fineDustStackView?.hero.id = "fineDust"
+            self.fineDustStackView.layer.cornerRadius = 10
+            self.fineDustStackView.clipsToBounds = true
+        }
+    }
     
     @IBOutlet weak var blueView: UIView! {
         didSet {
@@ -59,6 +79,7 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    
         
         self.tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.openDetailVC))
         self.tapGesture.numberOfTapsRequired = 1
@@ -85,10 +106,18 @@ class MainViewController: UIViewController {
         self.pm10Label.text = self.airPollution?.pm10Value
         self.pm25Label.text = self.airPollution?.pm25Value
         self.pollutionStateLabel.text = self.airPollution?.pollutionState
+        self.blueView.backgroundColor = self.airPollution?.pollutionStateColor
+    }
+    
+    func setUpDustScene(pollutionState: String) {
+        let scene = DustScene(size: CGSize(width: 1050, height: 1920))
+        scene.scaleMode = .fill
+        scene.addEmitter(pollutionState: pollutionState)
+        skView = self.behindView as? SKView
+        skView.presentScene(scene)
     }
     
     @objc func openDetailVC() {
-        print("tap!!")
         if let detailVC = self.storyboard?.instantiateViewController(withIdentifier: "DetailVC") as? DetailViewController {
             present(detailVC, animated: true, completion: nil)
         }
@@ -112,7 +141,7 @@ extension MainViewController: CLLocationManagerDelegate {
         // .requestLocation will only pass one location to the locations array
         // hence we can access it by taking the first element of the array
         print(locations)
-        if let location = locations.first, !locationRequestCompletion {
+        if let _ = locations.first, !locationRequestCompletion {
             locationRequestCompletion = true
             getCurrentLocation(locations.first!) { (isSuccess, data) in
                 if isSuccess, let currentLocation = data {
@@ -127,6 +156,7 @@ extension MainViewController: CLLocationManagerDelegate {
                             }
                             self.airPollution = self.dataSource[0].airData.airPollutionData
                             self.setUpDustInfoView()
+                            self.setUpDustScene(pollutionState: self.airPollution!.pollutionState)
                         } else {
                             print("AirData request 실패 ")
                             print(error?.localizedDescription as Any)
@@ -141,6 +171,5 @@ extension MainViewController: CLLocationManagerDelegate {
                 }
             }
         }
-        
     }
 }

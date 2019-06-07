@@ -12,6 +12,10 @@
 		9B96F2BD973DAED20BE4EE49 /* Pods_ARDustTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71470FE80388F08077110502 /* Pods_ARDustTests.framework */; };
 		EF25AB4C225618ED003B7135 /* LocationCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EF25AB49225618ED003B7135 /* LocationCoreData.xcdatamodeld */; };
 		EF602D8A229A7D46008A679A /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF602D89229A7D46008A679A /* DetailViewController.swift */; };
+		EF7C935822A9F349008C7FED /* ExtensionUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7C935722A9F349008C7FED /* ExtensionUI.swift */; };
+		EF7C935C22AA577E008C7FED /* dust.sks in Resources */ = {isa = PBXBuildFile; fileRef = EF7C935B22AA577E008C7FED /* dust.sks */; };
+		EF7C935F22AA5A97008C7FED /* DustScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7C935E22AA5A97008C7FED /* DustScene.swift */; };
+		EF7C936122AA5BD2008C7FED /* UIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7C936022AA5BD2008C7FED /* UIConstants.swift */; };
 		EF92B4A7223D2F64004262A8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF92B4A6223D2F64004262A8 /* AppDelegate.swift */; };
 		EF92B4A9223D2F64004262A8 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF92B4A8223D2F64004262A8 /* MainViewController.swift */; };
 		EF92B4AC223D2F64004262A8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF92B4AA223D2F64004262A8 /* Main.storyboard */; };
@@ -65,6 +69,10 @@
 		EF25AB4B225618ED003B7135 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		EF602D88229A7A05008A679A /* Location.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Location.gpx; sourceTree = "<group>"; };
 		EF602D89229A7D46008A679A /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		EF7C935722A9F349008C7FED /* ExtensionUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionUI.swift; sourceTree = "<group>"; };
+		EF7C935B22AA577E008C7FED /* dust.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = dust.sks; sourceTree = "<group>"; };
+		EF7C935E22AA5A97008C7FED /* DustScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DustScene.swift; sourceTree = "<group>"; };
+		EF7C936022AA5BD2008C7FED /* UIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIConstants.swift; sourceTree = "<group>"; };
 		EF92B4A3223D2F64004262A8 /* ARDust.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARDust.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF92B4A6223D2F64004262A8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EF92B4A8223D2F64004262A8 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -146,6 +154,15 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		EF7C935D22AA5A72008C7FED /* SpriteScene */ = {
+			isa = PBXGroup;
+			children = (
+				EF7C935E22AA5A97008C7FED /* DustScene.swift */,
+				EF7C936022AA5BD2008C7FED /* UIConstants.swift */,
+			);
+			path = SpriteScene;
+			sourceTree = "<group>";
+		};
 		EF92B49A223D2F64004262A8 = {
 			isa = PBXGroup;
 			children = (
@@ -182,6 +199,7 @@
 				EF92B4AD223D2F65004262A8 /* Assets.xcassets */,
 				EF92B4B2223D2F65004262A8 /* Info.plist */,
 				EF25AB49225618ED003B7135 /* LocationCoreData.xcdatamodeld */,
+				EF7C935B22AA577E008C7FED /* dust.sks */,
 			);
 			path = ARDust;
 			sourceTree = "<group>";
@@ -207,6 +225,7 @@
 		EF92B4D4223D2FD3004262A8 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				EF7C935D22AA5A72008C7FED /* SpriteScene */,
 				EF92B4D7223D2FF1004262A8 /* Location */,
 				EF92B4D6223D2FE6004262A8 /* AirPollution */,
 				EF92B4D5223D2FDF004262A8 /* Request */,
@@ -247,6 +266,7 @@
 			isa = PBXGroup;
 			children = (
 				EF92B4D9223D3011004262A8 /* ExtensionCLLocationManager.swift */,
+				EF7C935722A9F349008C7FED /* ExtensionUI.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -391,6 +411,7 @@
 			files = (
 				EF92B4B1223D2F65004262A8 /* LaunchScreen.storyboard in Resources */,
 				EF92B4AE223D2F65004262A8 /* Assets.xcassets in Resources */,
+				EF7C935C22AA577E008C7FED /* dust.sks in Resources */,
 				EF92B4AC223D2F64004262A8 /* Main.storyboard in Resources */,
 				EF932602227BDAA100DFFD0D /* dust.scnassets in Resources */,
 			);
@@ -495,14 +516,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				EF92B4E8223D310F004262A8 /* AirPollutionData.swift in Sources */,
+				EF7C935F22AA5A97008C7FED /* DustScene.swift in Sources */,
 				EF25AB4C225618ED003B7135 /* LocationCoreData.xcdatamodeld in Sources */,
 				EF92B4DC223D305B004262A8 /* LocationCoordinate.swift in Sources */,
 				EF92B4DA223D3011004262A8 /* ExtensionCLLocationManager.swift in Sources */,
 				EF92B4A9223D2F64004262A8 /* MainViewController.swift in Sources */,
 				EF92B4A7223D2F64004262A8 /* AppDelegate.swift in Sources */,
 				EF92B4EC223D3147004262A8 /* RequestProtocol.swift in Sources */,
+				EF7C935822A9F349008C7FED /* ExtensionUI.swift in Sources */,
 				EF932600227BD80900DFFD0D /* ARDustViewController.swift in Sources */,
 				EF92B4E0223D308D004262A8 /* LocationData.swift in Sources */,
+				EF7C936122AA5BD2008C7FED /* UIConstants.swift in Sources */,
 				EF92B4EA223D3126004262A8 /* Request.swift in Sources */,
 				EFD2A2F02251B2AF0081AAA7 /* LocationManager.swift in Sources */,
 				EF92B4E4223D30CA004262A8 /* AirData.swift in Sources */,
