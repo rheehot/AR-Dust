@@ -29,8 +29,6 @@ class DetailViewController: UIViewController {
     
     @IBOutlet weak var dustStackView: UIStackView!
     @IBOutlet weak var fineDustStackView: UIStackView!
-    
-    
     @IBOutlet weak var pm10Value: UILabel!
     @IBOutlet weak var pm25Vlaue: UILabel!
     @IBOutlet weak var so2Value: UILabel!   // 이황산가스
@@ -38,17 +36,16 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var o3Value: UILabel!    // 오존
     @IBOutlet weak var no2Value: UILabel!   // 이산화질소
     
-    
-    
-    @IBAction func tapDismissButton(_ sender: UIButton) {
-        self.presentingViewController?.dismiss(animated: true, completion: nil)
-    }
-    
+    private var swipeGesture = UISwipeGestureRecognizer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print(appDelegate.airDataList)
+        self.swipeGesture = UISwipeGestureRecognizer(target: self, action: #selector(self.swipeDismissButton))
+        self.swipeGesture.numberOfTouchesRequired = 1
+        self.swipeGesture.direction = .down
+        self.blueView.addGestureRecognizer(self.swipeGesture)
+        self.blueView.isUserInteractionEnabled = true
         
         self.hero.isEnabled = true
         self.dustStackView.hero.id = "dust"
@@ -70,20 +67,10 @@ class DetailViewController: UIViewController {
         self.no2Value.text = appDelegate.airDataList[0].airPollutionData.no2Value
         self.blueView.backgroundColor = appDelegate.airDataList[0].airPollutionData.pollutionStateColor
     }
-    
-    
-    
-    
-    
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
+
+    // Swipe 시 dismiss 수행
+    @objc func swipeDismissButton() {
+        self.presentingViewController?.dismiss(animated: true, completion: nil)
+    }
     
 }

@@ -65,6 +65,10 @@ class MainViewController: UIViewController {
             self.grayView.clipsToBounds = true
         }
     }
+    
+    override var prefersStatusBarHidden: Bool {
+        return false
+    }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)

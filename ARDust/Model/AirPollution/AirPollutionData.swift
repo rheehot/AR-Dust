@@ -34,7 +34,7 @@ struct AirPollutionData {
     var pm25Grade1h: String?    // 미세먼지(PM2.5) 1시간 등급
     
     var pollutionState: String {
-        let pmValue = Int(self.pm10Value!)! + 30
+        let pmValue = Int(self.pm10Value!)!
         if pmValue <= 15 {
             return "최고"
         } else if pmValue <= 30 {
@@ -55,11 +55,11 @@ struct AirPollutionData {
     }
     
     var pollutionStateColor: UIColor {
-        let pmValue = Int(self.pm10Value!)! + 30
+        let pmValue = Int(self.pm10Value!)!
         if pmValue <= 15 {
-            return UIColor(red:0/255, green:128/255, blue:255/255, alpha:  1.0)
+            return UIColor.aqua()
         } else if pmValue <= 30 {
-            return  UIColor(red:102/255, green:204/255, blue:255/255, alpha:1.0)
+            return  UIColor.aqua()
         } else if pmValue <= 40 {
             return UIColor(red:102/255, green:255/255, blue:204/255, alpha:1.0)
         } else if pmValue <= 50 {
@@ -71,7 +71,7 @@ struct AirPollutionData {
         } else if pmValue <= 150 {
             return UIColor(red:128/255, green:0/255, blue:0/255, alpha:1.0)
         } else {
-            return UIColor(red:20/255, green:0/255, blue:0/255, alpha:1.0)
+            return UIColor(red:60/255, green:0/255, blue:0/255, alpha:1.0)
         }
     }
     

@@ -229,9 +229,13 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabledForSubviews" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </arscnView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X50-At-BUI">
-                                <rect key="frame" x="39" y="582" width="48" height="30"/>
-                                <state key="normal" title="Cancel">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X50-At-BUI">
+                                <rect key="frame" x="16" y="591" width="56" height="56"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="4KF-g3-qNE"/>
+                                    <constraint firstAttribute="width" constant="56" id="haU-x7-ifH"/>
+                                </constraints>
+                                <state key="normal" title="Cancel" image="arrow">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
@@ -241,10 +245,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="X50-At-BUI" firstAttribute="top" secondItem="PE2-Sm-stO" secondAttribute="top" constant="562" id="3nw-UE-oS1"/>
                             <constraint firstItem="PE2-Sm-stO" firstAttribute="bottom" secondItem="OOF-p3-PYq" secondAttribute="bottom" id="88a-Fh-c0i"/>
                             <constraint firstItem="OOF-p3-PYq" firstAttribute="top" secondItem="PE2-Sm-stO" secondAttribute="top" id="8qL-Dz-wUo"/>
-                            <constraint firstItem="X50-At-BUI" firstAttribute="leading" secondItem="PE2-Sm-stO" secondAttribute="leading" constant="39" id="lkU-k2-HhN"/>
+                            <constraint firstItem="X50-At-BUI" firstAttribute="leading" secondItem="mo3-EQ-u3j" secondAttribute="leadingMargin" id="L1T-KR-BJQ"/>
+                            <constraint firstAttribute="bottom" secondItem="X50-At-BUI" secondAttribute="bottom" constant="20" symbolic="YES" id="cPm-F7-Y0H"/>
                             <constraint firstItem="PE2-Sm-stO" firstAttribute="trailing" secondItem="OOF-p3-PYq" secondAttribute="trailing" id="mkL-cG-dxH"/>
                             <constraint firstItem="OOF-p3-PYq" firstAttribute="leading" secondItem="PE2-Sm-stO" secondAttribute="leading" id="zlR-ou-aG6"/>
                         </constraints>
@@ -257,7 +261,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aiX-WP-4Mv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1930" y="-209"/>
+            <point key="canvasLocation" x="1928.8" y="-209.14542728635683"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="9YM-d5-Wnt">
@@ -279,16 +283,6 @@
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabledForSubviews" value="YES"/>
                                         </userDefinedRuntimeAttributes>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZX2-o3-oxn">
-                                        <rect key="frame" x="22" y="22" width="67" height="39"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                        <state key="normal" title="Cancel">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="tapDismissButton:" destination="gcg-Se-krY" eventType="touchUpInside" id="8tZ-tN-0gk"/>
-                                        </connections>
-                                    </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SFp-gh-DZ6">
                                         <rect key="frame" x="30" y="163" width="315" height="537"/>
                                         <subviews>
@@ -407,7 +401,7 @@
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="oI2-oz-re4">
                                                                 <rect key="frame" x="0.0" y="0.0" width="29.5" height="49"/>
                                                                 <subviews>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="오존" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uif-FC-Kub">
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="오존" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uif-FC-Kub">
                                                                         <rect key="frame" x="0.0" y="0.0" width="29.5" height="20.5"/>
                                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -427,7 +421,7 @@
                                                                     <constraint firstItem="tOb-RE-joI" firstAttribute="width" secondItem="Uif-FC-Kub" secondAttribute="width" id="Vbh-NF-TpU"/>
                                                                 </constraints>
                                                             </stackView>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ppm" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o3H-Oq-wNn">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ppm" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o3H-Oq-wNn">
                                                                 <rect key="frame" x="0.0" y="49" width="29.5" height="26"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="26" id="lun-wr-5vb"/>
@@ -549,27 +543,34 @@
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabledForSubviews" value="YES"/>
                                         </userDefinedRuntimeAttributes>
                                     </view>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blackBar" translatesAutoresizingMaskIntoConstraints="NO" id="Je8-TP-B7x">
+                                        <rect key="frame" x="0.0" y="-17" width="375" height="61"/>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.27694814299999998" green="0.58137554430000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <gestureRecognizers/>
                                 <constraints>
-                                    <constraint firstItem="kal-8h-ESK" firstAttribute="top" secondItem="ZX2-o3-oxn" secondAttribute="bottom" constant="23" id="0AA-3i-rEK"/>
-                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="ZX2-o3-oxn" secondAttribute="trailing" constant="20" symbolic="YES" id="CH4-bB-hyt"/>
                                     <constraint firstItem="SFp-gh-DZ6" firstAttribute="centerX" secondItem="z9Z-pP-UWc" secondAttribute="centerX" id="LvR-kk-x9P"/>
                                     <constraint firstItem="SFp-gh-DZ6" firstAttribute="leading" secondItem="z9Z-pP-UWc" secondAttribute="leading" constant="30" id="T0Y-BC-jya"/>
                                     <constraint firstItem="SFp-gh-DZ6" firstAttribute="top" secondItem="z9Z-pP-UWc" secondAttribute="top" constant="163" id="U4h-zf-0dt"/>
                                     <constraint firstItem="kal-8h-ESK" firstAttribute="centerX" secondItem="SFp-gh-DZ6" secondAttribute="centerX" id="VXa-RX-2zp"/>
                                     <constraint firstItem="SFp-gh-DZ6" firstAttribute="top" secondItem="kal-8h-ESK" secondAttribute="bottom" constant="8" symbolic="YES" id="Xdx-55-nuH"/>
-                                    <constraint firstItem="ZX2-o3-oxn" firstAttribute="leading" secondItem="z9Z-pP-UWc" secondAttribute="leading" constant="22" id="YNS-zr-YMg"/>
                                     <constraint firstItem="kal-8h-ESK" firstAttribute="top" secondItem="z9Z-pP-UWc" secondAttribute="top" constant="84" id="aay-Dv-d7j"/>
                                     <constraint firstItem="kal-8h-ESK" firstAttribute="leading" secondItem="z9Z-pP-UWc" secondAttribute="leading" constant="67" id="bmn-f4-flc"/>
+                                    <constraint firstItem="Je8-TP-B7x" firstAttribute="top" secondItem="z9Z-pP-UWc" secondAttribute="top" constant="-17" id="fpF-sF-Aor"/>
+                                    <constraint firstItem="Je8-TP-B7x" firstAttribute="leading" secondItem="z9Z-pP-UWc" secondAttribute="leading" id="jMb-sG-f6J"/>
+                                    <constraint firstItem="kal-8h-ESK" firstAttribute="top" secondItem="Je8-TP-B7x" secondAttribute="bottom" constant="40" id="oic-HQ-LYh"/>
                                     <constraint firstAttribute="bottom" secondItem="SFp-gh-DZ6" secondAttribute="bottom" constant="-53" id="vz6-tr-HhE"/>
+                                    <constraint firstItem="Je8-TP-B7x" firstAttribute="centerX" secondItem="kal-8h-ESK" secondAttribute="centerX" id="xW6-nX-TUV"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="ironMan"/>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabledForSubviews" value="YES"/>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="ft7-uW-kYC" appends="YES" id="USu-Kq-YZc"/>
+                                </connections>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -600,8 +601,13 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Dw-iS-BPx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="right" id="ft7-uW-kYC"/>
             </objects>
             <point key="canvasLocation" x="1928.8" y="501.49925037481262"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="arrow" width="518" height="532"/>
+        <image name="blackBar" width="672" height="176"/>
+    </resources>
 </document>

@@ -13,17 +13,20 @@ import SceneKit
 
 class ARDustViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate  {
     // MARK: - IBOutlet
+    private let appDelegate = (UIApplication.shared.delegate as! AppDelegate)
+
     @IBOutlet var sceneView: ARSCNView!
-    
     @IBOutlet weak var cancelButton: UIButton! {
         didSet {
-            self.cancelButton.backgroundColor = UIColor.yellow
-            self.cancelButton.layer.cornerRadius = 10
-            self.cancelButton.clipsToBounds = true
+            let cancelImage = UIImage(named: "arrow")?.withRenderingMode(.alwaysTemplate)
+            self.cancelButton.setImage(cancelImage, for: .normal)
         }
     }
     
     var scene = SCNScene()
+    
+    var pm10ValueNode = SCNNode()
+    var pm25ValueNode = SCNNode()
     
     // 미세먼지 SCNNode
     var fineDustNode: SCNNode = {
@@ -41,6 +44,7 @@ class ARDustViewController: UIViewController, ARSCNViewDelegate, ARSessionDelega
         return dustNode
     }()
     
+
     @IBAction func tapCancelButton(_ sender: UIButton) {
         self.presentingViewController!.dismiss(animated: true, completion: nil)
     }
@@ -52,12 +56,37 @@ class ARDustViewController: UIViewController, ARSCNViewDelegate, ARSessionDelega
         sceneView.delegate = self
         sceneView.showsStatistics = true
         
+        let fineDustText: String = "미세먼지: \(String(describing: appDelegate.airDataList[0].airPollutionData.pm10Value!))"
+        let ultraFineDustText: String = "초미세먼지: \(String(describing: appDelegate.airDataList[0].airPollutionData.pm25Value!))"
+        let pm10ValueText = SCNText(string: fineDustText, extrusionDepth: 1)
+        let material = SCNMaterial()
+        material.diffuse.contents = self.setTextColor()
+        pm10ValueText.materials = [material]
+        
+        pm10ValueNode.position = SCNVector3(0, 0.02, -0.6)
+        pm10ValueNode.scale = SCNVector3(0.005,0.005,0.005)
+        pm10ValueNode.geometry = pm10ValueText
+        
+        let pm25ValueText = SCNText(string: ultraFineDustText, extrusionDepth: 1)
+        let material2 = SCNMaterial()
+        material2.diffuse.contents = self.setTextColor()
+        pm25ValueText.materials = [material2]
+        
+        pm25ValueNode.position = SCNVector3(0, 0.08, -0.6)
+        pm25ValueNode.scale = SCNVector3(0.005,0.005,0.005)
+        pm25ValueNode.geometry = pm25ValueText
+        
+        
+        
         if let scene = SCNScene(named: "dust.scnassets/scene.scn") {
             self.scene = scene
         } else {
             print("scn file is empty")
         }
         // particle system
+        
+        
+        
         self.setUpSceneView()
     }
     
@@ -75,11 +104,19 @@ class ARDustViewController: UIViewController, ARSCNViewDelegate, ARSessionDelega
     }
     
     func setUpSceneView() {
+        scene.rootNode.addChildNode(pm10ValueNode)
+        scene.rootNode.addChildNode(pm25ValueNode)
         scene.rootNode.addChildNode(fineDustNode)
         scene.rootNode.addChildNode(ultraFineDust)
+        sceneView.showsStatistics = false
         sceneView.scene = scene
     }
+    
+    func setTextColor() -> UIColor {
+        return appDelegate.airDataList[0].airPollutionData.pollutionStateColor
+    }
 
+    
     
 
     /*
