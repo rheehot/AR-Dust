@@ -28,6 +28,7 @@ class MainViewController: UIViewController {
     private var skView: SKView!
     
     // MARK:- IBOutlet
+    @IBOutlet weak var shareButton: UIButton!
     @IBOutlet weak var arButton: UIButton!
     @IBOutlet weak var behindView: UIView!
     @IBOutlet weak var locationName: UILabel!
@@ -35,6 +36,17 @@ class MainViewController: UIViewController {
     @IBOutlet weak var pm25Label: UILabel!      //초미세먼지
     @IBOutlet weak var pollutionStateLabel: UILabel!
     @IBOutlet weak var networkSpinner: UIActivityIndicatorView!
+    
+    @IBOutlet weak var timeLabel: UILabel! {
+        didSet {
+            let date = Date()
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "HH:mm"
+            let dateString = dateFormatter.string(from: date)
+            
+            self.timeLabel.text = dateString
+        }
+    }
 
     @IBOutlet weak var dustStackView: UIStackView! {
         didSet {
@@ -87,8 +99,8 @@ class MainViewController: UIViewController {
         
         self.tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.openDetailVC))
         self.tapGesture.numberOfTapsRequired = 1
-        self.blueView.addGestureRecognizer(self.tapGesture)
-        self.blueView.isUserInteractionEnabled = true
+        self.grayView.addGestureRecognizer(self.tapGesture)
+        self.grayView.isUserInteractionEnabled = true
     
         manager.delegate = self
         manager.desiredAccuracy = kCLLocationAccuracyThreeKilometers
@@ -117,6 +129,7 @@ class MainViewController: UIViewController {
         let scene = DustScene(size: CGSize(width: 1050, height: 1920))
         scene.scaleMode = .fill
         scene.addEmitter(pollutionState: pollutionState)
+        scene.addBackground(pollutionState: pollutionState)
         skView = self.behindView as? SKView
         skView.presentScene(scene)
     }
@@ -126,6 +139,28 @@ class MainViewController: UIViewController {
             present(detailVC, animated: true, completion: nil)
         }
     }
+    
+    @IBAction func tapShareButton(_ sender: UIButton) {
+        // 앱 screen 샷을 찍어 공유하기 기능 구현
+        var image: UIImage?
+        var screenImages = [UIImage]()
+        
+        UIGraphicsBeginImageContextWithOptions(view.frame.size, true, 0)
+        guard let currentContext = UIGraphicsGetCurrentContext() else { return }
+        view.layer.render(in: currentContext)
+        image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        guard let screenImage = image else { return }
+        screenImages.append(screenImage)
+        
+        // 공유하기 activity
+        let shareScreen = UIActivityViewController(activityItems: screenImages, applicationActivities: nil)
+        let popoverPresentationController = shareScreen.popoverPresentationController
+        popoverPresentationController?.permittedArrowDirections = .any
+        present(shareScreen, animated: true, completion: nil)
+    }
+    
+    
     
 }
 
@@ -177,3 +212,4 @@ extension MainViewController: CLLocationManagerDelegate {
         }
     }
 }
+

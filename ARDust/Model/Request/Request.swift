@@ -10,15 +10,19 @@ import Foundation
 import Alamofire
 
 enum URIType: String {
+    case getRealTimeWeatherCast
     case getNearbyMsrstnList
     case getMsrstnAcctoRltmMesureDnsty
 }
 
+
 class Request: RequestProtocol {
     // MARK: - Properties
     // MARK: -
-    private let serviceKey = "5t%2FaG7XwaI3khwGfzdWSguvJz%2BjgYub37AHz4oY1qubvtwNYe3V7XpClwmCt0hWUSE%2F%2BaR3F0LQUxyr1lcLL2Q%3D%3D"
+    
+    private let serviceKey = ""
     private let airPollution = AirPollution()
+    private let weather = Weather()
     private let locationCoordinate = LocationCoordinate()
     // 영구 저장소에 저장 되어있는 위치 데이터를 로딩 한다.
     private lazy var locations: [LocationData] = {
@@ -76,7 +80,6 @@ class Request: RequestProtocol {
             }
         }
  
-        
         dispatchGroup.notify(queue: .main) {
             // 네트워크 인디케이터 로딩 종료
             UIApplication.shared.isNetworkActivityIndicatorVisible = false
@@ -106,7 +109,7 @@ class Request: RequestProtocol {
             let longtitude = data.longitude else {
                 return
         }
-        
+       // var weatherRealTimeData = WeatherRealtimeData()
         var airPollutionData = AirPollutionData()
         let dispatchGroup = DispatchGroup()
         var requestError: RequestError?
@@ -126,12 +129,24 @@ class Request: RequestProtocol {
                     dispatchGroup.leave()
                 }
             } else {
-//                print(data)
                 print("근접 측정소 값 반환 실패")
                 requestError = error
             }
             dispatchGroup.leave()
         }
+        
+      //  dispatchGroup.enter()
+//        requestRealTimeWeatherCast(latitude: latitude, longtitude: longtitude) { (isSuccess, data, error) in
+//            if isSuccess, let data = data as? WeatherRealtimeData {
+//                weatherRealTimeData = data
+//            } else {
+//                print("날씨예보 가져오기에 실패했습니다.")
+//                requestError = error
+//            }
+//            dispatchGroup.leave()
+//        }
+//
+        
         dispatchGroup.notify(queue: .global()) {
             // requestError 존재한다면 에러를, 아닐 경우 데이터 전달
             if requestError != nil {
@@ -148,8 +163,9 @@ class Request: RequestProtocol {
     
     func createURL(_ type: URIType) -> URL? {
         var urlString: String
-        
         switch type {
+        case .getRealTimeWeatherCast:
+            urlString = "http://newsky2.kma.go.kr/service/SecndSrtpdFrcstInfoService2/"
         case .getNearbyMsrstnList:
             urlString = "http://openapi.airkorea.or.kr/openapi/services/rest/MsrstnInfoInqireSvc/"
         case .getMsrstnAcctoRltmMesureDnsty:
@@ -163,6 +179,34 @@ class Request: RequestProtocol {
         
         return url
     }
+    
+    // 실시간 단기 예보
+    private func requestRealTimeWeatherCast(latitude: Double, longtitude: Double, completion: @escaping requestCompletionHandler) {
+        guard let url = createURL(.getRealTimeWeatherCast) else {
+            return
+        }
+        
+        let (nx, ny) = locationCoordinate.convertToGrid(latitude: latitude, longitude: longtitude)
+        let (date, time) = weather.getBaseDateTime(.realtime)
+        let parameters: Parameters = [
+            "base_date": date,
+            "base_time": time,
+            "nx": nx,
+            "ny": ny,
+            "_type": "json",
+            "numOfRows": 10
+        ]
+        
+        AF.request(url, method: .get, parameters: parameters, encoding: URLEncoding.default).responseJSON { (response) in
+            if let data = self.weather.extractData(.realtime, data: response.result.value) {
+                completion(true, data, nil)
+            } else {
+                print("실시간 단기 예보 가져오기 실패")
+                completion(false, nil, RequestError.requestFailed)
+            }
+        }
+    }
+    
     
     /// 근접측정소 목록을 호출하는 메서드
     private func requestNearbyMsrstnList(latitude: Double, longitude: Double, completion: @escaping requestCompletionHandler) {

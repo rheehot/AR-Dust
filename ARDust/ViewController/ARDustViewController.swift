@@ -28,6 +28,11 @@ class ARDustViewController: UIViewController, ARSCNViewDelegate, ARSessionDelega
     var pm10ValueNode = SCNNode()
     var pm25ValueNode = SCNNode()
     
+    var pollutionState: String = {
+        let pollutionState = (UIApplication.shared.delegate as! AppDelegate).airDataList[0].airPollutionData.pollutionState
+        return pollutionState
+    }()
+    
     // 미세먼지 SCNNode
     var fineDustNode: SCNNode = {
         let dustNode = SCNNode()
@@ -55,6 +60,13 @@ class ARDustViewController: UIViewController, ARSCNViewDelegate, ARSessionDelega
         
         sceneView.delegate = self
         sceneView.showsStatistics = true
+        
+        let dustParticleSystem = SCNParticleSystem(named: "dust.scnassets/dustParticle", inDirectory: nil)
+        dustParticleSystem?.birthRate = self.setParticleBirthRate()
+        fineDustNode.addParticleSystem(dustParticleSystem!)
+        let ultraParticleSystem = SCNParticleSystem(named: "dust.scnassets/ultraFineDust", inDirectory: nil)
+        ultraParticleSystem?.birthRate = self.setParticleBirthRate()
+        ultraFineDust.addParticleSystem(ultraParticleSystem!)
         
         let fineDustText: String = "미세먼지: \(String(describing: appDelegate.airDataList[0].airPollutionData.pm10Value!))"
         let ultraFineDustText: String = "초미세먼지: \(String(describing: appDelegate.airDataList[0].airPollutionData.pm25Value!))"
@@ -115,18 +127,28 @@ class ARDustViewController: UIViewController, ARSCNViewDelegate, ARSessionDelega
     func setTextColor() -> UIColor {
         return appDelegate.airDataList[0].airPollutionData.pollutionStateColor
     }
-
     
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func setParticleBirthRate() -> CGFloat {
+        let pollutionState = appDelegate.airDataList[0].airPollutionData.pollutionState
+        
+        switch pollutionState {
+        case "최고","좋음":
+            return 0
+        case "양호":
+            return 30
+        case "보통":
+            return 70
+        case "나쁨":
+            return 100
+        case "상당히 나쁨":
+            return 150
+        case "매우 나쁨":
+            return 200
+        case "최악":
+            return 300
+        default:
+            return 0
+        }
     }
-    */
 
 }
