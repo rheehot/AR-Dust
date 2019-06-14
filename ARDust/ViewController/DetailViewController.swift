@@ -13,7 +13,8 @@ class DetailViewController: UIViewController {
     
     private let appDelegate = (UIApplication.shared.delegate as! AppDelegate)
     
-    @IBOutlet weak var blueView: UIView! 
+    @IBOutlet weak var blueView: UIView!
+    
     @IBOutlet weak var grayView: UIView! {
         didSet {
             self.grayView.layer.cornerRadius = 10
@@ -24,6 +25,29 @@ class DetailViewController: UIViewController {
         didSet {
             self.whiteView.layer.cornerRadius = 10
             self.whiteView.clipsToBounds = true
+        }
+    }
+    
+    @IBOutlet weak var timeLabel: UILabel! {
+        didSet {
+            let date = Date()
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "HH:mm"
+            let dateString = dateFormatter.string(from: date)
+            self.timeLabel.text = dateString
+        }
+    }
+    
+    @IBOutlet weak var locationLabel: UILabel! {
+        didSet {
+            self.locationLabel.text = "\(appDelegate.airDataList[0].locationName)은 지금 "
+        }
+    }
+    
+    @IBOutlet weak var stateLabel: UILabel! {
+        didSet {
+            self.stateLabel.text = appDelegate.airDataList[0].airPollutionData.pollutionState
+            self.stateLabel.textColor = appDelegate.airDataList[0].airPollutionData.pollutionStateColor
         }
     }
     

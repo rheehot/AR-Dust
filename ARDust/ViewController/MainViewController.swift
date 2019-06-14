@@ -35,7 +35,6 @@ class MainViewController: UIViewController {
     @IBOutlet weak var pm10Label: UILabel!      //미세먼지
     @IBOutlet weak var pm25Label: UILabel!      //초미세먼지
     @IBOutlet weak var pollutionStateLabel: UILabel!
-    @IBOutlet weak var networkSpinner: UIActivityIndicatorView!
     
     @IBOutlet weak var timeLabel: UILabel! {
         didSet {
@@ -84,6 +83,7 @@ class MainViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        appDelegate.shouldSupportAllOrientation = false
         reloadData()
     }
     
@@ -127,9 +127,8 @@ class MainViewController: UIViewController {
     
     func setUpDustScene(pollutionState: String) {
         let scene = DustScene(size: CGSize(width: 1050, height: 1920))
+        scene.pollutionState = pollutionState
         scene.scaleMode = .fill
-        scene.addEmitter(pollutionState: pollutionState)
-        scene.addBackground(pollutionState: pollutionState)
         skView = self.behindView as? SKView
         skView.presentScene(scene)
     }

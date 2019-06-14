@@ -10,15 +10,16 @@ import SpriteKit
 
 class DustScene: SKScene {
     let gem = SKSpriteNode(imageNamed: "spark")
+    var pollutionState: String = "default"
     
     override func didMove(to view: SKView) {
-        addBackground(pollutionState: "default")
+        addBackground()
         addGem()
-        addEmitter(pollutionState: "default")
+        addEmitter()
     }
     
-    func addBackground(pollutionState: String) {
-        let backDrop = getBackgroundAsset(pollutionState: pollutionState)
+    func addBackground() {
+        let backDrop = getBackgroundAsset()
         addChild(backDrop)
         backDrop.size.width = size.width
         backDrop.size.height = size.height
@@ -34,8 +35,8 @@ class DustScene: SKScene {
 
     }
     
-    func setUpEmitter(pollutionState: String) -> CGFloat {
-        switch pollutionState {
+    func setUpEmitter() -> CGFloat {
+        switch self.pollutionState {
         case "최고","좋음":
             return 0
         case "양호":
@@ -66,7 +67,7 @@ class DustScene: SKScene {
     }
     
     // 시간과 미세먼지 농도에 따라 뒤에 그려질 배경설정
-    func getBackgroundAsset(pollutionState: String) -> SKSpriteNode {
+    func getBackgroundAsset() -> SKSpriteNode {
         let currentTime = Int(getCurrentTime())!
         
         if currentTime < 12 {
@@ -86,9 +87,9 @@ class DustScene: SKScene {
         }
     }
     
-    func addEmitter(pollutionState: String) {
-        let birthRate = setUpEmitter(pollutionState: pollutionState)
-        let speed = setUpEmitter(pollutionState: pollutionState)
+    func addEmitter() {
+        let birthRate = setUpEmitter()
+        let speed = setUpEmitter()
         let emitter = SKEmitterNode(fileNamed: Emitter.dust)!
         emitter.particleBirthRate = birthRate
         emitter.speed = speed
