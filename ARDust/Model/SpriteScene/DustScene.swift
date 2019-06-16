@@ -70,14 +70,14 @@ class DustScene: SKScene {
     func getBackgroundAsset() -> SKSpriteNode {
         let currentTime = Int(getCurrentTime())!
         
-        if currentTime < 12 {
-            if pollutionState == "좋음" && pollutionState == "양호" && pollutionState == "보통" {
+        if  6 < currentTime && currentTime < 12 {
+            if pollutionState == "최고" || pollutionState == "양호" || pollutionState == "보통" {
                 return SKSpriteNode(imageNamed: "goodMorning")
             } else {
                 return SKSpriteNode(imageNamed: "notgoodMorning")
             }
         } else if currentTime < 18 {
-            if pollutionState == "좋음" && pollutionState == "양호" && pollutionState == "보통" {
+            if pollutionState == "최고" || pollutionState == "양호" || pollutionState == "보통" {
                 return SKSpriteNode(imageNamed: "goodAfternoon")
             } else {
                 return SKSpriteNode(imageNamed: "notgoodAfternoon")

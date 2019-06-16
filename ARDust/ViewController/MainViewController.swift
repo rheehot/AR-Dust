@@ -14,6 +14,9 @@ import CoreLocation
 class MainViewController: UIViewController {
     
     
+    var startValue = 0
+    var startValue2 = 0
+    
     // MARK:- Properties
     var airData: AirData?   // Test 용
     private var airPollution: AirPollutionData?
@@ -95,7 +98,6 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
         
         self.tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.openDetailVC))
         self.tapGesture.numberOfTapsRequired = 1
@@ -114,13 +116,35 @@ class MainViewController: UIViewController {
         if(CLLocationManager.authorizationStatus() == .authorizedWhenInUse || CLLocationManager.authorizationStatus() == .authorizedAlways){
             locationManager.requestLocation()
         }
+    }
+    
+    @objc func handleUpdate() {
+        guard let endPm10Value = Int(self.airPollution!.pm10Value!) else {
+            return
+        }
+        guard let endPm25Value = Int(self.airPollution!.pm25Value!) else {
+            return
+        }
+        self.pm10Label.text = "\(startValue)"
+        startValue += 1
+        
+        if startValue > endPm10Value {
+            startValue = endPm10Value
+        }
+        
+        self.pm25Label.text = "\(startValue2)"
+        startValue2 += 1
+        
+        if startValue2 > endPm25Value {
+            startValue2 = endPm25Value
+        }
         
     }
     
     func setUpDustInfoView() {
+        let displayLink = CADisplayLink(target: self, selector: #selector(handleUpdate))
+        displayLink.add(to: .main, forMode: .default)
         self.locationName.text = dataSource[0].airData.locationName + "의 공기는"
-        self.pm10Label.text = self.airPollution?.pm10Value
-        self.pm25Label.text = self.airPollution?.pm25Value
         self.pollutionStateLabel.text = self.airPollution?.pollutionState
         self.blueView.backgroundColor = self.airPollution?.pollutionStateColor
     }

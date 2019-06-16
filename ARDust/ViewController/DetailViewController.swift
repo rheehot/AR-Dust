@@ -40,7 +40,7 @@ class DetailViewController: UIViewController {
     
     @IBOutlet weak var locationLabel: UILabel! {
         didSet {
-            self.locationLabel.text = "\(appDelegate.airDataList[0].locationName)은 지금 "
+            self.locationLabel.text = "\(appDelegate.airDataList[0].locationName)의 공기는"
         }
     }
     
