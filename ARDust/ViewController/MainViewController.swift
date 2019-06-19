@@ -144,6 +144,7 @@ class MainViewController: UIViewController {
     func setUpDustInfoView() {
         let displayLink = CADisplayLink(target: self, selector: #selector(handleUpdate))
         displayLink.add(to: .main, forMode: .default)
+        displayLink.preferredFramesPerSecond = 30
         self.locationName.text = dataSource[0].airData.locationName + "의 공기는"
         self.pollutionStateLabel.text = self.airPollution?.pollutionState
         self.blueView.backgroundColor = self.airPollution?.pollutionStateColor

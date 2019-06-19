@@ -11,6 +11,7 @@
 		8D1B212507BD4759B6679E4F /* Pods_ARDust.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D3D8349D4A21ABCA657D484 /* Pods_ARDust.framework */; };
 		9B96F2BD973DAED20BE4EE49 /* Pods_ARDustTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71470FE80388F08077110502 /* Pods_ARDustTests.framework */; };
 		EF25AB4C225618ED003B7135 /* LocationCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EF25AB49225618ED003B7135 /* LocationCoreData.xcdatamodeld */; };
+		EF46FAE122B9C98100AB7445 /* fileFlies.sks in Resources */ = {isa = PBXBuildFile; fileRef = EF46FAE022B9C98100AB7445 /* fileFlies.sks */; };
 		EF602D8A229A7D46008A679A /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF602D89229A7D46008A679A /* DetailViewController.swift */; };
 		EF654D7122ABED8F00527E38 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF654D7022ABED8F00527E38 /* Weather.swift */; };
 		EF654D7322ABEDF100527E38 /* WeatherRealtimeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF654D7222ABEDF100527E38 /* WeatherRealtimeData.swift */; };
@@ -69,6 +70,7 @@
 		DB445CB0FC1149C8C643CC91 /* Pods-ARDust.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ARDust.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ARDust/Pods-ARDust.debug.xcconfig"; sourceTree = "<group>"; };
 		EF25AB4A225618ED003B7135 /* LocationCoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LocationCoreData.xcdatamodel; sourceTree = "<group>"; };
 		EF25AB4B225618ED003B7135 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		EF46FAE022B9C98100AB7445 /* fileFlies.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = fileFlies.sks; sourceTree = "<group>"; };
 		EF602D88229A7A05008A679A /* Location.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Location.gpx; sourceTree = "<group>"; };
 		EF602D89229A7D46008A679A /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		EF654D7022ABED8F00527E38 /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
@@ -213,6 +215,7 @@
 				EF92B4B2223D2F65004262A8 /* Info.plist */,
 				EF25AB49225618ED003B7135 /* LocationCoreData.xcdatamodeld */,
 				EF7C935B22AA577E008C7FED /* dust.sks */,
+				EF46FAE022B9C98100AB7445 /* fileFlies.sks */,
 			);
 			path = ARDust;
 			sourceTree = "<group>";
@@ -428,6 +431,7 @@
 				EF7C935C22AA577E008C7FED /* dust.sks in Resources */,
 				EF92B4AC223D2F64004262A8 /* Main.storyboard in Resources */,
 				EF932602227BDAA100DFFD0D /* dust.scnassets in Resources */,
+				EF46FAE122B9C98100AB7445 /* fileFlies.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

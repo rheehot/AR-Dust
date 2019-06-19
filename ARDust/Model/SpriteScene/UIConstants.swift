@@ -16,4 +16,5 @@ struct Layers {
 
 struct Emitter {
     static let dust = "dust"
+    static let fileFlies = "fileFlies"
 }

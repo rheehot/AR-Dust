@@ -9,12 +9,11 @@
 import SpriteKit
 
 class DustScene: SKScene {
-    let gem = SKSpriteNode(imageNamed: "spark")
     var pollutionState: String = "default"
     
     override func didMove(to view: SKView) {
         addBackground()
-        addGem()
+        //addGem()
         addEmitter()
     }
     
@@ -25,14 +24,6 @@ class DustScene: SKScene {
         backDrop.size.height = size.height
         backDrop.position = CGPoint(x: size.width / 2, y: size.height / 2)
         backDrop.zPosition = Layers.background
-    }
-    
-    func addGem() {
-        addChild(gem)
-        gem.position = CGPoint(x: size.width / 2, y: size.height * 0.7)
-        gem.zPosition = Layers.gem
-        gem.setScale(2.5)
-
     }
     
     func setUpEmitter() -> CGFloat {
@@ -76,6 +67,7 @@ class DustScene: SKScene {
             } else {
                 return SKSpriteNode(imageNamed: "notgoodMorning")
             }
+            
         } else if currentTime < 18 {
             if pollutionState == "최고" || pollutionState == "양호" || pollutionState == "보통" {
                 return SKSpriteNode(imageNamed: "goodAfternoon")
@@ -90,12 +82,24 @@ class DustScene: SKScene {
     func addEmitter() {
         let birthRate = setUpEmitter()
         let speed = setUpEmitter()
-        let emitter = SKEmitterNode(fileNamed: Emitter.dust)!
+        let emitter = setEmitterNode()
         emitter.particleBirthRate = birthRate
         emitter.speed = speed
         emitter.zPosition = Layers.emitter
         emitter.position = CGPoint(x: size.width / 2, y: size.height)
         addChild(emitter)
 
+    }
+    
+    func setEmitterNode() -> SKEmitterNode {
+        if self.pollutionState == "최고" || self.pollutionState == "양호" {
+            if let emitter = SKEmitterNode(fileNamed: Emitter.fileFlies) {
+                return emitter
+            } else {
+                return SKEmitterNode(fileNamed: Emitter.dust)!
+            }
+        } else {
+            return SKEmitterNode(fileNamed: Emitter.dust)!
+        }
     }
 }
