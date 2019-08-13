@@ -1,10 +1,10 @@
 # ARDust  
 > ARKit를 이용해 시각화 한 미세 먼지 정보 앱   
 
-![1](https://user-images.githubusercontent.com/33486820/62941482-18204400-be11-11e9-8fd7-26ad1ba8a91c.gif)  
+<img width="400" src="https://user-images.githubusercontent.com/33486820/62941482-18204400-be11-11e9-8fd7-26ad1ba8a91c.gif"> 
 
 
-![4](https://user-images.githubusercontent.com/33486820/62941535-3ab25d00-be11-11e9-81a8-05b72e49adf5.gif)  
+<img width="400" src="https://user-images.githubusercontent.com/33486820/62941535-3ab25d00-be11-11e9-81a8-05b72e49adf5.gif">  
 
 ## 앱 소개
 
