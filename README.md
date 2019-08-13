@@ -1,56 +1,53 @@
-# ARKit를 이용해 시각화 한 미세 먼지 정보 앱
+# ARDust  
+> ARKit를 이용해 시각화 한 미세 먼지 정보 앱   
+
+![1](https://user-images.githubusercontent.com/33486820/62941482-18204400-be11-11e9-8fd7-26ad1ba8a91c.gif)  
 
 
-> 대기 오염 정도 및 날씨 예보를 해주고 현재 미세먼지 및 날씨를 ARKit 로 시각화 하여 보여준다.
+![4](https://user-images.githubusercontent.com/33486820/62941535-3ab25d00-be11-11e9-81a8-05b72e49adf5.gif)  
 
-- 미세먼지: 한국환경공단 (대기오염 및 측정소 정보)
+## 앱 소개
 
-기능
-
-
-- 미세먼지 관련해서 정보를 보여준다. 그 후 미세먼지의 농도( 한국환경공단에서 정해진 표준에 따라 미세먼지의 시각화를  디자인 한 후 보여준다)
-
-- 날씨와 미세먼지 따른 시각화를 보여준다
-
-한국환경공단에서 정해놓은 미세먼지 표준 에 의한 AR 시각화 서비스를 제공한다.
+<img width="1362" alt="image" src="https://user-images.githubusercontent.com/33486820/62939498-697a0480-be0c-11e9-957a-1e2d6dd8ec1f.png">  
 
 
+<img width="958" alt="image" src="https://user-images.githubusercontent.com/33486820/62939286-e193fa80-be0b-11e9-8f4f-14a84c3ef4f5.png">
 
 
-외부 라이브러리
+## 배경  
 
-- Alamofire (API 연동을 위해)
-- coreLocation (위치정보)
-- ARKit (미세먼지 가시화)
+<img width="984" alt="image" src="https://user-images.githubusercontent.com/33486820/62939091-66cadf80-be0b-11e9-928b-c5a7f816adba.png">  
+
+## 사용한 기술 & 아키텍쳐
+
+<img width="977" alt="image" src="https://user-images.githubusercontent.com/33486820/62939154-8eba4300-be0b-11e9-996f-d8e65f70156e.png">  
+
+![image](https://user-images.githubusercontent.com/33486820/62939561-8f070e00-be0c-11e9-9642-fdd1f596856f.png)  
+
+- Tool & Language : `Xcode`, `Swift4`
+- iOS Framework : `CoreData`, `CoreLocation`, `ARKit`, `SceneKit(3D)`, `SpriteKit(2D)`
+- 외부라이브러리 : [Alamofire](https://github.com/Alamofire/Alamofire), [Hero Transition](https://github.com/HeroTransitions/Hero)(뷰 전환애니메이션)
 
 
-- PM10(미세먼지) 농도 분류
-  - 농도범위 좋음(0 ~ 15)
-  - 농도범위 보통(16 ~ 35)
-  - 농도범위 나쁨(36 ~ 75)
-  - 농도범위 매우나쁨(76 ~ )
+## 실시간 미세먼지 정보 기능  
+
+<img width="994" alt="image" src="https://user-images.githubusercontent.com/33486820/62940103-c6c28580-be0d-11e9-9ae8-deb0c3e5d08a.png">
+
+- 농도범위 좋음(0 ~ 15)
+- 농도범위 보통(16 ~ 35)
+- 농도범위 나쁨(36 ~ 75)
+- 농도범위 매우나쁨(76 ~ )
   
 출처: [에어코리아](http://www.airkorea.or.kr/web)
 
-- 미세먼지 SceneKit Particle Model  
-
-![화면-기록-2019-04-29-오전-1 39 35](https://user-images.githubusercontent.com/33486820/56867426-0f516100-6a20-11e9-9273-f9e64d39524b.gif)  
-
-- Bokeh Particle System 을 사용 
-(미세먼지, 초미세먼지 각각의 농도에 따라 다르게 적용)  
-
-## Prototype  
-
-<img src="https://user-images.githubusercontent.com/33486820/58365638-3c4f4180-7f02-11e9-95dc-5cca6dd588f0.gif" width="200">  
-
-<img src="https://user-images.githubusercontent.com/33486820/58365656-86382780-7f02-11e9-8865-4e714764069b.png" width="200">  
+## 미세먼지 시각화 기능  
 
 
 
+## TODO: 추가 기능  
 
+<img width="907" alt="image" src="https://user-images.githubusercontent.com/33486820/62941092-2de13980-be10-11e9-9636-ca4ee398d289.png">
 
-## 개선 방향
-
-- CoreData 를 활용하여 현재 위치 및 위젯으로 추가한 지역 인 메모리에 저장하기, 이는 앱을 재실 행 하였을 때 위치 정보를 다시 받아올 필요 없이 영구 적으로 내부에 저장 시키기 위한 용도
-
-- 지역목록 API를 사용해서 지역 검색 기능을 추가해야한다.
+- 기상청 API를 활용하여 날씨 기능도 추가 할 수 있도록 한다.
+- Firebase Cloud Message(FCM)과 연동하여 미세먼지 경보를 알릴 수 있도록 한다
+- 다른 SNS와 연동하여 공유기능을 확대한다
