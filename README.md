@@ -39,6 +39,9 @@
 
 <img width="994" alt="image" src="https://user-images.githubusercontent.com/33486820/62940103-c6c28580-be0d-11e9-9ae8-deb0c3e5d08a.png">
 
+<img width="994" alt="스크린샷 2019-08-13 오후 8 54 18" src="https://user-images.githubusercontent.com/33486820/63030248-fbf1d500-beec-11e9-9f6d-ec726e0d9dd7.png">
+
+
 - 농도범위 좋음(0 ~ 15)
 - 농도범위 보통(16 ~ 35)
 - 농도범위 나쁨(36 ~ 75)
