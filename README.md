@@ -26,7 +26,8 @@
 
 <img width="977" alt="image" src="https://user-images.githubusercontent.com/33486820/62939154-8eba4300-be0b-11e9-996f-d8e65f70156e.png">  
 
-![image](https://user-images.githubusercontent.com/33486820/62939561-8f070e00-be0c-11e9-9642-fdd1f596856f.png)  
+
+![image](https://user-images.githubusercontent.com/33486820/63030125-c77e1900-beec-11e9-94cc-70a4798c8992.png)
 
 - Tool & Language : `Xcode`, `Swift4`
 - iOS Framework : `CoreData`, `CoreLocation`, `ARKit`, `SceneKit(3D)`, `SpriteKit(2D)`
