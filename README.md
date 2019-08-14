@@ -10,15 +10,15 @@
 
 ## 앱 소개
 
-<img width="1362" alt="image" src="https://user-images.githubusercontent.com/33486820/62939498-697a0480-be0c-11e9-957a-1e2d6dd8ec1f.png">  
+<img width="977" alt="image" src="https://user-images.githubusercontent.com/33486820/62939498-697a0480-be0c-11e9-957a-1e2d6dd8ec1f.png">  
 
 
-<img width="958" alt="image" src="https://user-images.githubusercontent.com/33486820/62939286-e193fa80-be0b-11e9-8f4f-14a84c3ef4f5.png">
+<img width="977" alt="image" src="https://user-images.githubusercontent.com/33486820/62939286-e193fa80-be0b-11e9-8f4f-14a84c3ef4f5.png">
 
 
 ## 배경  
 
-<img width="984" alt="image" src="https://user-images.githubusercontent.com/33486820/62939091-66cadf80-be0b-11e9-928b-c5a7f816adba.png">  
+<img width="977" alt="image" src="https://user-images.githubusercontent.com/33486820/62939091-66cadf80-be0b-11e9-928b-c5a7f816adba.png">  
 
 </br>
 
@@ -26,8 +26,7 @@
 
 <img width="977" alt="image" src="https://user-images.githubusercontent.com/33486820/62939154-8eba4300-be0b-11e9-996f-d8e65f70156e.png">  
 
-
-![image](https://user-images.githubusercontent.com/33486820/63030125-c77e1900-beec-11e9-94cc-70a4798c8992.png)
+<img width="977" alt="스크린샷 2019-08-13 오후 8 54 18" src="https://user-images.githubusercontent.com/33486820/63030248-fbf1d500-beec-11e9-9f6d-ec726e0d9dd7.png">
 
 - Tool & Language : `Xcode`, `Swift4`
 - iOS Framework : `CoreData`, `CoreLocation`, `ARKit`, `SceneKit(3D)`, `SpriteKit(2D)`
@@ -37,9 +36,8 @@
 
 ## 실시간 미세먼지 정보 기능  
 
-<img width="994" alt="image" src="https://user-images.githubusercontent.com/33486820/62940103-c6c28580-be0d-11e9-9ae8-deb0c3e5d08a.png">
+<img width="977" alt="image" src="https://user-images.githubusercontent.com/33486820/62940103-c6c28580-be0d-11e9-9ae8-deb0c3e5d08a.png">
 
-<img width="994" alt="스크린샷 2019-08-13 오후 8 54 18" src="https://user-images.githubusercontent.com/33486820/63030248-fbf1d500-beec-11e9-9f6d-ec726e0d9dd7.png">
 
 
 - 농도범위 좋음(0 ~ 15)
@@ -53,15 +51,15 @@
 
 ## 미세먼지 시각화 기능    
 
-<img width="1346" alt="image" src="https://user-images.githubusercontent.com/33486820/62941847-fbd0d700-be11-11e9-9b3f-b13fb4270298.png">  
+<img width="977" alt="image" src="https://user-images.githubusercontent.com/33486820/62941847-fbd0d700-be11-11e9-9b3f-b13fb4270298.png">  
 
-<img width="1005" alt="image" src="https://user-images.githubusercontent.com/33486820/62941881-1440f180-be12-11e9-8f7d-77ebf3e8d972.png">
+<img width="977" alt="image" src="https://user-images.githubusercontent.com/33486820/62941881-1440f180-be12-11e9-8f7d-77ebf3e8d972.png">
 
 </br>
 
 ## TODO: 추가 기능  
 
-<img width="907" alt="image" src="https://user-images.githubusercontent.com/33486820/62941092-2de13980-be10-11e9-9636-ca4ee398d289.png">
+<img width="977" alt="image" src="https://user-images.githubusercontent.com/33486820/62941092-2de13980-be10-11e9-9636-ca4ee398d289.png">
 
 - 기상청 API를 활용하여 날씨 기능도 추가 할 수 있도록 한다.
 - Firebase Cloud Message(FCM)과 연동하여 미세먼지 경보를 알릴 수 있도록 한다
