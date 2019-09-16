@@ -18,6 +18,7 @@ class MainViewController: UIViewController {
     var startValue2 = 0
     
     // MARK:- Properties
+ 
     var airData: AirData?   // Test 용
     private var airPollution: AirPollutionData?
     var locationData = LocationData()
@@ -27,7 +28,6 @@ class MainViewController: UIViewController {
     private var locationRequestCompletion = false
     private let manager = CLLocationManager()
     private var tapGesture = UITapGestureRecognizer()
-    
     private var skView: SKView!
     
     // MARK:- IBOutlet
@@ -81,7 +81,7 @@ class MainViewController: UIViewController {
     }
     
     override var prefersStatusBarHidden: Bool {
-        return false
+        return true
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -95,6 +95,7 @@ class MainViewController: UIViewController {
         locationRequestCompletion = false
         manager.requestLocation()
     }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -116,6 +117,7 @@ class MainViewController: UIViewController {
         if(CLLocationManager.authorizationStatus() == .authorizedWhenInUse || CLLocationManager.authorizationStatus() == .authorizedAlways){
             locationManager.requestLocation()
         }
+    
     }
     
     @objc func handleUpdate() {
@@ -147,6 +149,7 @@ class MainViewController: UIViewController {
         displayLink.preferredFramesPerSecond = 30
         self.locationName.text = dataSource[0].airData.locationName + "의 공기는"
         self.pollutionStateLabel.text = self.airPollution?.pollutionState
+        self.pollutionStateLabel.textColor = self.airPollution?.pollutionStateColor
         self.blueView.backgroundColor = self.airPollution?.pollutionStateColor
     }
     
@@ -183,8 +186,6 @@ class MainViewController: UIViewController {
         popoverPresentationController?.permittedArrowDirections = .any
         present(shareScreen, animated: true, completion: nil)
     }
-    
-    
     
 }
 

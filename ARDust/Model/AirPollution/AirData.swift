@@ -12,5 +12,5 @@ struct AirData {
     var locationName: String
     var registerDate: Date
     var airPollutionData: AirPollutionData
-    // var weatherRealTimeData: WeatherRealtimeData
+    var weatherRealTimeData: WeatherRealtimeData
 }

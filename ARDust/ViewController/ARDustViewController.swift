@@ -27,6 +27,7 @@ class ARDustViewController: UIViewController, ARSCNViewDelegate, ARSessionDelega
     
     var pm10ValueNode = SCNNode()
     var pm25ValueNode = SCNNode()
+    var pollutionValueNode = SCNNode()
     
     var pollutionState: String = {
         let pollutionState = (UIApplication.shared.delegate as! AppDelegate).airDataList[0].airPollutionData.pollutionState
@@ -48,12 +49,15 @@ class ARDustViewController: UIViewController, ARSCNViewDelegate, ARSessionDelega
         dustNode.addParticleSystem(particleSystem!)
         return dustNode
     }()
-    
+
 
     @IBAction func tapCancelButton(_ sender: UIButton) {
         self.presentingViewController!.dismiss(animated: true, completion: nil)
     }
     
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -70,6 +74,8 @@ class ARDustViewController: UIViewController, ARSCNViewDelegate, ARSessionDelega
         
         let fineDustText: String = "미세먼지: \(String(describing: appDelegate.airDataList[0].airPollutionData.pm10Value!))"
         let ultraFineDustText: String = "초미세먼지: \(String(describing: appDelegate.airDataList[0].airPollutionData.pm25Value!))"
+        let pollutionStateText: String = "\(appDelegate.airDataList[0].airPollutionData.pollutionState)"
+        
         let pm10ValueText = SCNText(string: fineDustText, extrusionDepth: 1)
         let material = SCNMaterial()
         material.diffuse.contents = self.setTextColor()
@@ -88,7 +94,14 @@ class ARDustViewController: UIViewController, ARSCNViewDelegate, ARSessionDelega
         pm25ValueNode.scale = SCNVector3(0.005,0.005,0.005)
         pm25ValueNode.geometry = pm25ValueText
         
+        let stateText = SCNText(string: pollutionStateText, extrusionDepth: 1)
+        let material3 = SCNMaterial()
+        material3.diffuse.contents = self.setTextColor()
+        stateText.materials = [material3]
         
+        pollutionValueNode.position = SCNVector3(0, 0.14, -0.6)
+        pollutionValueNode.scale = SCNVector3(0.005,0.005,0.005)
+        pollutionValueNode.geometry = stateText
         
         if let scene = SCNScene(named: "dust.scnassets/scene.scn") {
             self.scene = scene
@@ -96,8 +109,6 @@ class ARDustViewController: UIViewController, ARSCNViewDelegate, ARSessionDelega
             print("scn file is empty")
         }
         // particle system
-        
-        
         
         self.setUpSceneView()
     }
@@ -118,6 +129,7 @@ class ARDustViewController: UIViewController, ARSCNViewDelegate, ARSessionDelega
     func setUpSceneView() {
         scene.rootNode.addChildNode(pm10ValueNode)
         scene.rootNode.addChildNode(pm25ValueNode)
+        scene.rootNode.addChildNode(pollutionValueNode)
         scene.rootNode.addChildNode(fineDustNode)
         scene.rootNode.addChildNode(ultraFineDust)
         sceneView.showsStatistics = false

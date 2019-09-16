@@ -15,7 +15,6 @@ extension CLLocationManagerDelegate {
         let geoCoder = CLGeocoder()
         
         if #available(iOS 12.0, *) {
-            print("접근중2")
             geoCoder.reverseGeocodeLocation(location, preferredLocale: Locale.init(identifier: "KR")) { (placemarks, error) in
                 guard let placemark = placemarks?.first, error == nil else {
                     completion(false, nil)
@@ -31,7 +30,7 @@ extension CLLocationManagerDelegate {
                
             }
         } else {
-            print("접근중2-1")
+
             UserDefaults.standard.set(["KR"], forKey: "AppleLanguages")
             geoCoder.reverseGeocodeLocation(location) { (placemarks, error) in
                 UserDefaults.standard.removeObject(forKey: "AppleLanguages")

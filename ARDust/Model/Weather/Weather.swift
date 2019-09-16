@@ -16,26 +16,20 @@ class Weather {
     }
     
     private enum RealtimeCategoryType: String {
-        case t1h, sky, pty, rn1, reh, vec, wsd, lgt, uuu, vvv
+        case t1h, sky, pty, rn1, reh
     }
     
     private enum LocalCategoryType: String {
         case date, time, pop, pty, r06, reh, s06, sky, t3h, tmn, tmx, uuu, vvv, wav, vec, wsd
     }
     
-    private enum DayType {
-        case today
-        case yesterday
-        case tomorrow
-        case dayAfterTomorrow
-    }
     
     func getBaseDateTime(_ type: WeatherType) -> (String, String) {
         let date = Date()
         let calendar = Calendar.current
         let hour = calendar.component(.hour, from: date)
         let minute = calendar.component(.minute, from: date)
-        var dateString = getBaseDate(.today)
+        var dateString = getTodayBaseDate()
         var hourString = "\(hour)"
         var minuteString = "\(minute)"
         if minute < 10 {
@@ -44,7 +38,7 @@ class Weather {
         
         if minute < 40 {
             if hour == 0 {
-                dateString = getBaseDate(.yesterday)
+                dateString = getTodayBaseDate()
                 hourString = "23"
             } else if hour == 10 {
                 hourString = "0\(hour - 1)"
@@ -59,29 +53,14 @@ class Weather {
         }
         return (dateString, hourString + minuteString)
     }
-    /// base_date에 사용되는 현재 년월일을 문자열로 반환한다.
-    private func getBaseDate(_ type: DayType) -> String {
+
+    // 현재 날짜를 반환한다.
+    private func getTodayBaseDate() -> String {
         let date = Date()
         let formatter = DateFormatter()
-        let calendar = Calendar.current
         var dateString = ""
         formatter.dateFormat = "YYYYMMdd"
-        switch type {
-        case .today:
-            dateString = formatter.string(from: date)
-        case .yesterday:
-            if let yesterday = calendar.date(byAdding: .day, value: -1, to: date) {
-                dateString = formatter.string(from: yesterday)
-            }
-        case .tomorrow:
-            if let tomorrow = calendar.date(byAdding: .day, value: 1, to: date) {
-                dateString = formatter.string(from: tomorrow)
-            }
-        case .dayAfterTomorrow:
-            if let dayAfterTomorrow = calendar.date(byAdding: .day, value: 2, to: date) {
-                dateString = formatter.string(from: dayAfterTomorrow)
-            }
-        }
+        dateString = formatter.string(from: date)
         return dateString
     }
     
@@ -96,6 +75,7 @@ class Weather {
         return extractRealtimeData(item)
     }
     
+    // 요청 받은 날씨 데이터를 WeatherRaaltimeData 객체로 반환
     private func extractRealtimeData(_ data: Any) -> WeatherRealtimeData? {
         guard let items = data as? [[String: Any]] else {
             return nil
@@ -117,16 +97,6 @@ class Weather {
                 weatherRealtimeData.rn1 = convertToRealtimeString(.rn1, value: value)
             case "REH":
                 weatherRealtimeData.reh = convertToRealtimeString(.reh, value: value)
-            case "VEC":
-                weatherRealtimeData.vec = convertToRealtimeString(.vec, value: value)
-            case "WSD":
-                weatherRealtimeData.wsd = convertToRealtimeString(.wsd, value: value)
-            case "LGT":
-                weatherRealtimeData.lgt = convertToRealtimeString(.lgt, value: value)
-            case "UUU":
-                weatherRealtimeData.uuu = convertToRealtimeString(.uuu, value: value)
-            case "VVV":
-                weatherRealtimeData.vvv = convertToRealtimeString(.vvv, value: value)
             default:
                 continue
             }
@@ -134,6 +104,7 @@ class Weather {
         return weatherRealtimeData
     }
     
+    // 요청한 날씨데이터를 String 형으로 formatting 해주는 함수
     private func convertToRealtimeString(_ type: RealtimeCategoryType, value: Double) -> String {
         var result = ""
         switch type {
@@ -179,35 +150,6 @@ class Weather {
             }
         case .reh:  // 습도
             result = "\(Int(value))%"
-        case .vec:  // 풍향
-            let vec = Int((value + 22.5 * 0.5) / 22.5)
-            if vec == 0 || vec == 16 {
-                result = "북"
-            } else if vec <= 3 {
-                result = "북동"
-            } else if vec == 4 {
-                result = "동"
-            } else if vec <= 7 {
-                result = "동남"
-            } else if vec == 8 {
-                result = "남"
-            } else if vec <= 11 {
-                result = "남서"
-            } else if vec == 12 {
-                result = "서"
-            } else if vec <= 15 {
-                result = "서북"
-            }
-        case .wsd:  // 풍속
-            result = "\(value)m/s"
-        case .lgt:  // 낙뢰
-            if value == 0 {
-                result = "없음"
-            } else {
-                result = "있음"
-            }
-        case .uuu, .vvv:  // 동서바람성분, 남북바람성분
-            result = "\(Int(round(value)))m/s"
         }
         return result
     }

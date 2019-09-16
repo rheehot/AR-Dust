@@ -10,7 +10,7 @@ import Foundation
 import Alamofire
 
 enum URIType: String {
-    case getRealTimeWeatherCast
+    case ForecastGrib
     case getNearbyMsrstnList
     case getMsrstnAcctoRltmMesureDnsty
 }
@@ -20,7 +20,7 @@ class Request: RequestProtocol {
     // MARK: - Properties
     // MARK: -
     
-    private let serviceKey = "5t%2FaG7XwaI3khwGfzdWSguvJz%2BjgYub37AHz4oY1qubvtwNYe3V7XpClwmCt0hWUSE%2F%2BaR3F0LQUxyr1lcLL2Q%3D%3D"
+    private let serviceKey = "TQBRjs7R7pNt0EO4AnzEB4wxwNQDbQYimvrsNuv%2BbL2mSzlrwpBRh%2BStWg9%2BQY4NyJ1JwLFbDinv8Dyvs8gg5g%3D%3D"
     private let airPollution = AirPollution()
     private let weather = Weather()
     private let locationCoordinate = LocationCoordinate()
@@ -113,6 +113,7 @@ class Request: RequestProtocol {
         var airPollutionData = AirPollutionData()
         let dispatchGroup = DispatchGroup()
         var requestError: RequestError?
+        var weatherRealTimeData = WeatherRealtimeData()
         
         dispatchGroup.enter()
         print("\(locationName) \(latitude) \(longtitude)")
@@ -135,24 +136,23 @@ class Request: RequestProtocol {
             dispatchGroup.leave()
         }
         
-      //  dispatchGroup.enter()
-//        requestRealTimeWeatherCast(latitude: latitude, longtitude: longtitude) { (isSuccess, data, error) in
-//            if isSuccess, let data = data as? WeatherRealtimeData {
-//                weatherRealTimeData = data
-//            } else {
-//                print("날씨예보 가져오기에 실패했습니다.")
-//                requestError = error
-//            }
-//            dispatchGroup.leave()
-//        }
-//
-        
+        dispatchGroup.enter()
+        requestRealTimeWeatherCast(latitude: latitude, longtitude: longtitude) { (isSuccess, data, error) in
+            if isSuccess, let data = data as? WeatherRealtimeData {
+                weatherRealTimeData = data
+            } else {
+                print("날씨예보 가져오기에 실패했습니다.")
+                requestError = error
+            }
+            dispatchGroup.leave()
+        }
+
         dispatchGroup.notify(queue: .global()) {
             // requestError 존재한다면 에러를, 아닐 경우 데이터 전달
             if requestError != nil {
                 completion(false, nil, requestError)
             } else {
-                let airData = AirData(locationName: locationName, registerDate: registerDate, airPollutionData: airPollutionData)
+                let airData = AirData(locationName: locationName, registerDate: registerDate, airPollutionData: airPollutionData, weatherRealTimeData: weatherRealTimeData)
                 completion(true, airData, nil)
             }
         }
@@ -164,7 +164,7 @@ class Request: RequestProtocol {
     func createURL(_ type: URIType) -> URL? {
         var urlString: String
         switch type {
-        case .getRealTimeWeatherCast:
+        case .ForecastGrib:
             urlString = "http://newsky2.kma.go.kr/service/SecndSrtpdFrcstInfoService2/"
         case .getNearbyMsrstnList:
             urlString = "http://openapi.airkorea.or.kr/openapi/services/rest/MsrstnInfoInqireSvc/"
@@ -182,7 +182,7 @@ class Request: RequestProtocol {
     
     // 실시간 단기 예보
     private func requestRealTimeWeatherCast(latitude: Double, longtitude: Double, completion: @escaping requestCompletionHandler) {
-        guard let url = createURL(.getRealTimeWeatherCast) else {
+        guard let url = createURL(.ForecastGrib) else {
             return
         }
         
@@ -196,6 +196,7 @@ class Request: RequestProtocol {
             "_type": "json",
             "numOfRows": 10
         ]
+        
         
         AF.request(url, method: .get, parameters: parameters, encoding: URLEncoding.default).responseJSON { (response) in
             if let data = self.weather.extractData(.realtime, data: response.result.value) {
