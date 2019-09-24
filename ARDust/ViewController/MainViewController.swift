@@ -236,5 +236,9 @@ extension MainViewController: CLLocationManagerDelegate {
             }
         }
     }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return UIStatusBarStyle.default
+    }
 }
 
