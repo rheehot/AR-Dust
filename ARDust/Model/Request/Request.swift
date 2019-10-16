@@ -201,6 +201,7 @@ class Request: RequestProtocol {
         AF.request(url, method: .get, parameters: parameters, encoding: URLEncoding.default).responseJSON { (response) in
             if let data = self.weather.extractData(.realtime, data: response.result.value) {
                 completion(true, data, nil)
+                print(data)
             } else {
                 print("실시간 단기 예보 가져오기 실패")
                 completion(false, nil, RequestError.requestFailed)

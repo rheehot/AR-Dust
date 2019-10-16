@@ -53,7 +53,7 @@ class Weather {
         }
         return (dateString, hourString + minuteString)
     }
-
+    
     // 현재 날짜를 반환한다.
     private func getTodayBaseDate() -> String {
         let date = Date()

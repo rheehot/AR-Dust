@@ -9,6 +9,7 @@
 import UIKit
 import SpriteKit
 import CoreLocation
+import Hero
 
 
 class MainViewController: UIViewController {
@@ -18,8 +19,8 @@ class MainViewController: UIViewController {
     var startValue2 = 0
     
     // MARK:- Properties
- 
-    var airData: AirData?   // Test 용
+    
+    private var weatherRealtimeData: WeatherRealtimeData?
     private var airPollution: AirPollutionData?
     var locationData = LocationData()
     private var dataSource = [TableViewCellContents]()
@@ -39,6 +40,18 @@ class MainViewController: UIViewController {
     @IBOutlet weak var pm25Label: UILabel!      //초미세먼지
     @IBOutlet weak var pollutionStateLabel: UILabel!
     
+    @IBOutlet weak var skyStateImageView: UIImageView! // 현재 하늘상태
+    @IBOutlet weak var rn1Label: UILabel!   // 강수량
+    @IBOutlet weak var rehLabel: UILabel!   // 습도
+    @IBOutlet weak var t1hLabel: UILabel! {
+        didSet {
+            self.t1hLabel.textColor = UIColor.white
+            self.t1hLabel.font = UIFont(name:"Apple Color Emoji" , size: 22)
+            self.t1hLabel.adjustsFontSizeToFitWidth = true
+            
+        }
+    }  // 현재 기온
+    
     @IBOutlet weak var timeLabel: UILabel! {
         didSet {
             let date = Date()
@@ -49,7 +62,7 @@ class MainViewController: UIViewController {
             self.timeLabel.text = dateString
         }
     }
-
+    
     @IBOutlet weak var dustStackView: UIStackView! {
         didSet {
             self.dustStackView?.hero.id = "dust"
@@ -80,22 +93,11 @@ class MainViewController: UIViewController {
         }
     }
     
-    override var prefersStatusBarHidden: Bool {
-        return true
-    }
-
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         appDelegate.shouldSupportAllOrientation = false
         reloadData()
     }
-    
-    @objc private func reloadData() {
-        
-        locationRequestCompletion = false
-        manager.requestLocation()
-    }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -104,7 +106,7 @@ class MainViewController: UIViewController {
         self.tapGesture.numberOfTapsRequired = 1
         self.grayView.addGestureRecognizer(self.tapGesture)
         self.grayView.isUserInteractionEnabled = true
-    
+        
         manager.delegate = self
         manager.desiredAccuracy = kCLLocationAccuracyThreeKilometers
         manager.requestWhenInUseAuthorization()
@@ -117,7 +119,12 @@ class MainViewController: UIViewController {
         if(CLLocationManager.authorizationStatus() == .authorizedWhenInUse || CLLocationManager.authorizationStatus() == .authorizedAlways){
             locationManager.requestLocation()
         }
+        
+    }
     
+    @objc private func reloadData() {
+        locationRequestCompletion = false
+        manager.requestLocation()
     }
     
     @objc func handleUpdate() {
@@ -142,7 +149,17 @@ class MainViewController: UIViewController {
         }
         
     }
-    
+    // 현재 시간 가져오기
+    func getCurrentTime() -> String {
+        let date = Date()
+        let dateFormatter = DateFormatter()
+        
+        dateFormatter.dateFormat = "HH"
+        let stringDate = dateFormatter.string(from: date)
+        
+        return stringDate
+    }
+    // 미세먼지 정보 반영
     func setUpDustInfoView() {
         let displayLink = CADisplayLink(target: self, selector: #selector(handleUpdate))
         displayLink.add(to: .main, forMode: .default)
@@ -151,6 +168,43 @@ class MainViewController: UIViewController {
         self.pollutionStateLabel.text = self.airPollution?.pollutionState
         self.pollutionStateLabel.textColor = self.airPollution?.pollutionStateColor
         self.blueView.backgroundColor = self.airPollution?.pollutionStateColor
+    }
+    // 실시간 날씨 정보 반영
+    func setUpWeatherInfoView() {
+        let currentTime: Int = Int(getCurrentTime()) ?? 0
+        let skyState = self.weatherRealtimeData?.sky ?? "1"
+        print(currentTime)
+        switch skyState {
+        case "1":
+            if currentTime > 6 && currentTime < 18 {
+                self.skyStateImageView.image = UIImage(named: "sunny")
+            } else {
+                self.skyStateImageView.image = UIImage(named: "moon")
+            }
+        case "3":
+            self.skyStateImageView.image = UIImage(named: "cloud")
+        case "4":
+            let pty = self.weatherRealtimeData?.pty
+            if pty == "0" {
+                self.skyStateImageView.image = UIImage(named: "cloud")
+            }
+            else if pty == "1" || pty == "4" {
+                self.skyStateImageView.image = UIImage(named: "rain")
+            }
+            else if pty == "2" {
+                self.skyStateImageView.image = UIImage(named: "sleet")
+            }
+            else if pty == "3" {
+                self.skyStateImageView.image = UIImage(named: "snow")
+            }
+            
+        default:
+            self.skyStateImageView.image = UIImage(named: "sunny")
+        }
+        
+        self.t1hLabel.text = self.weatherRealtimeData?.t1h
+        self.rn1Label.text = self.weatherRealtimeData?.rn1
+        self.rehLabel.text = self.weatherRealtimeData?.reh
     }
     
     func setUpDustScene(pollutionState: String) {
@@ -163,6 +217,13 @@ class MainViewController: UIViewController {
     
     @objc func openDetailVC() {
         if let detailVC = self.storyboard?.instantiateViewController(withIdentifier: "DetailVC") as? DetailViewController {
+            detailVC.hero.isEnabled = true
+            detailVC.hero.modalAnimationType = .zoom
+            if #available(iOS 13.0, *) {
+                detailVC.modalPresentationStyle = .automatic
+            } else {
+                detailVC.modalPresentationStyle = .fullScreen
+            }
             present(detailVC, animated: true, completion: nil)
         }
     }
@@ -212,14 +273,15 @@ extension MainViewController: CLLocationManagerDelegate {
                     Request().getAirDataList(currentLocation) { (isSuccess, data, error) in
                         if isSuccess, let airDataList = data as? [AirData] {
                             print("성공")
-                            self.airData = airDataList.first
                             self.appDelegate.airDataList = airDataList
                             self.dataSource.removeAll()
                             for airData in airDataList {
                                 self.dataSource.append(TableViewCellContents(data:airData))
                             }
                             self.airPollution = self.dataSource[0].airData.airPollutionData
+                            self.weatherRealtimeData = self.dataSource[0].airData.weatherRealTimeData
                             self.setUpDustInfoView()
+                            self.setUpWeatherInfoView()
                             self.setUpDustScene(pollutionState: self.airPollution!.pollutionState)
                         } else {
                             print("AirData request 실패 ")

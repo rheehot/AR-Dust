@@ -50,11 +50,6 @@ class ARDustViewController: UIViewController, ARSCNViewDelegate, ARSessionDelega
         return dustNode
     }()
 
-
-    @IBAction func tapCancelButton(_ sender: UIButton) {
-        self.presentingViewController!.dismiss(animated: true, completion: nil)
-    }
-    
     override var prefersStatusBarHidden: Bool {
         return true
     }

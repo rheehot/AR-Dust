@@ -13,7 +13,12 @@ class DetailViewController: UIViewController {
     
     private let appDelegate = (UIApplication.shared.delegate as! AppDelegate)
     
-    @IBOutlet weak var blueView: UIView!
+    @IBOutlet weak var blueView: UIView! {
+        didSet {
+            self.blueView.layer.cornerRadius = 10
+            self.blueView.clipsToBounds = true
+        }
+    }
     
     @IBOutlet weak var grayView: UIView! {
         didSet {
@@ -97,8 +102,8 @@ class DetailViewController: UIViewController {
         self.presentingViewController?.dismiss(animated: true, completion: nil)
     }
     
-    override var prefersStatusBarHidden: Bool {
-        return true
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return UIStatusBarStyle.default
     }
 
 }

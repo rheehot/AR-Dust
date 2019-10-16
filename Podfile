@@ -16,6 +16,8 @@ target 'ARDust' do
     inherit! :search_paths
     # Pods for testing
   end
+pod 'RxSwift'
+pod 'Kingfisher'
 pod 'Alamofire', '~> 5.0.0-beta.3'
 pod 'Hero'
 inhibit_all_warnings! 

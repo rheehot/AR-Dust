@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,6 +15,7 @@
 		EF602D8A229A7D46008A679A /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF602D89229A7D46008A679A /* DetailViewController.swift */; };
 		EF654D7122ABED8F00527E38 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF654D7022ABED8F00527E38 /* Weather.swift */; };
 		EF654D7322ABEDF100527E38 /* WeatherRealtimeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF654D7222ABEDF100527E38 /* WeatherRealtimeData.swift */; };
+		EF6A9B7623573DB4007F3C1B /* WeatherLocalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6A9B7523573DB4007F3C1B /* WeatherLocalData.swift */; };
 		EF7C935822A9F349008C7FED /* ExtensionUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7C935722A9F349008C7FED /* ExtensionUI.swift */; };
 		EF7C935C22AA577E008C7FED /* dust.sks in Resources */ = {isa = PBXBuildFile; fileRef = EF7C935B22AA577E008C7FED /* dust.sks */; };
 		EF7C935F22AA5A97008C7FED /* DustScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7C935E22AA5A97008C7FED /* DustScene.swift */; };
@@ -75,6 +76,7 @@
 		EF602D89229A7D46008A679A /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		EF654D7022ABED8F00527E38 /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 		EF654D7222ABEDF100527E38 /* WeatherRealtimeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherRealtimeData.swift; sourceTree = "<group>"; };
+		EF6A9B7523573DB4007F3C1B /* WeatherLocalData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherLocalData.swift; sourceTree = "<group>"; };
 		EF7C935722A9F349008C7FED /* ExtensionUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionUI.swift; sourceTree = "<group>"; };
 		EF7C935B22AA577E008C7FED /* dust.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = dust.sks; sourceTree = "<group>"; };
 		EF7C935E22AA5A97008C7FED /* DustScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DustScene.swift; sourceTree = "<group>"; };
@@ -165,6 +167,7 @@
 			children = (
 				EF654D7022ABED8F00527E38 /* Weather.swift */,
 				EF654D7222ABEDF100527E38 /* WeatherRealtimeData.swift */,
+				EF6A9B7523573DB4007F3C1B /* WeatherLocalData.swift */,
 			);
 			path = Weather;
 			sourceTree = "<group>";
@@ -493,19 +496,16 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-ARDust/Pods-ARDust-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/Hero/Hero.framework",
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ARDust/Pods-ARDust-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Hero.framework",
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ARDust/Pods-ARDust-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ARDust/Pods-ARDust-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ARDust/Pods-ARDust-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		B1CE4BB88A9E9BE608DE8A86 /* [CP] Check Pods Manifest.lock */ = {
@@ -540,6 +540,7 @@
 				EF92B4DA223D3011004262A8 /* ExtensionCLLocationManager.swift in Sources */,
 				EF92B4A9223D2F64004262A8 /* MainViewController.swift in Sources */,
 				EF92B4A7223D2F64004262A8 /* AppDelegate.swift in Sources */,
+				EF6A9B7623573DB4007F3C1B /* WeatherLocalData.swift in Sources */,
 				EF92B4EC223D3147004262A8 /* RequestProtocol.swift in Sources */,
 				EF7C935822A9F349008C7FED /* ExtensionUI.swift in Sources */,
 				EF932600227BD80900DFFD0D /* ARDustViewController.swift in Sources */,

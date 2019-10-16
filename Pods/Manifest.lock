@@ -1,20 +1,30 @@
 PODS:
   - Alamofire (5.0.0-beta.3)
   - Hero (1.4.0)
+  - Kingfisher (5.8.3):
+    - Kingfisher/Core (= 5.8.3)
+  - Kingfisher/Core (5.8.3)
+  - RxSwift (5.0.0)
 
 DEPENDENCIES:
   - Alamofire (~> 5.0.0-beta.3)
   - Hero
+  - Kingfisher
+  - RxSwift
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
     - Hero
+    - Kingfisher
+    - RxSwift
 
 SPEC CHECKSUMS:
   Alamofire: 50d6fa7e8cbe7f84559e86ab641ffd029db655f8
   Hero: bac92350d7201a1a940003e0767c7b52ce7c99a1
+  Kingfisher: b7e4cb65ff24c264bd2a1284b75b974d907afd94
+  RxSwift: 8b0671caa829a763bbce7271095859121cbd895f
 
-PODFILE CHECKSUM: c94c00334659235fc86a5fd7be5c35095d9e1658
+PODFILE CHECKSUM: 58ca1924c234d2887eefa341bc25e53f8b0ca754
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.7.5
