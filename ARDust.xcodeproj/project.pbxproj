@@ -10,6 +10,8 @@
 		14B0598861C0C247EBF80BAF /* Pods_ARDustUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E6A21FC515BAA4AC3B02442 /* Pods_ARDustUITests.framework */; };
 		8D1B212507BD4759B6679E4F /* Pods_ARDust.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D3D8349D4A21ABCA657D484 /* Pods_ARDust.framework */; };
 		9B96F2BD973DAED20BE4EE49 /* Pods_ARDustTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71470FE80388F08077110502 /* Pods_ARDustTests.framework */; };
+		EF16FDBA23593BE7000DAEA4 /* TestSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF16FDB923593BE7000DAEA4 /* TestSource.swift */; };
+		EF1F4B182363337A000D4FEC /* UmdDataList.rtf in Resources */ = {isa = PBXBuildFile; fileRef = EF1F4B172363337A000D4FEC /* UmdDataList.rtf */; };
 		EF25AB4C225618ED003B7135 /* LocationCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EF25AB49225618ED003B7135 /* LocationCoreData.xcdatamodeld */; };
 		EF46FAE122B9C98100AB7445 /* fileFlies.sks in Resources */ = {isa = PBXBuildFile; fileRef = EF46FAE022B9C98100AB7445 /* fileFlies.sks */; };
 		EF602D8A229A7D46008A679A /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF602D89229A7D46008A679A /* DetailViewController.swift */; };
@@ -69,6 +71,8 @@
 		92E37C389FF425C7D947FCC2 /* Pods-ARDustUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ARDustUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ARDustUITests/Pods-ARDustUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		CC95C8D87F97D523C98CA72C /* Pods-ARDustUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ARDustUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ARDustUITests/Pods-ARDustUITests.release.xcconfig"; sourceTree = "<group>"; };
 		DB445CB0FC1149C8C643CC91 /* Pods-ARDust.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ARDust.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ARDust/Pods-ARDust.debug.xcconfig"; sourceTree = "<group>"; };
+		EF16FDB923593BE7000DAEA4 /* TestSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestSource.swift; sourceTree = "<group>"; };
+		EF1F4B172363337A000D4FEC /* UmdDataList.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = UmdDataList.rtf; sourceTree = "<group>"; };
 		EF25AB4A225618ED003B7135 /* LocationCoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LocationCoreData.xcdatamodel; sourceTree = "<group>"; };
 		EF25AB4B225618ED003B7135 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		EF46FAE022B9C98100AB7445 /* fileFlies.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = fileFlies.sks; sourceTree = "<group>"; };
@@ -162,6 +166,27 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		EF16FDB823593B79000DAEA4 /* Test */ = {
+			isa = PBXGroup;
+			children = (
+				EF16FDB923593BE7000DAEA4 /* TestSource.swift */,
+			);
+			path = Test;
+			sourceTree = "<group>";
+		};
+		EF1F4B162363334C000D4FEC /* SupportFiles */ = {
+			isa = PBXGroup;
+			children = (
+				EF7C935B22AA577E008C7FED /* dust.sks */,
+				EF46FAE022B9C98100AB7445 /* fileFlies.sks */,
+				EF932601227BDAA100DFFD0D /* dust.scnassets */,
+				EF92B4AD223D2F65004262A8 /* Assets.xcassets */,
+				EF25AB49225618ED003B7135 /* LocationCoreData.xcdatamodeld */,
+				EF1F4B172363337A000D4FEC /* UmdDataList.rtf */,
+			);
+			path = SupportFiles;
+			sourceTree = "<group>";
+		};
 		EF654D6F22ABED7100527E38 /* Weather */ = {
 			isa = PBXGroup;
 			children = (
@@ -207,18 +232,15 @@
 		EF92B4A5223D2F64004262A8 /* ARDust */ = {
 			isa = PBXGroup;
 			children = (
+				EF92B4B2223D2F65004262A8 /* Info.plist */,
+				EF1F4B162363334C000D4FEC /* SupportFiles */,
+				EF16FDB823593B79000DAEA4 /* Test */,
 				EF9A21B7224DAF130094D880 /* Storyboard */,
 				EF9A21B6224DAEF80094D880 /* ViewController */,
 				EFD180842247CD9C0021EC54 /* View */,
 				EF92B4D8223D2FFB004262A8 /* Extension */,
 				EF92B4D4223D2FD3004262A8 /* Model */,
-				EF932601227BDAA100DFFD0D /* dust.scnassets */,
 				EF92B4A6223D2F64004262A8 /* AppDelegate.swift */,
-				EF92B4AD223D2F65004262A8 /* Assets.xcassets */,
-				EF92B4B2223D2F65004262A8 /* Info.plist */,
-				EF25AB49225618ED003B7135 /* LocationCoreData.xcdatamodeld */,
-				EF7C935B22AA577E008C7FED /* dust.sks */,
-				EF46FAE022B9C98100AB7445 /* fileFlies.sks */,
 			);
 			path = ARDust;
 			sourceTree = "<group>";
@@ -431,6 +453,7 @@
 			files = (
 				EF92B4B1223D2F65004262A8 /* LaunchScreen.storyboard in Resources */,
 				EF92B4AE223D2F65004262A8 /* Assets.xcassets in Resources */,
+				EF1F4B182363337A000D4FEC /* UmdDataList.rtf in Resources */,
 				EF7C935C22AA577E008C7FED /* dust.sks in Resources */,
 				EF92B4AC223D2F64004262A8 /* Main.storyboard in Resources */,
 				EF932602227BDAA100DFFD0D /* dust.scnassets in Resources */,
@@ -539,6 +562,7 @@
 				EF92B4DC223D305B004262A8 /* LocationCoordinate.swift in Sources */,
 				EF92B4DA223D3011004262A8 /* ExtensionCLLocationManager.swift in Sources */,
 				EF92B4A9223D2F64004262A8 /* MainViewController.swift in Sources */,
+				EF16FDBA23593BE7000DAEA4 /* TestSource.swift in Sources */,
 				EF92B4A7223D2F64004262A8 /* AppDelegate.swift in Sources */,
 				EF6A9B7623573DB4007F3C1B /* WeatherLocalData.swift in Sources */,
 				EF92B4EC223D3147004262A8 /* RequestProtocol.swift in Sources */,

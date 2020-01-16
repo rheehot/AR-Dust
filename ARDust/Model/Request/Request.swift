@@ -197,7 +197,6 @@ class Request: RequestProtocol {
             "numOfRows": 10
         ]
         
-        
         AF.request(url, method: .get, parameters: parameters, encoding: URLEncoding.default).responseJSON { (response) in
             if let data = self.weather.extractData(.realtime, data: response.result.value) {
                 completion(true, data, nil)
@@ -258,8 +257,5 @@ class Request: RequestProtocol {
             }
         }
     }
-    
-    
-    
     
 }

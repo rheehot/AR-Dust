@@ -174,6 +174,7 @@ class MainViewController: UIViewController {
         let currentTime: Int = Int(getCurrentTime()) ?? 0
         let skyState = self.weatherRealtimeData?.sky ?? "1"
         print(currentTime)
+        print(skyState)
         switch skyState {
         case "1":
             if currentTime > 6 && currentTime < 18 {
@@ -300,7 +301,7 @@ extension MainViewController: CLLocationManagerDelegate {
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
-        return UIStatusBarStyle.default
+        return UIStatusBarStyle.lightContent
     }
 }
 
