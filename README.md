@@ -57,15 +57,17 @@
 
 </br>
 
-## TODO: 추가 기능  
+## TODO: 추가 기능
 
 <img width="977" alt="image" src="https://user-images.githubusercontent.com/33486820/62941092-2de13980-be10-11e9-9636-ca4ee398d289.png">
 
-- 기상청 API를 활용하여 날씨 기능도 추가 할 수 있도록 한다.
-- Firebase Cloud Message(FCM)과 연동하여 미세먼지 경보를 알릴 수 있도록 한다
-- 다른 SNS와 연동하여 공유기능을 확대한다
-- Dark Mode 대응 추가
+</br>
 
+## 리팩터링 항목
+- 프로젝트 MVVM 아키텍쳐 적용
+- UnitTest 적용해 Code Coverage 올리기
+- RxSwift를 통한 비동기 제어
+- 앱 동적 애니메이션 
 
 
 
