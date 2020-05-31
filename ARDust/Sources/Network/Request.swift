@@ -9,17 +9,8 @@
 import Foundation
 import Alamofire
 
-enum URIType: String {
-    case ForecastGrib
-    case getNearbyMsrstnList
-    case getMsrstnAcctoRltmMesureDnsty
-}
-
-
 class Request: RequestProtocol {
     // MARK: - Properties
-    // MARK: -
-    
     private let serviceKey = "TQBRjs7R7pNt0EO4AnzEB4wxwNQDbQYimvrsNuv%2BbL2mSzlrwpBRh%2BStWg9%2BQY4NyJ1JwLFbDinv8Dyvs8gg5g%3D%3D"
     private let airPollution = AirPollution()
     private let weather = Weather()
@@ -35,7 +26,7 @@ class Request: RequestProtocol {
     // MARK: -
     func getAirDataList(_ data: LocationData, completion: @escaping requestCompletionHandler) {
         print("getAirDataList 접근")
-        var requestError: RequestError?
+        var requestError: NetworkError?
         
         let deadlineTask = DispatchWorkItem {
             requestError = .networkDelay
@@ -112,7 +103,7 @@ class Request: RequestProtocol {
        // var weatherRealTimeData = WeatherRealtimeData()
         var airPollutionData = AirPollutionData()
         let dispatchGroup = DispatchGroup()
-        var requestError: RequestError?
+        var requestError: NetworkError?
         var weatherRealTimeData = WeatherRealtimeData()
         
         dispatchGroup.enter()
@@ -158,8 +149,6 @@ class Request: RequestProtocol {
         }
         
     }
-    
-    
     
     func createURL(_ type: URIType) -> URL? {
         var urlString: String

@@ -10,7 +10,6 @@
 		14B0598861C0C247EBF80BAF /* Pods_ARDustUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E6A21FC515BAA4AC3B02442 /* Pods_ARDustUITests.framework */; };
 		8D1B212507BD4759B6679E4F /* Pods_ARDust.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D3D8349D4A21ABCA657D484 /* Pods_ARDust.framework */; };
 		9B96F2BD973DAED20BE4EE49 /* Pods_ARDustTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71470FE80388F08077110502 /* Pods_ARDustTests.framework */; };
-		EF16FDBA23593BE7000DAEA4 /* TestSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF16FDB923593BE7000DAEA4 /* TestSource.swift */; };
 		EF1F4B182363337A000D4FEC /* UmdDataList.rtf in Resources */ = {isa = PBXBuildFile; fileRef = EF1F4B172363337A000D4FEC /* UmdDataList.rtf */; };
 		EF25AB4C225618ED003B7135 /* LocationCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EF25AB49225618ED003B7135 /* LocationCoreData.xcdatamodeld */; };
 		EF46FAE122B9C98100AB7445 /* fileFlies.sks in Resources */ = {isa = PBXBuildFile; fileRef = EF46FAE022B9C98100AB7445 /* fileFlies.sks */; };
@@ -22,6 +21,11 @@
 		EF7C935C22AA577E008C7FED /* dust.sks in Resources */ = {isa = PBXBuildFile; fileRef = EF7C935B22AA577E008C7FED /* dust.sks */; };
 		EF7C935F22AA5A97008C7FED /* DustScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7C935E22AA5A97008C7FED /* DustScene.swift */; };
 		EF7C936122AA5BD2008C7FED /* UIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7C936022AA5BD2008C7FED /* UIConstants.swift */; };
+		EF87822A2481579A0079B20E /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8782292481579A0079B20E /* MainViewModel.swift */; };
+		EF8FA8FB2483FE6100816C21 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8FA8FA2483FE6100816C21 /* APIService.swift */; };
+		EF8FA8FD248403EC00816C21 /* URIType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8FA8FC248403EC00816C21 /* URIType.swift */; };
+		EF8FA9002484057100816C21 /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8FA8FF2484057100816C21 /* APIConstants.swift */; };
+		EF8FA906248408F500816C21 /* HttpMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8FA905248408F500816C21 /* HttpMethod.swift */; };
 		EF92B4A7223D2F64004262A8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF92B4A6223D2F64004262A8 /* AppDelegate.swift */; };
 		EF92B4A9223D2F64004262A8 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF92B4A8223D2F64004262A8 /* MainViewController.swift */; };
 		EF92B4AC223D2F64004262A8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF92B4AA223D2F64004262A8 /* Main.storyboard */; };
@@ -70,7 +74,6 @@
 		92E37C389FF425C7D947FCC2 /* Pods-ARDustUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ARDustUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ARDustUITests/Pods-ARDustUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		CC95C8D87F97D523C98CA72C /* Pods-ARDustUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ARDustUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ARDustUITests/Pods-ARDustUITests.release.xcconfig"; sourceTree = "<group>"; };
 		DB445CB0FC1149C8C643CC91 /* Pods-ARDust.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ARDust.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ARDust/Pods-ARDust.debug.xcconfig"; sourceTree = "<group>"; };
-		EF16FDB923593BE7000DAEA4 /* TestSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestSource.swift; sourceTree = "<group>"; };
 		EF1F4B172363337A000D4FEC /* UmdDataList.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; name = UmdDataList.rtf; path = ../Supports/UmdDataList.rtf; sourceTree = "<group>"; };
 		EF25AB4A225618ED003B7135 /* LocationCoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LocationCoreData.xcdatamodel; sourceTree = "<group>"; };
 		EF25AB4B225618ED003B7135 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
@@ -84,6 +87,11 @@
 		EF7C935B22AA577E008C7FED /* dust.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = dust.sks; sourceTree = "<group>"; };
 		EF7C935E22AA5A97008C7FED /* DustScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DustScene.swift; sourceTree = "<group>"; };
 		EF7C936022AA5BD2008C7FED /* UIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIConstants.swift; sourceTree = "<group>"; };
+		EF8782292481579A0079B20E /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		EF8FA8FA2483FE6100816C21 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		EF8FA8FC248403EC00816C21 /* URIType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URIType.swift; sourceTree = "<group>"; };
+		EF8FA8FF2484057100816C21 /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
+		EF8FA905248408F500816C21 /* HttpMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpMethod.swift; sourceTree = "<group>"; };
 		EF92B4A3223D2F64004262A8 /* ARDust.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARDust.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF92B4A6223D2F64004262A8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EF92B4A8223D2F64004262A8 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -164,14 +172,6 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		EF16FDB823593B79000DAEA4 /* Test */ = {
-			isa = PBXGroup;
-			children = (
-				EF16FDB923593BE7000DAEA4 /* TestSource.swift */,
-			);
-			path = Test;
-			sourceTree = "<group>";
-		};
 		EF1F4B162363334C000D4FEC /* Supports */ = {
 			isa = PBXGroup;
 			children = (
@@ -203,7 +203,8 @@
 		EF878227248155FC0079B20E /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				EF9A21B6224DAEF80094D880 /* ViewController */,
+				EF8FA8FE2484056200816C21 /* Commons */,
+				EF9A21B6224DAEF80094D880 /* Presents */,
 				EF92B4D8223D2FFB004262A8 /* Extension */,
 				EF92B4D5223D2FDF004262A8 /* Network */,
 				EF92B4D4223D2FD3004262A8 /* Model */,
@@ -222,6 +223,14 @@
 				EF1F4B172363337A000D4FEC /* UmdDataList.rtf */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		EF8FA8FE2484056200816C21 /* Commons */ = {
+			isa = PBXGroup;
+			children = (
+				EF8FA8FF2484057100816C21 /* APIConstants.swift */,
+			);
+			path = Commons;
 			sourceTree = "<group>";
 		};
 		EF92B49A223D2F64004262A8 = {
@@ -253,7 +262,6 @@
 				EF878228248156020079B20E /* Resources */,
 				EF878227248155FC0079B20E /* Sources */,
 				EF1F4B162363334C000D4FEC /* Supports */,
-				EF16FDB823593B79000DAEA4 /* Test */,
 				EF9A21B7224DAF130094D880 /* Storyboard */,
 			);
 			path = ARDust;
@@ -293,6 +301,9 @@
 			children = (
 				EF92B4E9223D3126004262A8 /* Request.swift */,
 				EF92B4EB223D3147004262A8 /* RequestProtocol.swift */,
+				EF8FA8FA2483FE6100816C21 /* APIService.swift */,
+				EF8FA8FC248403EC00816C21 /* URIType.swift */,
+				EF8FA905248408F500816C21 /* HttpMethod.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -326,14 +337,15 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
-		EF9A21B6224DAEF80094D880 /* ViewController */ = {
+		EF9A21B6224DAEF80094D880 /* Presents */ = {
 			isa = PBXGroup;
 			children = (
-				EF9325FF227BD80900DFFD0D /* ARDustViewController.swift */,
 				EF92B4A8223D2F64004262A8 /* MainViewController.swift */,
+				EF8782292481579A0079B20E /* MainViewModel.swift */,
+				EF9325FF227BD80900DFFD0D /* ARDustViewController.swift */,
 				EF602D89229A7D46008A679A /* DetailViewController.swift */,
 			);
-			path = ViewController;
+			path = Presents;
 			sourceTree = "<group>";
 		};
 		EF9A21B7224DAF130094D880 /* Storyboard */ = {
@@ -565,9 +577,10 @@
 				EF7C935F22AA5A97008C7FED /* DustScene.swift in Sources */,
 				EF25AB4C225618ED003B7135 /* LocationCoreData.xcdatamodeld in Sources */,
 				EF92B4DC223D305B004262A8 /* LocationCoordinate.swift in Sources */,
+				EF8FA8FB2483FE6100816C21 /* APIService.swift in Sources */,
 				EF92B4DA223D3011004262A8 /* ExtensionCLLocationManager.swift in Sources */,
 				EF92B4A9223D2F64004262A8 /* MainViewController.swift in Sources */,
-				EF16FDBA23593BE7000DAEA4 /* TestSource.swift in Sources */,
+				EF8FA8FD248403EC00816C21 /* URIType.swift in Sources */,
 				EF92B4A7223D2F64004262A8 /* AppDelegate.swift in Sources */,
 				EF6A9B7623573DB4007F3C1B /* WeatherLocalData.swift in Sources */,
 				EF92B4EC223D3147004262A8 /* RequestProtocol.swift in Sources */,
@@ -576,9 +589,12 @@
 				EF92B4E0223D308D004262A8 /* LocationData.swift in Sources */,
 				EF7C936122AA5BD2008C7FED /* UIConstants.swift in Sources */,
 				EF92B4EA223D3126004262A8 /* Request.swift in Sources */,
+				EF87822A2481579A0079B20E /* MainViewModel.swift in Sources */,
 				EFD2A2F02251B2AF0081AAA7 /* LocationManager.swift in Sources */,
 				EF92B4E4223D30CA004262A8 /* AirData.swift in Sources */,
 				EF654D7122ABED8F00527E38 /* Weather.swift in Sources */,
+				EF8FA906248408F500816C21 /* HttpMethod.swift in Sources */,
+				EF8FA9002484057100816C21 /* APIConstants.swift in Sources */,
 				EF602D8A229A7D46008A679A /* DetailViewController.swift in Sources */,
 				EF654D7322ABEDF100527E38 /* WeatherRealtimeData.swift in Sources */,
 				EF92B4E6223D30F5004262A8 /* AirPollution.swift in Sources */,
