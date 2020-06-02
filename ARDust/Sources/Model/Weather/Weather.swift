@@ -11,51 +11,8 @@ import Foundation
 
 class Weather {
     
-    enum WeatherType {
-        case realtime
-    }
-    
-    private enum RealtimeCategoryType: String {
-        case t1h, sky, pty, rn1, reh
-    }
-    
-    private enum LocalCategoryType: String {
-        case date, time, pop, pty, r06, reh, s06, sky, t3h, tmn, tmx, uuu, vvv, wav, vec, wsd
-    }
-    
-    
-    func getBaseDateTime(_ type: WeatherType) -> (String, String) {
-        let date = Date()
-        let calendar = Calendar.current
-        let hour = calendar.component(.hour, from: date)
-        let minute = calendar.component(.minute, from: date)
-        var dateString = getTodayBaseDate()
-        var hourString = "\(hour)"
-        var minuteString = "\(minute)"
-        if minute < 10 {
-            minuteString = "0" + "\(minute)"
-        }
-        
-        if minute < 40 {
-            if hour == 0 {
-                dateString = getTodayBaseDate()
-                hourString = "23"
-            } else if hour == 10 {
-                hourString = "0\(hour - 1)"
-            } else {
-                hourString = "\(hour - 1)"
-            }
-        }
-        if hour == 0 && minute >= 40 {
-            hourString = "0" + hourString
-        } else if hour != 0 && hour < 10 {
-            hourString = "0" + hourString
-        }
-        return (dateString, hourString + minuteString)
-    }
-    
     // 현재 날짜를 반환한다.
-    private func getTodayBaseDate() -> String {
+    private func todayBaseDate() -> String {
         let date = Date()
         let formatter = DateFormatter()
         var dateString = ""

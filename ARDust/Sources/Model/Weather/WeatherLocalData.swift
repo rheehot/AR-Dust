@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 struct WeatherLocalData {
     var pop: String?    // 강수확률
     var pty: String?    // 강수형태
