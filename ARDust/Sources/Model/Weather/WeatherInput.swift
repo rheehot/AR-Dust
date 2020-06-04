@@ -7,8 +7,5 @@
 //
 
 import Foundation
-// Weather API Request Input
-class WeatherInput {
-    var latLng: LatLng
-    
-}
+
+

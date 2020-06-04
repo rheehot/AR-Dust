@@ -19,11 +19,11 @@ class APIServiceImpl: APIService {
     private let locationCoordinate = LocationCoordinate()
     
     func fineDust(_ data: LocationData, completion: @escaping RequestHandler) {
-        <#code#>
+        
     }
     
     func weather(_ data: LocationData, completion: @escaping RequestHandler) {
-        <#code#>
+        
     }
 }
 // MARK: - Request API Data
@@ -31,9 +31,11 @@ extension APIServiceImpl: APIRequestable {
     
     func requestForecastGrib(latLng: LatLng, completion: @escaping RequestHandler) {
         guard let url = createURL(.forecastGrib) else {
+            print("실패")
             completion(false, nil, .requestFailed)
             return
         }
+        print(url)
         let (nx, ny) = locationCoordinate.convertToGrid(latitude: latLng.latitude, longitude: latLng.longitude)
         let (baseData, baseTime) = Time().convertRequestTime(.realtime)
         let parameters: Parameters = [
@@ -42,29 +44,54 @@ extension APIServiceImpl: APIRequestable {
             "nx": nx,
             "ny": ny,
             "_type": "json",
-            "numOfRows": 30
+            "numOfRows": 10
         ]
         
         AF.request(url, method: .get, parameters: parameters, encoding: URLEncoding.default)
             .responseJSON { (response) in
-                if let data =
+                print("요청")
+                if let data = response.result.value {
+                    print("성공",data)
+                    completion(true, data, nil)
+                } else {
+                    print("실패")
+                    completion(false, nil, NetworkError.requestFailed)
+                }
         }
     }
     
     func requestForecastTimeData(latLng: LatLng, completion: @escaping RequestHandler) {
-        <#code#>
+        
     }
     
     func requestForecastSpaceData(latLng: LatLng, completion: @escaping RequestHandler) {
-        <#code#>
+        
     }
     
     func requestNearbyMsrstnList(latLng: LatLng, completion: @escaping RequestHandler) {
-        <#code#>
+        guard let url = createURL(.getNearbyMsrstnList) else {
+            completion(false, nil, NetworkError.requestFailed)
+            return
+        }
+        let (tmX, tmY) = locationCoordinate.convertToPlaneRect(latitude: latLng.latitude, longitude: latLng.longitude)
+        let parameters: Parameters = [
+            "tmX": tmX,
+            "tmY": tmY,
+            "numOfRows": 1,
+            "_returnType": "json"
+        ]
+        AF.request(url, method: .get, parameters: parameters, encoding: URLEncoding.default)
+            .responseJSON { (response) in
+                if let data = response.result.value {
+                    completion(true, data, nil)
+                } else {
+                    completion(false, nil, NetworkError.requestFailed)
+                }
+        }
     }
     
     func requestMsrstnAcctoRltmMesureDnsty(latLng: LatLng, completion: @escaping RequestHandler) {
-        <#code#>
+        
     }
 }
 
@@ -72,12 +99,15 @@ extension APIServiceImpl: APIRequestable {
 private extension APIServiceImpl {
     
     private func createURL(_ type: URIType) -> URL? {
+        var urlString: String
         switch type {
         case .forecastGrib, .forecastSpaceData, .forecastTimeData:
-            return weatherURLComponents(type).url
+            urlString = weatherURLComponents(type).description
         case .getMsrstnAcctoRltmMesureDnsty, .getNearbyMsrstnList:
-            return fineDustURLComponents(type).url
+            urlString = fineDustURLComponents(type).description
         }
+        urlString += "/\(type.rawValue)?ServiceKey=\(WeatherAPI.serviceKey.rawValue)"
+        return URL(string: urlString)
     }
     
     private func weatherURLComponents(_ type: URIType) -> URLComponents {
@@ -86,8 +116,6 @@ private extension APIServiceImpl {
         components.host = WeatherAPI.host.rawValue
         components.path = WeatherAPI.path.rawValue
         components.path += WeatherAPI.weatherService.rawValue
-        components.path += "/\(type.rawValue)"
-        components.query = "/ServiceKey=\(WeatherAPI.serviceKey.rawValue)"
         return components
     }
     
@@ -103,7 +131,7 @@ private extension APIServiceImpl {
             components.path += FineDustAPI.nearByService.rawValue
         }
         components.path += "/\(type.rawValue)"
-        components.query = "/ServiceKey=\(FineDustAPI.serviceKey.rawValue)"
+        components.query = "ServiceKey=\(FineDustAPI.serviceKey.rawValue)"
         return components
     }
 }

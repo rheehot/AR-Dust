@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -72,9 +72,6 @@
                                                 <include reference="uSD-Ub-2v6"/>
                                             </mask>
                                         </variation>
-                                        <connections>
-                                            <action selector="tapShareButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="C3G-Tu-CVn"/>
-                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="측정시간" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i1I-2e-hqw">
                                         <rect key="frame" x="30" y="72" width="52" height="21"/>
@@ -471,24 +468,6 @@
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
                     </userDefinedRuntimeAttributes>
-                    <connections>
-                        <outlet property="arButton" destination="4BJ-rd-GRe" id="bSj-c0-4XX"/>
-                        <outlet property="behindView" destination="rJg-xR-uGL" id="Uct-X4-c3O"/>
-                        <outlet property="blueView" destination="yd3-Re-0XJ" id="cHu-E5-C3y"/>
-                        <outlet property="dustStackView" destination="G4i-Gs-XTs" id="g8x-2q-ihp"/>
-                        <outlet property="fineDustStackView" destination="awy-Ob-gCB" id="a7W-wI-rXi"/>
-                        <outlet property="grayView" destination="nvG-uE-3Cs" id="Z7x-l3-VzY"/>
-                        <outlet property="locationName" destination="LZf-te-Q3A" id="2X4-8p-eU1"/>
-                        <outlet property="pm10Label" destination="YCk-gW-Zwk" id="eHM-HA-xgc"/>
-                        <outlet property="pm25Label" destination="qRd-W6-G7d" id="dBp-as-lPs"/>
-                        <outlet property="pollutionStateLabel" destination="pD1-Vh-NmP" id="0Re-Jj-Do6"/>
-                        <outlet property="rehLabel" destination="f0Y-Mx-1ze" id="lc6-T2-yA3"/>
-                        <outlet property="rn1Label" destination="MHy-IS-k0e" id="lOJ-o1-XtL"/>
-                        <outlet property="shareButton" destination="SZQ-5z-hAG" id="K7d-Wk-YfB"/>
-                        <outlet property="skyStateImageView" destination="1OL-eh-fYB" id="NgB-Gi-Y6Q"/>
-                        <outlet property="t1hLabel" destination="QFg-uO-SZ2" id="t19-ja-oCu"/>
-                        <outlet property="timeLabel" destination="i1I-2e-hqw" id="8X7-JR-eEE"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="cQ3-WS-z6g"/>
