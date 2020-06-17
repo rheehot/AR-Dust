@@ -7,132 +7,73 @@
 //
 
 import Foundation
+import UIKit
 
-class AirPollution {
+struct AirPollution {
+    // 미세먼지 저보 JSON 데이터 (18p)
+    var stationName: String?    // 측정소
+    var dataTime: String?       // 측정일
+    var mangName: String?       // 측정망 정보
+    var so2Value: String?       // 아황산가스 농도
+    var coValue: String?        // 일산화탄소 농도
+    var o3Value: String?        // 오존 농도
+    var no2Value: String?       // 이산화질소 농도
+    var pm10Value: String?      // 미세먼지(PM10) 농도
+    var pm10Value24: String?    // 미세먼지(PM10) 24시간 예측 이동 농도
+    var pm25Value: String?      // 미세먼지(PM2.5) 농도 == 초미세먼지
+    var pm25Value24: String?    // 미세먼지(PM2.5) 24시간 평균 농도
+    var khaiValue: String?      // 통합대기환경수치
+    var khaiGrade: String?      // 통합대기환경지수
+    var so2Grade: String?       // 아황산가스 지수
+    var coGrade: String?        // 일산화탄소 지수
+    var o3Grade: String?        // 오존 지수
+    var no2Grade: String?       // 이산화질소 지수
+    var pm10Grade: String?      // 미세먼지(PM10) 24시간 등급
+    var pm25Grade: String?      // 미세먼지(PM2.5) 24시간 등급
+    var pm10Grade1h: String?    // 미세먼지(PM10) 1시간 등급
+    var pm25Grade1h: String?    // 미세먼지(PM2.5) 1시간 등급
     
-    // MARK: - MesureTypeEnum
-    // MARK: -
-    /// 대기오염 측정 타입: 실시간 측정 정보, 근접 측정소 정보
-    enum AirPollutionMeasureType {
-        case realtimeMeasurement
-        case nearbyMeasuringSt
+    var pollutionState: String {
+        let pmValue = Int(self.pm10Value!)!
+        if pmValue <= 15 {
+            return "최고"
+        } else if pmValue <= 30 {
+            return "좋음"
+        } else if pmValue <= 40 {
+            return "양호"
+        } else if pmValue <= 50 {
+            return "보통"
+        } else if pmValue <= 75 {
+            return "나쁨"
+        } else if pmValue <= 100 {
+            return "상당히 나쁨"
+        } else if pmValue <= 150 {
+            return "매우 나쁨"
+        } else {
+            return "최악"
+        }
     }
     
-    private enum RealtimeCategoryType {
-        case dataTime, mangName, so2Value, coValue, o3Value, no2Value, pm10Value, pm10Value24, pm25Value, pm25Value24, khaiValue, khaiGrade, so2Grade, coGrade, o3Grade, no2Grade, pm10Grade, pm25Grade, pm10Grade1h, pm25Grade1h
+    var pollutionStateColor: UIColor {
+        let pmValue = Int(self.pm10Value!)!
+        if pmValue <= 15 {
+            return UIColor.aqua()
+        } else if pmValue <= 30 {
+            return  UIColor.aqua()
+        } else if pmValue <= 40 {
+            return UIColor(red:102/255, green:255/255, blue:204/255, alpha:1.0)
+        } else if pmValue <= 50 {
+            return UIColor(red:102/255, green:255/255, blue:102/255, alpha:1.0)
+        } else if pmValue <= 75 {
+            return UIColor(red:255/255, green:204/255, blue:102/255, alpha:1.0)
+        } else if pmValue <= 100 {
+            return UIColor(red:255/255, green:128/255, blue:0/255, alpha:1.0)
+        } else if pmValue <= 150 {
+            return UIColor(red:128/255, green:0/255, blue:0/255, alpha:1.0)
+        } else {
+            return UIColor(red:60/255, green:0/255, blue:0/255, alpha:1.0)
+        }
     }
-    
-    ///측정소 타입에 따른 데이터 번환
-    func measureTypeExtract (_ type: AirPollutionMeasureType, data: Any?) -> Any? {
-        guard let result = data as? [String: Any], let list = result["list"] as? [[String: Any]] else {
-            return nil
-        }
-        
-        switch type {
-        case .nearbyMeasuringSt:
-            return extractNearByMeasuringStation(list)
-        case .realtimeMeasurement:
-            return extractRealtimeMeasuringStation(result,list)
-        }
-    }
-    
-    ///실시간 특정소 데이터 반환
-    private func extractRealtimeMeasuringStation(_ result: Any?, _ data: Any?) -> Any? {
-        var realtimeData = extractRealtimeData(data)
-        guard let result = result as? [String: Any] else {
-            return nil
-        }
-        if let value = result["ArpltnInforInqireSvcVo"] as? [String: Any] {
-            let stationName = value["stationName"] as? String
-            realtimeData?.stationName = stationName
-        }
-        return realtimeData
-    }
-    
-    
-    
-    /// 근접 측정소의 stationName의 정보를 담고있는 배열 반환
-    private func extractNearByMeasuringStation(_  data: Any?) -> Any? {
-        guard let items = data as? [[String: Any]] else {
-            return nil
-        }
-        
-        var stationNames = [String]()
-        // 근접 측정소 정보 배열을 받아온다
-        for item in items {
-            if let stationName = item["stationName"] as? String {
-                stationNames.append(stationName)
-            }
-        }
-        return stationNames
-    }
-    
-    /// 측정소별 실시간 측정정보 JSON 배열 형태로 추출 후 반환
-    private func extractRealtimeData(_ data: Any?) -> AirPollutionData? {
-        guard let items = data as? [[String: Any]], let item = items.first else {
-            return nil
-        }
-        
-        var airPollutionData = AirPollutionData()
-        for (key, value) in item {
-            switch key {
-            case "dataTime":
-                airPollutionData.dataTime = convertToString(.dataTime, value: value)
-            case "mangName":
-                airPollutionData.mangName = convertToString(.mangName, value: value)
-            case "so2Value":
-                airPollutionData.so2Value = convertToString(.so2Value, value: value)
-            case "coValue":
-                airPollutionData.coValue = convertToString(.coValue, value: value)
-            case "o3Value":
-                airPollutionData.o3Value = convertToString(.o3Value, value: value)
-            case "no2Value":
-                airPollutionData.no2Value = convertToString(.no2Value, value: value)
-            case "pm10Value":
-                airPollutionData.pm10Value = convertToString(.pm10Value, value: value)
-            case "pm10Value24":
-                airPollutionData.pm10Value24 = convertToString(.pm10Value24, value: value)
-            case "pm25Value":
-                airPollutionData.pm25Value = convertToString(.pm25Value, value: value)
-            case "pm25Value24":
-                airPollutionData.pm25Value24 = convertToString(.pm25Value24, value: value)
-            case "khaiValue":
-                airPollutionData.khaiValue = convertToString(.khaiValue, value: value)
-            case "khaiGrade":
-                airPollutionData.khaiGrade = convertToString(.khaiGrade, value: value)
-            case "so2Grade":
-                airPollutionData.so2Grade = convertToString(.so2Grade, value: value)
-            case "coGrade":
-                airPollutionData.coGrade = convertToString(.coGrade, value: value)
-            case "o3Grade":
-                airPollutionData.o3Grade = convertToString(.o3Grade, value: value)
-            case "no2Grade":
-                airPollutionData.no2Grade = convertToString(.no2Grade, value: value)
-            case "pm10Grade":
-                airPollutionData.pm10Grade = convertToString(.pm10Grade, value: value)
-            case "pm25Grade":
-                airPollutionData.pm25Grade = convertToString(.pm25Grade, value: value)
-            case "pm10Grade1h":
-                airPollutionData.pm10Grade1h = convertToString(.pm10Grade1h, value: value)
-            case "pm25Grade1h":
-                airPollutionData.pm25Grade1h = convertToString(.pm25Grade1h, value: value)
-            default:
-                ()
-            }
-        }
-        return airPollutionData
-    }
-    
-    /// 추출한 데이터의 정보를 문자열로 변환 (임시)
-    private func convertToString(_ type: RealtimeCategoryType, value: Any) -> String {
-        var result = ""
-        
-        result = "\(value)"
-        
-        return result
-        
-    }
-    
     
     
 }

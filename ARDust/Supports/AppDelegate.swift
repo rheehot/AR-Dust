@@ -12,7 +12,6 @@ import CoreData
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var locations = [LocationData]()
-    var airDataList = [AirData]()
     var window: UIWindow?
     var shouldSupportAllOrientation = true
 

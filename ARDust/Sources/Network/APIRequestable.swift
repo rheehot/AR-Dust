@@ -10,15 +10,18 @@ import Foundation
 
 typealias RequestHandler = (Bool, Any?, NetworkError?) -> Void
 
-protocol APIRequestable {
+protocol WeatherAPIRequestable {
     // request Weather API
     func requestForecastGrib(latLng: LatLng, completion: @escaping RequestHandler)
     
     func requestForecastTimeData(latLng: LatLng, completion: @escaping RequestHandler)
     
     func requestForecastSpaceData(latLng: LatLng, completion: @escaping RequestHandler)
+}
+
+protocol FineDustAPIRequestable {
     // request FineDust API
     func requestNearbyMsrstnList(latLng: LatLng, completion: @escaping RequestHandler)
     
-    func requestMsrstnAcctoRltmMesureDnsty(latLng: LatLng, completion: @escaping RequestHandler)
+    func requestMsrstnAcctoRltmMesureDnsty(_ stationName: String, completion: @escaping RequestHandler)
 }
