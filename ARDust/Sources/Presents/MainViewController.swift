@@ -9,7 +9,7 @@
 import UIKit
 import SpriteKit
 import CoreLocation
-import Hero
+import RxSwift
 
 
 class MainViewController: UIViewController {
@@ -20,50 +20,46 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let apiService = APIServiceImpl()
-        // 그린팩토리 37.359255, 127.105046
-        
-        let latLng = LatLng(latitude: 37.359255, longitude: 127.105046)
-        apiService.requestForecastGrib(latLng: latLng) { (isSuccess, data, error) in
-            if isSuccess {
-                print("성공","초단기",data)
-            } else {
-                print("실패")
-            }
-        }
-        apiService.requestForecastTimeData(latLng: latLng) { (isSuccess, data, error) in
-            if isSuccess {
-                print("성공", "실시간", data)
-            } else {
-                print("실패")
-            }
-        }
-        apiService.requestForecastSpaceData(latLng: latLng) { (isSuccess, data, error) in
-            if isSuccess {
-                print("성공","동네예보",data)
-            } else {
-                print("실패")
-            }
-        }
-        // 미세먼지
-        print("미세먼지")
-        apiService.requestNearbyMsrstnList(latLng: latLng) { (isSuccess, data, error) in
-            if isSuccess {
-                print("성공","근접측정소",data)
-            } else {
-                print("실패")
-            }
-        }
-        // 측정소별
-        apiService.requestMsrstnAcctoRltmMesureDnsty("화원") { (isSuccess, data, error) in
-            if isSuccess {
-                print("성공","측정소별",data)
-            } else {
-                print("실패")
-            }
-        }
     }
     
-    
-    
+    func networkTest() {
+        //        apiService.requestForecastGrib(latLng: latLng) { (isSuccess, data, error) in
+        //            if isSuccess {
+        //                print("성공","초단기",data)
+        //            } else {
+        //                print("실패")
+        //            }
+        //        }
+        //        apiService.requestForecastTimeData(latLng: latLng) { (isSuccess, data, error) in
+        //            if isSuccess {
+        //                print("성공", "실시간", data)
+        //            } else {
+        //                print("실패")
+        //            }
+        //        }
+        //        apiService.requestForecastSpaceData(latLng: latLng) { (isSuccess, data, error) in
+        //            if isSuccess {
+        //                print("성공","동네예보",data)
+        //            } else {
+        //                print("실패")
+        //            }
+        //        }
+        //        // 미세먼지
+        //        print("미세먼지")
+        //        apiService.requestNearbyMsrstnList(latLng: latLng) { (isSuccess, data, error) in
+        //            if isSuccess {
+        //                print("성공","근접측정소",data)
+        //            } else {
+        //                print("실패")
+        //            }
+        //        }
+        //        // 측정소별
+        //        apiService.requestMsrstnAcctoRltmMesureDnsty("화원") { (isSuccess, data, error) in
+        //            if isSuccess {
+        //                print("성공","측정소별",data)
+        //            } else {
+        //                print("실패")
+        //            }
+        //        }
+    }
 }

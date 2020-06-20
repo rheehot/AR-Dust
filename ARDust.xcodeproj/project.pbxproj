@@ -46,6 +46,8 @@
 		EF92B4EC223D3147004262A8 /* RequestProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF92B4EB223D3147004262A8 /* RequestProtocol.swift */; };
 		EF932600227BD80900DFFD0D /* ARDustViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9325FF227BD80900DFFD0D /* ARDustViewController.swift */; };
 		EF932602227BDAA100DFFD0D /* dust.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = EF932601227BDAA100DFFD0D /* dust.scnassets */; };
+		EFA8FCDB249DCB750066996E /* MainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA8FCDA249DCB750066996E /* MainModel.swift */; };
+		EFA8FCDD249DCD270066996E /* Activity+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA8FCDC249DCD270066996E /* Activity+Rx.swift */; };
 		EFD180882249305A0021EC54 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFD180872249305A0021EC54 /* CoreData.framework */; };
 		EFD2A2F02251B2AF0081AAA7 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD2A2EF2251B2AF0081AAA7 /* LocationManager.swift */; };
 /* End PBXBuildFile section */
@@ -121,6 +123,8 @@
 		EF92B4EB223D3147004262A8 /* RequestProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestProtocol.swift; sourceTree = "<group>"; };
 		EF9325FF227BD80900DFFD0D /* ARDustViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARDustViewController.swift; sourceTree = "<group>"; };
 		EF932601227BDAA100DFFD0D /* dust.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = dust.scnassets; sourceTree = "<group>"; };
+		EFA8FCDA249DCB750066996E /* MainModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainModel.swift; sourceTree = "<group>"; };
+		EFA8FCDC249DCD270066996E /* Activity+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Activity+Rx.swift"; sourceTree = "<group>"; };
 		EFD180872249305A0021EC54 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		EFD2A2EF2251B2AF0081AAA7 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -313,6 +317,7 @@
 				EF8FA90A2484945F00816C21 /* APIRequestable.swift */,
 				EF8FA8FC248403EC00816C21 /* URIType.swift */,
 				EF8FA905248408F500816C21 /* HttpMethod.swift */,
+				EFA8FCDC249DCD270066996E /* Activity+Rx.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -351,6 +356,7 @@
 			children = (
 				EF92B4A8223D2F64004262A8 /* MainViewController.swift */,
 				EF8782292481579A0079B20E /* MainViewModel.swift */,
+				EFA8FCDA249DCB750066996E /* MainModel.swift */,
 				EF9325FF227BD80900DFFD0D /* ARDustViewController.swift */,
 				EF602D89229A7D46008A679A /* DetailViewController.swift */,
 			);
@@ -588,12 +594,14 @@
 				EF25AB4C225618ED003B7135 /* LocationCoreData.xcdatamodeld in Sources */,
 				EF92B4DC223D305B004262A8 /* LocationCoordinate.swift in Sources */,
 				EF8FA8FB2483FE6100816C21 /* APIService.swift in Sources */,
+				EFA8FCDD249DCD270066996E /* Activity+Rx.swift in Sources */,
 				EF92B4DA223D3011004262A8 /* ExtensionCLLocationManager.swift in Sources */,
 				EF92B4A9223D2F64004262A8 /* MainViewController.swift in Sources */,
 				EF8FA8FD248403EC00816C21 /* URIType.swift in Sources */,
 				EF92B4A7223D2F64004262A8 /* AppDelegate.swift in Sources */,
 				EF6A9B7623573DB4007F3C1B /* WeatherLocalData.swift in Sources */,
 				EF8FA90D248494B000816C21 /* LatLng.swift in Sources */,
+				EFA8FCDB249DCB750066996E /* MainModel.swift in Sources */,
 				EF3954A3248635CF00442318 /* Time.swift in Sources */,
 				EF92B4EC223D3147004262A8 /* RequestProtocol.swift in Sources */,
 				EF39549D2486318500442318 /* WeatherInput.swift in Sources */,

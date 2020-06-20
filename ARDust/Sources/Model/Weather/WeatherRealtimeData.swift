@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct WeatherRealtimeData {
+struct WeatherRealtimeData: Codable {
     var t1h: String?     // 현재온도
     var sky: String?     // 하늘상태 맑음(1), 구름많음(3), 흐림(4)
     var pty: String?     // 강수형태 없음(0), 비(1), 비/눈(2), 눈(3), 소나기(4) ps) 비/눈 - > 진눈개비

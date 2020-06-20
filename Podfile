@@ -6,6 +6,14 @@ target 'ARDust' do
   use_frameworks!
 
   # Pods for ARDust
+  pod 'RxSwift'
+  pod 'RxCocoa'
+  pod 'RxOptional'
+  pod 'RxKeyboard'
+  pod 'RxAppState'
+  pod 'RxDataSources'
+  pod 'Alamofire', '~> 5.2'
+  pod 'SwiftLint'
 
   target 'ARDustTests' do
     inherit! :search_paths
@@ -16,9 +24,17 @@ target 'ARDust' do
     inherit! :search_paths
     # Pods for testing
   end
-pod 'RxSwift'
-pod 'Kingfisher'
-pod 'Alamofire', '~> 5.0.0-beta.3'
-pod 'Hero'
+  
+  # Pods for Image & Ui
+  pod 'Kingfisher'
+  pod 'Hero'
+
+def testing_pods
+  pod 'Quick'
+  pod 'Nimble'
+  pod 'RxBlocking'
+  pod 'RxTest'
+end
+
 inhibit_all_warnings! 
 end

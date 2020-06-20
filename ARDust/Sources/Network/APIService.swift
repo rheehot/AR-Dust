@@ -11,24 +11,61 @@ import Alamofire
 import RxSwift
 
 protocol APIService {
-//    func fineDust(_ data: LocationData) -> Observable<Swift.Result<AirPollution, NetworkError>>
-//    func weather(_ data: LocationData) -> Observable<Swift.Result<Weather, NetworkError>>
+    func rxTest(latLng: LatLng) -> Observable<Swift.Result<WeatherRealtimeData, NetworkError>>
+    //    func fineDust(_ data: LocationData) -> Observable<Swift.Result<AirPollution, NetworkError>>
+    //    func weather(_ data: LocationData) -> Observable<Swift.Result<Weather, NetworkError>>
 }
 
 class APIServiceImpl: APIService {
     // MARK: - Properties
     private let locationCoordinate = LocationCoordinate()
     
-//    func fineDust(_ data: LocationData) -> Observable<Swift.Result<AirPollution, NetworkError>> {
-//        
-//    }
-//    
-//    func weather(_ data: LocationData) -> Observable<Swift.Result<Weather, NetworkError>> {
-//        
-//    }
+    //    func fineDust(_ data: LocationData) -> Observable<Swift.Result<AirPollution, NetworkError>> {
+    //
+    //    }
+    //
+    //    func weather(_ data: LocationData) -> Observable<Swift.Result<Weather, NetworkError>> {
+    //
+    //    }
 }
 // MARK: - Request API Data
 extension APIServiceImpl: WeatherAPIRequestable {
+    
+    func rxTest(latLng: LatLng) -> Observable<Swift.Result<WeatherRealtimeData, NetworkError>> {
+        guard let url = createURL(.forecastGrib) else {
+            return .just(.failure(.requestFailed))
+        }
+        let (nx, ny) = locationCoordinate.convertToGrid(latitude: latLng.latitude, longitude: latLng.longitude)
+        let (baseData, baseTime) = Time().convertRequestTime(.realtime)
+        let parameters: Parameters = [
+            "base_date": baseData,
+            "base_time": baseTime,
+            "nx": nx,
+            "ny": ny,
+            "_type": "json",
+            "numOfRows": 10
+        ]
+        
+        return Observable.create { observer -> Disposable in
+            AF.request(url, method: .get, parameters: parameters, encoding: URLEncoding.default)
+                .validate()
+                .responseData { response in
+                    switch response.result {
+                    case let .success(value):
+                        do {
+                            let weather = try JSONDecoder().decode(WeatherRealtimeData.self, from: value)
+                            observer.onNext(.success(weather))
+                        } catch let error {
+                            observer.onError(error)
+                        }
+                    case let .failure(error):
+                        observer.onError(error)
+                    }
+                    observer.onCompleted()
+            }
+            return Disposables.create()
+        }
+    }
     // 초단기실황
     func requestForecastGrib(latLng: LatLng, completion: @escaping RequestHandler) {
         guard let url = createURL(.forecastGrib) else {
@@ -55,6 +92,7 @@ extension APIServiceImpl: WeatherAPIRequestable {
                 }
         }
     }
+    
     // 초단기예보
     func requestForecastTimeData(latLng: LatLng, completion: @escaping RequestHandler) {
         guard let url = createURL(.forecastTimeData) else {
