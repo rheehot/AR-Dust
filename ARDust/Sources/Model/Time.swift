@@ -52,23 +52,25 @@ class Time {
     private func forecastGribTime() -> (String, String) {
         var dateString = baseDate(.today)
         var hourString = "\(hour)"
-        let minuteString = "\(minute)"
+        var minuteString = "\(minute)"
         // 초단기 실황 API 제공 시간 -> 매 시간 40분
+        if minute < 10 {
+            minuteString = "0" + "\(minute)"
+        }
         if minute < 40 {
             if hour == 0 {
                 // 0시면 어제의 측정값 요청
                 dateString = baseDate(.yesterday)
                 hourString = "23"
-            } else if hour < 10 {
-                hourString = "0\(hour)"
+                hourString = "0\(hour - 1)"
             } else {
-                hourString = "\(hour)"
+                hourString = "\(hour - 1)"
             }
         }
         // 00:40분 일때
-        if hour == 0 && minute == 40 {
+        if hour == 0 && minute >= 40 {
             hourString = "0" + hourString
-        } else if hour < 10 {
+        } else if hour != 0 && hour < 10 {
             hourString = "0" + hourString
         }
         return (dateString, hourString + minuteString)

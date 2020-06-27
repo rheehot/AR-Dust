@@ -45,7 +45,7 @@ class Weather {
             }
             switch category {
             case "T1H":
-                weatherRealtimeData.t1h = convertToRealtimeString(.t1h, value: value)
+                weatherRealtimeData.convertToRealtimeString(.t1h, value: value)
             case "SKY":
                 weatherRealtimeData.sky = convertToRealtimeString(.sky, value: value)
             case "PTY":
