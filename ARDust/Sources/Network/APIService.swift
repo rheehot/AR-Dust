@@ -11,7 +11,7 @@ import Alamofire
 import RxSwift
 
 protocol APIService {
-    func rxTest(latLng: LatLng) -> Observable<Swift.Result<WeatherRealtimeData, NetworkError>>
+    func rxTest(latLng: LatLng) -> Observable<Swift.Result<Any, NetworkError>>
     //    func fineDust(_ data: LocationData) -> Observable<Swift.Result<AirPollution, NetworkError>>
     //    func weather(_ data: LocationData) -> Observable<Swift.Result<Weather, NetworkError>>
 }
@@ -31,14 +31,14 @@ class APIServiceImpl: APIService {
 // MARK: - Request API Data
 extension APIServiceImpl: WeatherAPIRequestable {
     
-    func rxTest(latLng: LatLng) -> Observable<Swift.Result<WeatherRealtimeData, NetworkError>> {
+    func rxTest(latLng: LatLng) -> Observable<Swift.Result<Any, NetworkError>> {
         guard let url = createURL(.forecastGrib) else {
             return .just(.failure(.requestFailed))
         }
         let (nx, ny) = locationCoordinate.convertToGrid(latitude: latLng.latitude, longitude: latLng.longitude)
-        let (baseData, baseTime) = Time().convertRequestTime(.realtime)
+        let (baseDate, baseTime) = Time().convertRequestTime(.realtime)
         let parameters: Parameters = [
-            "base_date": baseData,
+            "base_date": baseDate,
             "base_time": baseTime,
             "nx": nx,
             "ny": ny,
@@ -49,15 +49,10 @@ extension APIServiceImpl: WeatherAPIRequestable {
         return Observable.create { observer -> Disposable in
             AF.request(url, method: .get, parameters: parameters, encoding: URLEncoding.default)
                 .validate()
-                .responseData { response in
+                .responseJSON { response in
                     switch response.result {
                     case let .success(value):
-                        do {
-                            let weather = try JSONDecoder().decode(WeatherRealtimeData.self, from: value)
-                            observer.onNext(.success(weather))
-                        } catch let error {
-                            observer.onError(error)
-                        }
+                        observer.onNext(.success(value))
                     case let .failure(error):
                         observer.onError(error)
                     }
@@ -73,9 +68,9 @@ extension APIServiceImpl: WeatherAPIRequestable {
             return
         }
         let (nx, ny) = locationCoordinate.convertToGrid(latitude: latLng.latitude, longitude: latLng.longitude)
-        let (baseData, baseTime) = Time().convertRequestTime(.realtime)
+        let (baseDate, baseTime) = Time().convertRequestTime(.realtime)
         let parameters: Parameters = [
-            "base_date": baseData,
+            "base_date": baseDate,
             "base_time": baseTime,
             "nx": nx,
             "ny": ny,
@@ -85,10 +80,11 @@ extension APIServiceImpl: WeatherAPIRequestable {
         
         AF.request(url, method: .get, parameters: parameters, encoding: URLEncoding.default)
             .responseJSON { (response) in
-                if let data = response.result.value {
+                print(response.value)
+                if let data = response.value {
                     completion(true, data, nil)
                 } else {
-                    completion(false, nil, NetworkError.requestFailed)
+                    completion(false, nil, .requestFailed)
                 }
         }
     }
@@ -112,7 +108,7 @@ extension APIServiceImpl: WeatherAPIRequestable {
         
         AF.request(url, method: .get, parameters: parameters, encoding: URLEncoding.default)
             .responseJSON { (response) in
-                if let data = response.result.value {
+                if let data = response.value {
                     completion(true, data, nil)
                 } else {
                     completion(false, nil, NetworkError.requestFailed)
@@ -136,7 +132,7 @@ extension APIServiceImpl: WeatherAPIRequestable {
         ]
         AF.request(url, method: .get, parameters: parameters, encoding: URLEncoding.default)
             .responseJSON { (response) in
-                if let data = response.result.value {
+                if let data = response.value {
                     completion(true, data, nil)
                 } else {
                     completion(false, nil, NetworkError.requestFailed)
@@ -161,7 +157,7 @@ extension APIServiceImpl: FineDustAPIRequestable {
         ]
         AF.request(url, method: .get, parameters: parameters, encoding: URLEncoding.default)
             .responseJSON { (response) in
-                if let data = response.result.value {
+                if let data = response.value {
                     completion(true, data, nil)
                 } else {
                     completion(false, nil, NetworkError.requestFailed)
@@ -183,7 +179,7 @@ extension APIServiceImpl: FineDustAPIRequestable {
         ]
         AF.request(url, method: .get, parameters: parameters, encoding: URLEncoding.default)
             .responseJSON { (response) in
-                if let data = response.result.value {
+                if let data = response.value {
                     completion(true, data, nil)
                 } else {
                     completion(false, nil, NetworkError.requestFailed)

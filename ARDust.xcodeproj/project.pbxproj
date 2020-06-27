@@ -24,7 +24,7 @@
 		EF7C935C22AA577E008C7FED /* dust.sks in Resources */ = {isa = PBXBuildFile; fileRef = EF7C935B22AA577E008C7FED /* dust.sks */; };
 		EF7C935F22AA5A97008C7FED /* DustScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7C935E22AA5A97008C7FED /* DustScene.swift */; };
 		EF7C936122AA5BD2008C7FED /* UIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7C936022AA5BD2008C7FED /* UIConstants.swift */; };
-		EF87822A2481579A0079B20E /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8782292481579A0079B20E /* MainViewModel.swift */; };
+		EF87822A2481579A0079B20E /* WeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8782292481579A0079B20E /* WeatherViewModel.swift */; };
 		EF8FA8FB2483FE6100816C21 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8FA8FA2483FE6100816C21 /* APIService.swift */; };
 		EF8FA8FD248403EC00816C21 /* URIType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8FA8FC248403EC00816C21 /* URIType.swift */; };
 		EF8FA9002484057100816C21 /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8FA8FF2484057100816C21 /* APIConstants.swift */; };
@@ -46,8 +46,9 @@
 		EF92B4EC223D3147004262A8 /* RequestProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF92B4EB223D3147004262A8 /* RequestProtocol.swift */; };
 		EF932600227BD80900DFFD0D /* ARDustViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9325FF227BD80900DFFD0D /* ARDustViewController.swift */; };
 		EF932602227BDAA100DFFD0D /* dust.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = EF932601227BDAA100DFFD0D /* dust.scnassets */; };
-		EFA8FCDB249DCB750066996E /* MainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA8FCDA249DCB750066996E /* MainModel.swift */; };
+		EFA8FCDB249DCB750066996E /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA8FCDA249DCB750066996E /* WeatherModel.swift */; };
 		EFA8FCDD249DCD270066996E /* Activity+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA8FCDC249DCD270066996E /* Activity+Rx.swift */; };
+		EFA8FCE1249F1A300066996E /* WeatherDataMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA8FCE0249F1A300066996E /* WeatherDataMapper.swift */; };
 		EFD180882249305A0021EC54 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFD180872249305A0021EC54 /* CoreData.framework */; };
 		EFD2A2F02251B2AF0081AAA7 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD2A2EF2251B2AF0081AAA7 /* LocationManager.swift */; };
 /* End PBXBuildFile section */
@@ -95,7 +96,7 @@
 		EF7C935B22AA577E008C7FED /* dust.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = dust.sks; sourceTree = "<group>"; };
 		EF7C935E22AA5A97008C7FED /* DustScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DustScene.swift; sourceTree = "<group>"; };
 		EF7C936022AA5BD2008C7FED /* UIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIConstants.swift; sourceTree = "<group>"; };
-		EF8782292481579A0079B20E /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		EF8782292481579A0079B20E /* WeatherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewModel.swift; sourceTree = "<group>"; };
 		EF8FA8FA2483FE6100816C21 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		EF8FA8FC248403EC00816C21 /* URIType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URIType.swift; sourceTree = "<group>"; };
 		EF8FA8FF2484057100816C21 /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
@@ -123,8 +124,9 @@
 		EF92B4EB223D3147004262A8 /* RequestProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestProtocol.swift; sourceTree = "<group>"; };
 		EF9325FF227BD80900DFFD0D /* ARDustViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARDustViewController.swift; sourceTree = "<group>"; };
 		EF932601227BDAA100DFFD0D /* dust.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = dust.scnassets; sourceTree = "<group>"; };
-		EFA8FCDA249DCB750066996E /* MainModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainModel.swift; sourceTree = "<group>"; };
+		EFA8FCDA249DCB750066996E /* WeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
 		EFA8FCDC249DCD270066996E /* Activity+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Activity+Rx.swift"; sourceTree = "<group>"; };
+		EFA8FCE0249F1A300066996E /* WeatherDataMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDataMapper.swift; sourceTree = "<group>"; };
 		EFD180872249305A0021EC54 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		EFD2A2EF2251B2AF0081AAA7 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -199,6 +201,7 @@
 				EF6A9B7523573DB4007F3C1B /* WeatherLocalData.swift */,
 				EF39549C2486318500442318 /* WeatherInput.swift */,
 				EF3954A02486352B00442318 /* WeatherTargetType.swift */,
+				EFA8FCE0249F1A300066996E /* WeatherDataMapper.swift */,
 			);
 			path = Weather;
 			sourceTree = "<group>";
@@ -355,8 +358,8 @@
 			isa = PBXGroup;
 			children = (
 				EF92B4A8223D2F64004262A8 /* MainViewController.swift */,
-				EF8782292481579A0079B20E /* MainViewModel.swift */,
-				EFA8FCDA249DCB750066996E /* MainModel.swift */,
+				EF8782292481579A0079B20E /* WeatherViewModel.swift */,
+				EFA8FCDA249DCB750066996E /* WeatherModel.swift */,
 				EF9325FF227BD80900DFFD0D /* ARDustViewController.swift */,
 				EF602D89229A7D46008A679A /* DetailViewController.swift */,
 			);
@@ -596,12 +599,13 @@
 				EF8FA8FB2483FE6100816C21 /* APIService.swift in Sources */,
 				EFA8FCDD249DCD270066996E /* Activity+Rx.swift in Sources */,
 				EF92B4DA223D3011004262A8 /* ExtensionCLLocationManager.swift in Sources */,
+				EFA8FCE1249F1A300066996E /* WeatherDataMapper.swift in Sources */,
 				EF92B4A9223D2F64004262A8 /* MainViewController.swift in Sources */,
 				EF8FA8FD248403EC00816C21 /* URIType.swift in Sources */,
 				EF92B4A7223D2F64004262A8 /* AppDelegate.swift in Sources */,
 				EF6A9B7623573DB4007F3C1B /* WeatherLocalData.swift in Sources */,
 				EF8FA90D248494B000816C21 /* LatLng.swift in Sources */,
-				EFA8FCDB249DCB750066996E /* MainModel.swift in Sources */,
+				EFA8FCDB249DCB750066996E /* WeatherModel.swift in Sources */,
 				EF3954A3248635CF00442318 /* Time.swift in Sources */,
 				EF92B4EC223D3147004262A8 /* RequestProtocol.swift in Sources */,
 				EF39549D2486318500442318 /* WeatherInput.swift in Sources */,
@@ -609,7 +613,7 @@
 				EF932600227BD80900DFFD0D /* ARDustViewController.swift in Sources */,
 				EF92B4E0223D308D004262A8 /* LocationData.swift in Sources */,
 				EF7C936122AA5BD2008C7FED /* UIConstants.swift in Sources */,
-				EF87822A2481579A0079B20E /* MainViewModel.swift in Sources */,
+				EF87822A2481579A0079B20E /* WeatherViewModel.swift in Sources */,
 				EFD2A2F02251B2AF0081AAA7 /* LocationManager.swift in Sources */,
 				EF654D7122ABED8F00527E38 /* Weather.swift in Sources */,
 				EF8FA906248408F500816C21 /* HttpMethod.swift in Sources */,
