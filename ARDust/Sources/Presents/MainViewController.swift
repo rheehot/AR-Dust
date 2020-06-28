@@ -14,9 +14,7 @@ import RxCocoa
 class MainViewController: UIViewController {
     
     @IBOutlet weak var testLabel: UILabel?
-    
-    var viewModel: WeatherViewModel?
-    var disposeBag = DisposeBag()
+    @IBOutlet weak var weatherView: UIView?
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -24,18 +22,9 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        bind()
-        // networkTest()
+
     }
     
-    func bind() {
-        self.disposeBag = DisposeBag()
-        self.viewModel = WeatherViewModel(coordinate: LatLng(latitude: 37.359255, longitude: 127.105046))
-        
-        viewModel?.weatherData
-            .emit(to: self.rx.setData)
-        .disposed(by: disposeBag)
-    }
     
     func networkTest() {
         let latLng = LatLng(latitude: 37.359255, longitude: 127.105046)
@@ -50,10 +39,3 @@ class MainViewController: UIViewController {
     }
 }
 
-extension Reactive where Base: MainViewController {
-    var setData: Binder<WeatherRealtimeData> {
-        return Binder(base) { base, data in
-            base.testLabel?.text = data.t1h
-        }
-    }
-}
