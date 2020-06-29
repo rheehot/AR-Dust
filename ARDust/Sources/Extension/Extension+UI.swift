@@ -1,5 +1,5 @@
 //
-//  ExtensionUI.swift
+//  Extension+UI.swift
 //  ARDust
 //
 //  Created by youngjun goo on 07/06/2019.
@@ -8,6 +8,13 @@
 
 import UIKit
 import Foundation
+
+extension UIView {
+    func loadView(nibName: String) -> UIView? {
+        let nib = UINib(nibName: nibName, bundle: Bundle.main)
+        return nib.instantiate(withOwner: self, options: nil).first as? UIView
+    }
+}
 
 extension UIStackView {
     func addBackground(color: UIColor) {

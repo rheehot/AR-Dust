@@ -1,10 +1,10 @@
 PODS:
   - Alamofire (5.2.1)
   - Differentiator (4.0.1)
-  - Hero (1.4.0)
-  - Kingfisher (5.8.3):
-    - Kingfisher/Core (= 5.8.3)
-  - Kingfisher/Core (5.8.3)
+  - Hero (1.5.0)
+  - Kingfisher (5.14.0):
+    - Kingfisher/Core (= 5.14.0)
+  - Kingfisher/Core (5.14.0)
   - RxAppState (1.6.0):
     - RxCocoa (~> 5.0)
     - RxSwift (~> 5.0)
@@ -23,7 +23,7 @@ PODS:
     - RxSwift (~> 5)
   - RxRelay (5.1.1):
     - RxSwift (~> 5)
-  - RxSwift (5.0.0)
+  - RxSwift (5.1.1)
   - SwiftLint (0.39.2)
 
 DEPENDENCIES:
@@ -39,33 +39,32 @@ DEPENDENCIES:
   - SwiftLint
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
-    - Hero
-    - Kingfisher
-    - RxSwift
   trunk:
     - Alamofire
     - Differentiator
+    - Hero
+    - Kingfisher
     - RxAppState
     - RxCocoa
     - RxDataSources
     - RxKeyboard
     - RxOptional
     - RxRelay
+    - RxSwift
     - SwiftLint
 
 SPEC CHECKSUMS:
   Alamofire: e911732990610fe89af59ac0077f923d72dc3dfd
   Differentiator: 886080237d9f87f322641dedbc5be257061b0602
-  Hero: bac92350d7201a1a940003e0767c7b52ce7c99a1
-  Kingfisher: b7e4cb65ff24c264bd2a1284b75b974d907afd94
+  Hero: b7385b75e7259da62f4f85462f59a5082d66b058
+  Kingfisher: 7b64389a43139c903ec434788344c288217c792d
   RxAppState: b633d7370970ecb80081912ea08a7bf3eb644b4e
   RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601
   RxDataSources: efee07fa4de48477eca0a4611e6d11e2da9c1114
   RxKeyboard: 6683c4344304a00f943c158bd8a43ce5469c82a7
   RxOptional: b1fcd60856807a564c0215c2184b8d33e7826dc2
   RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
-  RxSwift: 8b0671caa829a763bbce7271095859121cbd895f
+  RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
   SwiftLint: 22ccbbe3b8008684be5955693bab135e0ed6a447
 
 PODFILE CHECKSUM: 2bb322824ba25b9008ee6cb1f8cc4aab0a2809ad

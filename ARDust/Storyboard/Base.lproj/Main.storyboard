@@ -16,18 +16,32 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wu8-kk-o3Q">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wu8-kk-o3Q">
                                 <rect key="frame" x="0.0" y="44" width="414" height="75"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="75" id="P5Y-Ys-t3x"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dtb-oE-JER" customClass="WeatherView" customModule="ARDust" customModuleProvider="target">
+                                <rect key="frame" x="30" y="491" width="354" height="100"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="bxP-pA-H8o"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="Wu8-kk-o3Q" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="CxU-Gx-JbV"/>
-                            <constraint firstItem="Wu8-kk-o3Q" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="T2S-od-Ieo"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Wu8-kk-o3Q" secondAttribute="trailing" id="VXB-B6-cfU"/>
+                            <constraint firstItem="Wu8-kk-o3Q" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="41u-eG-bxz"/>
+                            <constraint firstItem="Dtb-oE-JER" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="57M-yh-197"/>
+                            <constraint firstItem="Dtb-oE-JER" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="CzW-wM-0Mh"/>
+                            <constraint firstItem="Wu8-kk-o3Q" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="GTv-xs-hWN"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Dtb-oE-JER" secondAttribute="bottom" constant="271" id="WjO-Om-Nco"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Dtb-oE-JER" secondAttribute="trailing" constant="30" id="bM5-3e-1He"/>
+                            <constraint firstItem="Dtb-oE-JER" firstAttribute="centerX" secondItem="Wu8-kk-o3Q" secondAttribute="centerX" id="dg3-de-RCV"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -39,6 +53,7 @@
                     </userDefinedRuntimeAttributes>
                     <connections>
                         <outlet property="testLabel" destination="Wu8-kk-o3Q" id="T0l-Av-3NF"/>
+                        <outlet property="weatherView" destination="Dtb-oE-JER" id="Wzz-Kf-uVR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

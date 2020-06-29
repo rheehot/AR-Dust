@@ -1,5 +1,5 @@
 //
-//  ExtensionCLLocationManager.swift
+//  Extension+CLLocationManager.swift
 //  ARDust
 //
 //  Created by youngjun goo on 16/03/2019.
