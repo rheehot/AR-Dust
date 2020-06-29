@@ -23,7 +23,7 @@ final class WeatherViewModel {
         let loading = ActivityIndicator()
         self.loading = loading.asDriver()
         
-        let weatherResult = model.rxTest(latLng: coordinate)
+        let weatherResult = model.weatherRxTest(latLng: coordinate)
             .asObservable()
             .share()
         

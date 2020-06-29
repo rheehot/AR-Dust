@@ -16,7 +16,7 @@ struct WeatherRealtimeData: Codable {
     var reh: String?     // 습도
     
     // 요청한 날씨데이터를 String 형으로 formatting 해주는 함수
-    mutating func convertToRealtimeString(_ type: RealtimeCategoryType, value: Double) {
+    mutating func convertToRealtimeString(_ type: WeatherRealtimeCategoryType, value: Double) {
         
         switch type {
         case .t1h:  // 현재온도

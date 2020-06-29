@@ -12,12 +12,10 @@
 		9B96F2BD973DAED20BE4EE49 /* Pods_ARDustTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71470FE80388F08077110502 /* Pods_ARDustTests.framework */; };
 		EF1F4B182363337A000D4FEC /* UmdDataList.rtf in Resources */ = {isa = PBXBuildFile; fileRef = EF1F4B172363337A000D4FEC /* UmdDataList.rtf */; };
 		EF25AB4C225618ED003B7135 /* LocationCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EF25AB49225618ED003B7135 /* LocationCoreData.xcdatamodeld */; };
-		EF39549D2486318500442318 /* WeatherInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF39549C2486318500442318 /* WeatherInput.swift */; };
 		EF3954A12486352B00442318 /* WeatherTargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3954A02486352B00442318 /* WeatherTargetType.swift */; };
 		EF3954A3248635CF00442318 /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3954A2248635CF00442318 /* Time.swift */; };
 		EF46FAE122B9C98100AB7445 /* fileFlies.sks in Resources */ = {isa = PBXBuildFile; fileRef = EF46FAE022B9C98100AB7445 /* fileFlies.sks */; };
 		EF602D8A229A7D46008A679A /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF602D89229A7D46008A679A /* DetailViewController.swift */; };
-		EF654D7122ABED8F00527E38 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF654D7022ABED8F00527E38 /* Weather.swift */; };
 		EF654D7322ABEDF100527E38 /* WeatherRealtimeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF654D7222ABEDF100527E38 /* WeatherRealtimeData.swift */; };
 		EF6A9B7623573DB4007F3C1B /* WeatherLocalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6A9B7523573DB4007F3C1B /* WeatherLocalData.swift */; };
 		EF7C935822A9F349008C7FED /* Extension+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7C935722A9F349008C7FED /* Extension+UI.swift */; };
@@ -41,11 +39,15 @@
 		EF92B4DA223D3011004262A8 /* Extension+CLLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF92B4D9223D3011004262A8 /* Extension+CLLocationManager.swift */; };
 		EF92B4DC223D305B004262A8 /* LocationCoordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF92B4DB223D305B004262A8 /* LocationCoordinate.swift */; };
 		EF92B4E0223D308D004262A8 /* LocationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF92B4DF223D308D004262A8 /* LocationData.swift */; };
-		EF92B4E6223D30F5004262A8 /* AirPollutionMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF92B4E5223D30F5004262A8 /* AirPollutionMapper.swift */; };
-		EF92B4E8223D310F004262A8 /* AirPollution.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF92B4E7223D310F004262A8 /* AirPollution.swift */; };
-		EF92B4EC223D3147004262A8 /* RequestProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF92B4EB223D3147004262A8 /* RequestProtocol.swift */; };
+		EF92B4E6223D30F5004262A8 /* FineDustMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF92B4E5223D30F5004262A8 /* FineDustMapper.swift */; };
+		EF92B4E8223D310F004262A8 /* FineDust.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF92B4E7223D310F004262A8 /* FineDust.swift */; };
+		EF92B4EC223D3147004262A8 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF92B4EB223D3147004262A8 /* NetworkError.swift */; };
 		EF932600227BD80900DFFD0D /* ARDustViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9325FF227BD80900DFFD0D /* ARDustViewController.swift */; };
 		EF932602227BDAA100DFFD0D /* dust.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = EF932601227BDAA100DFFD0D /* dust.scnassets */; };
+		EF95C4F724AA040F0075F3C6 /* FineDustView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF95C4F624AA040F0075F3C6 /* FineDustView.swift */; };
+		EF95C4F924AA048E0075F3C6 /* FineDustViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF95C4F824AA048E0075F3C6 /* FineDustViewModel.swift */; };
+		EF95C4FB24AA04960075F3C6 /* FineDustModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF95C4FA24AA04960075F3C6 /* FineDustModel.swift */; };
+		EF95C4FD24AA154F0075F3C6 /* FineDustTargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF95C4FC24AA154F0075F3C6 /* FineDustTargetType.swift */; };
 		EF9C1EB424A8220B0040A0EC /* WeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9C1EB324A8220B0040A0EC /* WeatherView.swift */; };
 		EF9C1EB624A822530040A0EC /* WeatherView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF9C1EB524A822530040A0EC /* WeatherView.xib */; };
 		EFA8FCDB249DCB750066996E /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA8FCDA249DCB750066996E /* WeatherModel.swift */; };
@@ -85,13 +87,11 @@
 		EF1F4B172363337A000D4FEC /* UmdDataList.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; name = UmdDataList.rtf; path = ../Supports/UmdDataList.rtf; sourceTree = "<group>"; };
 		EF25AB4A225618ED003B7135 /* LocationCoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LocationCoreData.xcdatamodel; sourceTree = "<group>"; };
 		EF25AB4B225618ED003B7135 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
-		EF39549C2486318500442318 /* WeatherInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherInput.swift; sourceTree = "<group>"; };
 		EF3954A02486352B00442318 /* WeatherTargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherTargetType.swift; sourceTree = "<group>"; };
 		EF3954A2248635CF00442318 /* Time.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Time.swift; sourceTree = "<group>"; };
 		EF46FAE022B9C98100AB7445 /* fileFlies.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = fileFlies.sks; sourceTree = "<group>"; };
 		EF602D88229A7A05008A679A /* Location.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Location.gpx; sourceTree = "<group>"; };
 		EF602D89229A7D46008A679A /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
-		EF654D7022ABED8F00527E38 /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 		EF654D7222ABEDF100527E38 /* WeatherRealtimeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherRealtimeData.swift; sourceTree = "<group>"; };
 		EF6A9B7523573DB4007F3C1B /* WeatherLocalData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherLocalData.swift; sourceTree = "<group>"; };
 		EF7C935722A9F349008C7FED /* Extension+UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UI.swift"; sourceTree = "<group>"; };
@@ -121,11 +121,15 @@
 		EF92B4D9223D3011004262A8 /* Extension+CLLocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+CLLocationManager.swift"; sourceTree = "<group>"; };
 		EF92B4DB223D305B004262A8 /* LocationCoordinate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCoordinate.swift; sourceTree = "<group>"; };
 		EF92B4DF223D308D004262A8 /* LocationData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationData.swift; sourceTree = "<group>"; };
-		EF92B4E5223D30F5004262A8 /* AirPollutionMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirPollutionMapper.swift; sourceTree = "<group>"; };
-		EF92B4E7223D310F004262A8 /* AirPollution.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirPollution.swift; sourceTree = "<group>"; };
-		EF92B4EB223D3147004262A8 /* RequestProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestProtocol.swift; sourceTree = "<group>"; };
+		EF92B4E5223D30F5004262A8 /* FineDustMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FineDustMapper.swift; sourceTree = "<group>"; };
+		EF92B4E7223D310F004262A8 /* FineDust.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FineDust.swift; sourceTree = "<group>"; };
+		EF92B4EB223D3147004262A8 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		EF9325FF227BD80900DFFD0D /* ARDustViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARDustViewController.swift; sourceTree = "<group>"; };
 		EF932601227BDAA100DFFD0D /* dust.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = dust.scnassets; sourceTree = "<group>"; };
+		EF95C4F624AA040F0075F3C6 /* FineDustView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FineDustView.swift; sourceTree = "<group>"; };
+		EF95C4F824AA048E0075F3C6 /* FineDustViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FineDustViewModel.swift; sourceTree = "<group>"; };
+		EF95C4FA24AA04960075F3C6 /* FineDustModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FineDustModel.swift; sourceTree = "<group>"; };
+		EF95C4FC24AA154F0075F3C6 /* FineDustTargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FineDustTargetType.swift; sourceTree = "<group>"; };
 		EF9C1EB324A8220B0040A0EC /* WeatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherView.swift; sourceTree = "<group>"; };
 		EF9C1EB524A822530040A0EC /* WeatherView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WeatherView.xib; sourceTree = "<group>"; };
 		EFA8FCDA249DCB750066996E /* WeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
@@ -200,12 +204,10 @@
 		EF654D6F22ABED7100527E38 /* Weather */ = {
 			isa = PBXGroup;
 			children = (
-				EF654D7022ABED8F00527E38 /* Weather.swift */,
 				EF654D7222ABEDF100527E38 /* WeatherRealtimeData.swift */,
-				EF6A9B7523573DB4007F3C1B /* WeatherLocalData.swift */,
-				EF39549C2486318500442318 /* WeatherInput.swift */,
-				EF3954A02486352B00442318 /* WeatherTargetType.swift */,
 				EFA8FCE0249F1A300066996E /* WeatherDataMapper.swift */,
+				EF6A9B7523573DB4007F3C1B /* WeatherLocalData.swift */,
+				EF3954A02486352B00442318 /* WeatherTargetType.swift */,
 			);
 			path = Weather;
 			sourceTree = "<group>";
@@ -307,11 +309,11 @@
 		EF92B4D4223D2FD3004262A8 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				EF3954A2248635CF00442318 /* Time.swift */,
 				EF654D6F22ABED7100527E38 /* Weather */,
 				EF7C935D22AA5A72008C7FED /* SpriteScene */,
 				EF92B4D7223D2FF1004262A8 /* Location */,
-				EF92B4D6223D2FE6004262A8 /* AirPollution */,
-				EF3954A2248635CF00442318 /* Time.swift */,
+				EF92B4D6223D2FE6004262A8 /* FineDust */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -319,9 +321,9 @@
 		EF92B4D5223D2FDF004262A8 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				EF92B4EB223D3147004262A8 /* RequestProtocol.swift */,
 				EF8FA8FA2483FE6100816C21 /* APIService.swift */,
 				EF8FA90A2484945F00816C21 /* APIRequestable.swift */,
+				EF92B4EB223D3147004262A8 /* NetworkError.swift */,
 				EF8FA8FC248403EC00816C21 /* URIType.swift */,
 				EF8FA905248408F500816C21 /* HttpMethod.swift */,
 				EFA8FCDC249DCD270066996E /* Activity+Rx.swift */,
@@ -329,13 +331,14 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
-		EF92B4D6223D2FE6004262A8 /* AirPollution */ = {
+		EF92B4D6223D2FE6004262A8 /* FineDust */ = {
 			isa = PBXGroup;
 			children = (
-				EF92B4E5223D30F5004262A8 /* AirPollutionMapper.swift */,
-				EF92B4E7223D310F004262A8 /* AirPollution.swift */,
+				EF92B4E5223D30F5004262A8 /* FineDustMapper.swift */,
+				EF92B4E7223D310F004262A8 /* FineDust.swift */,
+				EF95C4FC24AA154F0075F3C6 /* FineDustTargetType.swift */,
 			);
-			path = AirPollution;
+			path = FineDust;
 			sourceTree = "<group>";
 		};
 		EF92B4D7223D2FF1004262A8 /* Location */ = {
@@ -382,10 +385,10 @@
 		EF9C1EAB24A81CC50040A0EC /* WeatherView */ = {
 			isa = PBXGroup;
 			children = (
-				EF8782292481579A0079B20E /* WeatherViewModel.swift */,
-				EFA8FCDA249DCB750066996E /* WeatherModel.swift */,
 				EF9C1EB324A8220B0040A0EC /* WeatherView.swift */,
 				EF9C1EB524A822530040A0EC /* WeatherView.xib */,
+				EF8782292481579A0079B20E /* WeatherViewModel.swift */,
+				EFA8FCDA249DCB750066996E /* WeatherModel.swift */,
 			);
 			path = WeatherView;
 			sourceTree = "<group>";
@@ -393,6 +396,9 @@
 		EF9C1EAC24A81CE00040A0EC /* FineDustView */ = {
 			isa = PBXGroup;
 			children = (
+				EF95C4F624AA040F0075F3C6 /* FineDustView.swift */,
+				EF95C4F824AA048E0075F3C6 /* FineDustViewModel.swift */,
+				EF95C4FA24AA04960075F3C6 /* FineDustModel.swift */,
 			);
 			path = FineDustView;
 			sourceTree = "<group>";
@@ -615,7 +621,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EF8FA90B2484945F00816C21 /* APIRequestable.swift in Sources */,
-				EF92B4E8223D310F004262A8 /* AirPollution.swift in Sources */,
+				EF92B4E8223D310F004262A8 /* FineDust.swift in Sources */,
 				EF7C935F22AA5A97008C7FED /* DustScene.swift in Sources */,
 				EF25AB4C225618ED003B7135 /* LocationCoreData.xcdatamodeld in Sources */,
 				EF92B4DC223D305B004262A8 /* LocationCoordinate.swift in Sources */,
@@ -630,22 +636,24 @@
 				EF8FA90D248494B000816C21 /* LatLng.swift in Sources */,
 				EFA8FCDB249DCB750066996E /* WeatherModel.swift in Sources */,
 				EF3954A3248635CF00442318 /* Time.swift in Sources */,
-				EF92B4EC223D3147004262A8 /* RequestProtocol.swift in Sources */,
-				EF39549D2486318500442318 /* WeatherInput.swift in Sources */,
+				EF92B4EC223D3147004262A8 /* NetworkError.swift in Sources */,
+				EF95C4F924AA048E0075F3C6 /* FineDustViewModel.swift in Sources */,
 				EF7C935822A9F349008C7FED /* Extension+UI.swift in Sources */,
+				EF95C4FB24AA04960075F3C6 /* FineDustModel.swift in Sources */,
 				EF932600227BD80900DFFD0D /* ARDustViewController.swift in Sources */,
 				EF92B4E0223D308D004262A8 /* LocationData.swift in Sources */,
 				EF7C936122AA5BD2008C7FED /* UIConstants.swift in Sources */,
 				EF87822A2481579A0079B20E /* WeatherViewModel.swift in Sources */,
 				EF9C1EB424A8220B0040A0EC /* WeatherView.swift in Sources */,
 				EFD2A2F02251B2AF0081AAA7 /* LocationManager.swift in Sources */,
-				EF654D7122ABED8F00527E38 /* Weather.swift in Sources */,
 				EF8FA906248408F500816C21 /* HttpMethod.swift in Sources */,
+				EF95C4F724AA040F0075F3C6 /* FineDustView.swift in Sources */,
 				EF8FA9002484057100816C21 /* APIConstants.swift in Sources */,
 				EF602D8A229A7D46008A679A /* DetailViewController.swift in Sources */,
+				EF95C4FD24AA154F0075F3C6 /* FineDustTargetType.swift in Sources */,
 				EF654D7322ABEDF100527E38 /* WeatherRealtimeData.swift in Sources */,
 				EF3954A12486352B00442318 /* WeatherTargetType.swift in Sources */,
-				EF92B4E6223D30F5004262A8 /* AirPollutionMapper.swift in Sources */,
+				EF92B4E6223D30F5004262A8 /* FineDustMapper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

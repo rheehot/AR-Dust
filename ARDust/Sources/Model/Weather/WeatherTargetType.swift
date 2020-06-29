@@ -14,7 +14,7 @@ enum WeatherType {
     case sky
 }
 
-enum RealtimeCategoryType: String {
+enum WeatherRealtimeCategoryType: String {
     case t1h
     case sky
     case pty

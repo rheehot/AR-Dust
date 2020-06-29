@@ -64,11 +64,11 @@ class LocationCoordinate {
     }
     
     //경위도 좌표 -> TM 좌표
-    func convertToPlaneRect(latitude: Double, longitude: Double) -> (Double, Double) {
+    func convertToPlaneRect(latLng: LatLng) -> (Double, Double) {
         // Φ, PHI
-        let phi = latitude / 180 * pi
+        let phi = latLng.latitude / 180 * pi
         // λ, LAMDA
-        let lamda = (longitude - correction10405Seconds) / 180 * pi
+        let lamda = (latLng.longitude - correction10405Seconds) / 180 * pi
         // T
         let t = pow(tan(phi), 2)
         // C
@@ -87,9 +87,9 @@ class LocationCoordinate {
     }
     
     // 경위도 좌표 -> 격자 nx, ny 좌표 변환
-    func convertToGrid(latitude: Double, longitude: Double) -> (Int, Int) {
-        let ra = re * sf / pow(tan(pi * 0.25 + latitude * degrad * 0.5), sn)
-        var theta = longitude * degrad - olon
+    func convertToGrid(latLng: LatLng) -> (Int, Int) {
+        let ra = re * sf / pow(tan(pi * 0.25 + latLng.latitude * degrad * 0.5), sn)
+        var theta = latLng.longitude * degrad - olon
         if theta > pi {
             theta -= 2.0 * pi
         }

@@ -22,20 +22,9 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-    }
-    
-    
-    func networkTest() {
-        let latLng = LatLng(latitude: 37.359255, longitude: 127.105046)
-        let apiService = APIServiceImpl()
-        apiService.requestForecastGrib(latLng: latLng) { (isSuccess, data, error) in
-            if isSuccess {
-                print("성공","초단기",data)
-            } else {
-                print("실패")
-            }
-        }
+        self.weatherView?.clipsToBounds
+        self.weatherView?.layer.cornerRadius = 20
+        self.weatherView?.layer.masksToBounds = true
     }
 }
 

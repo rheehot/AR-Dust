@@ -1,5 +1,5 @@
 //
-//  WeatherDataMapper.swift
+//  WeatherMapper.swift
 //  ARDust
 //
 //  Created by youngjun goo on 2020/06/21.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct WeatherDataMapper {
+struct WeatherMapper {
     
     func parseData(_ type: WeatherType, data: Any?) -> Any? {
         guard let result = data as? [String: Any],

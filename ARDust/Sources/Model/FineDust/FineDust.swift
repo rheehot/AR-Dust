@@ -1,5 +1,5 @@
 //
-//  AirPollution.swift
+//  FineDust.swift
 //  ARDust
 //
 //  Created by youngjun goo on 16/03/2019.
@@ -9,8 +9,8 @@
 import Foundation
 import UIKit
 
-struct AirPollution {
-    // 미세먼지 저보 JSON 데이터 (18p)
+struct FineDust {
+    // 미세먼지 정보 JSON 데이터 (18p)
     var stationName: String?    // 측정소
     var dataTime: String?       // 측정일
     var mangName: String?       // 측정망 정보
@@ -33,7 +33,7 @@ struct AirPollution {
     var pm10Grade1h: String?    // 미세먼지(PM10) 1시간 등급
     var pm25Grade1h: String?    // 미세먼지(PM2.5) 1시간 등급
     
-    var pollutionState: String {
+    var stateName: String {
         let pmValue = Int(self.pm10Value!)!
         if pmValue <= 15 {
             return "최고"
@@ -54,7 +54,7 @@ struct AirPollution {
         }
     }
     
-    var pollutionStateColor: UIColor {
+    var stateColor: UIColor {
         let pmValue = Int(self.pm10Value!)!
         if pmValue <= 15 {
             return UIColor.aqua()

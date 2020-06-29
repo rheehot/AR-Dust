@@ -1,5 +1,5 @@
 //
-//  RequestProtocol.swift
+//  NetworkError.swift
 //  ARDust
 //
 //  Created by youngjun goo on 16/03/2019.

@@ -11,9 +11,10 @@ import Alamofire
 import RxSwift
 
 protocol APIService {
-    func rxTest(latLng: LatLng) -> Observable<Swift.Result<Any, NetworkError>>
+    func weatherRxTest(latLng: LatLng) -> Observable<Swift.Result<Any, NetworkError>>
     //    func fineDust(_ data: LocationData) -> Observable<Swift.Result<AirPollution, NetworkError>>
     //    func weather(_ data: LocationData) -> Observable<Swift.Result<Weather, NetworkError>>
+    func fineDustRxTest(latLng: LatLng) -> Observable<Swift.Result<Any, NetworkError>>
 }
 
 class APIServiceImpl: APIService {
@@ -31,11 +32,39 @@ class APIServiceImpl: APIService {
 // MARK: - Request API Data
 extension APIServiceImpl: WeatherAPIRequestable {
     
-    func rxTest(latLng: LatLng) -> Observable<Swift.Result<Any, NetworkError>> {
+    func fineDustRxTest(latLng: LatLng) -> Observable<Result<Any, NetworkError>> {
+        guard let url = createURL(.getNearbyMsrstnList) else {
+            return .just(.failure(.requestFailed))
+        }
+        let (tmX, tmY) = locationCoordinate.convertToPlaneRect(latLng: latLng)
+        let parameters: Parameters = [
+            "tmX": tmX,
+            "tmY": tmY,
+            "numOfRows": 1,
+            "_retureType": "json"
+        ]
+        
+        return Observable.create { observer -> Disposable in
+            AF.request(url, method: .get, parameters: parameters, encoding: URLEncoding.default)
+                .validate()
+                .responseJSON { response in
+                    switch response.result {
+                    case let .success(value):
+                        observer.onNext(.success(value))
+                    case let .failure(error):
+                        observer.onError(error)
+                    }
+                    observer.onCompleted()
+            }
+            return Disposables.create()
+        }
+    }
+    
+    func weatherRxTest(latLng: LatLng) -> Observable<Swift.Result<Any, NetworkError>> {
         guard let url = createURL(.forecastGrib) else {
             return .just(.failure(.requestFailed))
         }
-        let (nx, ny) = locationCoordinate.convertToGrid(latitude: latLng.latitude, longitude: latLng.longitude)
+        let (nx, ny) = locationCoordinate.convertToGrid(latLng: latLng)
         let (baseDate, baseTime) = Time().convertRequestTime(.realtime)
         let parameters: Parameters = [
             "base_date": baseDate,
@@ -61,13 +90,15 @@ extension APIServiceImpl: WeatherAPIRequestable {
             return Disposables.create()
         }
     }
+    
+    
     // 초단기실황
     func requestForecastGrib(latLng: LatLng, completion: @escaping RequestHandler) {
         guard let url = createURL(.forecastGrib) else {
             completion(false, nil, .requestFailed)
             return
         }
-        let (nx, ny) = locationCoordinate.convertToGrid(latitude: latLng.latitude, longitude: latLng.longitude)
+        let (nx, ny) = locationCoordinate.convertToGrid(latLng: latLng)
         let (baseDate, baseTime) = Time().convertRequestTime(.realtime)
         let parameters: Parameters = [
             "base_date": baseDate,
@@ -80,7 +111,6 @@ extension APIServiceImpl: WeatherAPIRequestable {
         
         AF.request(url, method: .get, parameters: parameters, encoding: URLEncoding.default)
             .responseJSON { (response) in
-                print(response.value)
                 if let data = response.value {
                     completion(true, data, nil)
                 } else {
@@ -95,7 +125,7 @@ extension APIServiceImpl: WeatherAPIRequestable {
             completion(false, nil, NetworkError.requestFailed)
             return
         }
-        let (nx, ny) = locationCoordinate.convertToGrid(latitude: latLng.latitude, longitude: latLng.longitude)
+        let (nx, ny) = locationCoordinate.convertToGrid(latLng: latLng)
         let (baseDate, baseTime) = Time().convertRequestTime(.realtime)
         let parameters: Parameters = [
             "base_date": baseDate,
@@ -120,7 +150,7 @@ extension APIServiceImpl: WeatherAPIRequestable {
         guard let url = createURL(.forecastSpaceData) else {
             return
         }
-        let (nx, ny) = locationCoordinate.convertToGrid(latitude: latLng.latitude, longitude: latLng.longitude)
+        let (nx, ny) = locationCoordinate.convertToGrid(latLng: latLng)
         let (baseDate, baseTime) = Time().convertRequestTime(.local)
         let parameters: Parameters = [
             "base_date": baseDate,
@@ -148,7 +178,7 @@ extension APIServiceImpl: FineDustAPIRequestable {
             completion(false, nil, NetworkError.requestFailed)
             return
         }
-        let (tmX, tmY) = locationCoordinate.convertToPlaneRect(latitude: latLng.latitude, longitude: latLng.longitude)
+        let (tmX, tmY) = locationCoordinate.convertToPlaneRect(latLng: latLng)
         let parameters: Parameters = [
             "tmX": tmX,
             "tmY": tmY,
