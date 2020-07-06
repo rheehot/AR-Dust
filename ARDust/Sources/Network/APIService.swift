@@ -12,38 +12,29 @@ import RxSwift
 
 protocol APIService {
     func weatherRxTest(latLng: LatLng) -> Observable<Swift.Result<Any, NetworkError>>
-    //    func fineDust(_ data: LocationData) -> Observable<Swift.Result<AirPollution, NetworkError>>
-    //    func weather(_ data: LocationData) -> Observable<Swift.Result<Weather, NetworkError>>
-    func fineDustRxTest(latLng: LatLng) -> Observable<Swift.Result<Any, NetworkError>>
+    func fineDust(stationNames: [String]) -> Observable<Swift.Result<Any, NetworkError>>
+    // func weather(_ data: LocationData) -> Observable<Swift.Result<Weather, NetworkError>>
+    func requestNearbyMsrstnList(latLng: LatLng, completion: @escaping RequestHandler)
+    func requestMsrstnAcctoRltmMesureDnsty(_ stationNames: [String], completion: @escaping RequestHandler)
 }
 
 class APIServiceImpl: APIService {
     // MARK: - Properties
     private let locationCoordinate = LocationCoordinate()
     
-    //    func fineDust(_ data: LocationData) -> Observable<Swift.Result<AirPollution, NetworkError>> {
-    //
-    //    }
-    //
-    //    func weather(_ data: LocationData) -> Observable<Swift.Result<Weather, NetworkError>> {
-    //
-    //    }
-}
-// MARK: - Request API Data
-extension APIServiceImpl: WeatherAPIRequestable {
-    
-    func fineDustRxTest(latLng: LatLng) -> Observable<Result<Any, NetworkError>> {
-        guard let url = createURL(.getNearbyMsrstnList) else {
+    func fineDust(stationNames: [String]) -> Observable<Swift.Result<Any, NetworkError>> {
+        guard let url = createURL(.getMsrstnAcctoRltmMesureDnsty) else {
             return .just(.failure(.requestFailed))
         }
-        let (tmX, tmY) = locationCoordinate.convertToPlaneRect(latLng: latLng)
+        var stationNames = stationNames
+        let firstStationName = stationNames.removeFirst()
         let parameters: Parameters = [
-            "tmX": tmX,
-            "tmY": tmY,
-            "numOfRows": 1,
-            "_retureType": "json"
+            "stationName": firstStationName,
+            "dataTerm": "DAILY",
+            "ver": 1.3,
+            "numOfRows": 10,
+            "_returnType": "json"
         ]
-        
         return Observable.create { observer -> Disposable in
             AF.request(url, method: .get, parameters: parameters, encoding: URLEncoding.default)
                 .validate()
@@ -59,6 +50,12 @@ extension APIServiceImpl: WeatherAPIRequestable {
             return Disposables.create()
         }
     }
+    //    func weather(_ data: LocationData) -> Observable<Swift.Result<Weather, NetworkError>> {
+    //
+    //    }
+}
+// MARK: - Request API Data
+extension APIServiceImpl: WeatherAPIRequestable {
     
     func weatherRxTest(latLng: LatLng) -> Observable<Swift.Result<Any, NetworkError>> {
         guard let url = createURL(.forecastGrib) else {
@@ -186,20 +183,26 @@ extension APIServiceImpl: FineDustAPIRequestable {
             "_returnType": "json"
         ]
         AF.request(url, method: .get, parameters: parameters, encoding: URLEncoding.default)
+            .validate()
             .responseJSON { (response) in
                 if let data = response.value {
+                    print("성공")
                     completion(true, data, nil)
                 } else {
                     completion(false, nil, NetworkError.requestFailed)
+                    print("실패")
+                    return
                 }
         }
     }
     // 실시간 측정소별 측정정보
-    func requestMsrstnAcctoRltmMesureDnsty(_ stationName: String, completion: @escaping RequestHandler) {
+    func requestMsrstnAcctoRltmMesureDnsty(_ stationNames: [String], completion: @escaping RequestHandler) {
         guard let url = createURL(.getMsrstnAcctoRltmMesureDnsty) else {
             completion(false, nil, NetworkError.requestFailed)
             return
         }
+        var stationNames = stationNames
+        let stationName = stationNames.removeFirst()
         let parameters: Parameters = [
             "stationName": stationName,
             "dataTerm": "DAILY",
@@ -211,8 +214,13 @@ extension APIServiceImpl: FineDustAPIRequestable {
             .responseJSON { (response) in
                 if let data = response.value {
                     completion(true, data, nil)
+                    return
                 } else {
-                    completion(false, nil, NetworkError.requestFailed)
+                    if stationNames.isEmpty {
+                          completion(false, nil, .requestFailed)
+                          return
+                      }
+                      self.requestMsrstnAcctoRltmMesureDnsty(stationNames, completion: completion)
                 }
         }
     }

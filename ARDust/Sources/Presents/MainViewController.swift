@@ -13,8 +13,8 @@ import RxCocoa
 
 class MainViewController: UIViewController {
     
-    @IBOutlet weak var testLabel: UILabel?
     @IBOutlet weak var weatherView: UIView?
+    @IBOutlet weak var fineDustView: UIView?
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -22,9 +22,19 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.weatherView?.clipsToBounds
+
         self.weatherView?.layer.cornerRadius = 20
         self.weatherView?.layer.masksToBounds = true
+        
+        self.fineDustView?.layer.cornerRadius = 20
+        self.fineDustView?.layer.masksToBounds = true
+        
+        let apiService = APIServiceImpl()
+        apiService.requestNearbyMsrstnList(latLng: LatLng(latitude: 37.359255, longitude: 127.105046)) { (isSuccess, data, error) in
+            if isSuccess {
+                print(data)
+            }
+        }
     }
 }
 

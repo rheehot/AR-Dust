@@ -23,5 +23,5 @@ protocol FineDustAPIRequestable {
     // request FineDust API
     func requestNearbyMsrstnList(latLng: LatLng, completion: @escaping RequestHandler)
     
-    func requestMsrstnAcctoRltmMesureDnsty(_ stationName: String, completion: @escaping RequestHandler)
+    func requestMsrstnAcctoRltmMesureDnsty(_ stationNames: [String], completion: @escaping RequestHandler)
 }

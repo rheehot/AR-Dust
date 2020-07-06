@@ -10,10 +10,10 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-@IBDesignable
 class WeatherView: UIView {
     
     @IBOutlet weak var testLabel: UILabel?
+    @IBOutlet weak var testLabel2: UILabel?
     
     var viewModel: WeatherViewModel?
     var disposeBag = DisposeBag()
@@ -46,7 +46,7 @@ class WeatherView: UIView {
         
         viewModel?.weatherData
             .emit(to: self.rx.setData)
-        .disposed(by: disposeBag)
+            .disposed(by: disposeBag)
     }
 }
 
@@ -54,6 +54,7 @@ extension Reactive where Base: WeatherView {
     var setData: Binder<WeatherRealtimeData> {
         return Binder(base) { base, data in
             base.testLabel?.text = data.t1h
+            base.testLabel2?.text = data.rn1
         }
     }
 }

@@ -31,7 +31,7 @@ class FineDustMapper {
         return realtimeData
     }
     // 근접 측정소 목록 반환
-    private func parseNearByMeasuringStationName(_  data: Any?) -> Any? {
+    private func parseNearByMeasuringStationName(_ data: Any?) -> Any? {
         guard let items = data as? [[String: Any]] else { return nil }
         
         return items

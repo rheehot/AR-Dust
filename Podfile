@@ -6,8 +6,8 @@ target 'ARDust' do
   use_frameworks!
 
   # Pods for ARDust
-  pod 'RxSwift'
-  pod 'RxCocoa'
+  pod 'RxSwift', '~> 5'
+  pod 'RxCocoa', '~> 5'
   pod 'RxOptional'
   pod 'RxKeyboard'
   pod 'RxAppState'

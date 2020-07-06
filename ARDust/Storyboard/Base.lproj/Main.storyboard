@@ -16,32 +16,31 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wu8-kk-o3Q">
-                                <rect key="frame" x="0.0" y="44" width="414" height="75"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="75" id="P5Y-Ys-t3x"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dtb-oE-JER" customClass="WeatherView" customModule="ARDust" customModuleProvider="target">
-                                <rect key="frame" x="30" y="491" width="354" height="100"/>
+                                <rect key="frame" x="30" y="444" width="354" height="100"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="bxP-pA-H8o"/>
+                                    <constraint firstAttribute="width" constant="354" id="20k-n6-JdI"/>
+                                    <constraint firstAttribute="height" constant="100" id="rJK-Jj-gx6"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Kh-Ie-3kZ" customClass="FineDustView" customModule="ARDust" customModuleProvider="target">
+                                <rect key="frame" x="30" y="594" width="354" height="100"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="354" id="3Q7-XK-l0r"/>
+                                    <constraint firstAttribute="height" constant="100" id="j9S-Ek-ngn"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="Wu8-kk-o3Q" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="41u-eG-bxz"/>
-                            <constraint firstItem="Dtb-oE-JER" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="57M-yh-197"/>
-                            <constraint firstItem="Dtb-oE-JER" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="CzW-wM-0Mh"/>
-                            <constraint firstItem="Wu8-kk-o3Q" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="GTv-xs-hWN"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Dtb-oE-JER" secondAttribute="bottom" constant="271" id="WjO-Om-Nco"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Dtb-oE-JER" secondAttribute="trailing" constant="30" id="bM5-3e-1He"/>
-                            <constraint firstItem="Dtb-oE-JER" firstAttribute="centerX" secondItem="Wu8-kk-o3Q" secondAttribute="centerX" id="dg3-de-RCV"/>
+                            <constraint firstItem="Dtb-oE-JER" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="4iz-hu-gJj"/>
+                            <constraint firstItem="1Kh-Ie-3kZ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="BjK-P2-xSr"/>
+                            <constraint firstItem="Dtb-oE-JER" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="400" id="JiO-BT-qVT"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="1Kh-Ie-3kZ" secondAttribute="trailing" constant="30" id="SFb-h2-TW6"/>
+                            <constraint firstItem="1Kh-Ie-3kZ" firstAttribute="top" secondItem="Dtb-oE-JER" secondAttribute="bottom" constant="50" id="VRK-Ix-qib"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Dtb-oE-JER" secondAttribute="trailing" constant="30" id="aZI-Gi-vJA"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -52,7 +51,7 @@
                         <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
                     </userDefinedRuntimeAttributes>
                     <connections>
-                        <outlet property="testLabel" destination="Wu8-kk-o3Q" id="T0l-Av-3NF"/>
+                        <outlet property="fineDustView" destination="1Kh-Ie-3kZ" id="NV2-sN-TBk"/>
                         <outlet property="weatherView" destination="Dtb-oE-JER" id="Wzz-Kf-uVR"/>
                     </connections>
                 </viewController>

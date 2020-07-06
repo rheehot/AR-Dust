@@ -94,7 +94,6 @@ class DustScene: SKScene {
         print(self.pollutionState)
         if self.pollutionState == "최고" || self.pollutionState == "양호" || self.pollutionState == "좋음" {
             if let emitter = SKEmitterNode(fileNamed: Emitter.fileFlies) {
-                print("최고띠")
                 return emitter
             } else {
                 return SKEmitterNode(fileNamed: Emitter.dust)!

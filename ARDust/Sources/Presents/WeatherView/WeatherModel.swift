@@ -25,9 +25,7 @@ struct WeatherModel {
     }
     // Data Mapper function
     func parseData(data: Any?) -> WeatherRealtimeData? {
-        if let parseData = weatherMapper.parseData(.sky, data: data) {
-            return parseData as! WeatherRealtimeData
-        }
-        return nil
+        guard let weather = weatherMapper.parseData(.sky, data: data) as? WeatherRealtimeData else { return nil }
+        return weather
     }
 }
